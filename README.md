@@ -1,3 +1,3 @@
 # @sahitid's Personal Website
 
-&copy; 2023 Sahiti Dasari.
+&copy; 2024 Sahiti Dasari.
