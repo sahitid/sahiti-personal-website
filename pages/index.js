@@ -40,6 +40,7 @@ export default function Home() {
     /*
     {
       title: 'Parker Lab @ Georgia Tech',
+      date: 'June 2023 - Present',
       description: 'Implementing and stabilizing Proportional Integral Derivative (PID) controller on Red Pitaya to regulate laser output through a laser aligner.',
       links: {
         website: 'https://parkerlab.gatech.edu/',
@@ -48,6 +49,7 @@ export default function Home() {
     },
     {
       title: 'Arriaga Lab @ Georgia Tech',
+      date: 'January 2022 - Present',
       description: 'Human-Computer Interaction (HCI) through OpenAI GPT models to understand their application in interpersonal interactions through Turing Experiements.',
       links: {
         website: 'https://sites.google.com/view/riarriaga/lab',
@@ -58,7 +60,6 @@ export default function Home() {
       title: 'DriveSmart',
       description: 'AI driving assistant app that helps new drivers navigate safely and practice mastering the art of driving on the roads. DriveSmart won the Congressional App Challenge for Georgia\'s 6th District.',
       links: {
-        website: 'https://www.congressionalappchallenge.us/23-GA06/',
         github: 'https://github.com/sahitid/drive-smart',
         video: 'https://youtu.be/bqc_u6gAjtY',
         award: 'https://www.congressionalappchallenge.us/23-GA06/'
@@ -75,6 +76,7 @@ export default function Home() {
     },
     {
       title: 'Blossom: Atlanta Day of Service',
+      date: 'March 2024',
       description: 'Directed the largest gender-focused day of coding with Atlanta Girl Scouts.',
       links: {
         website: 'https://blossom.hackclub.com/',
@@ -93,6 +95,7 @@ export default function Home() {
     },
     {
       title: 'Clubs Operations & Engineering',
+      date: 'May 2023 - Present',
       description: 'Employed at Hack Club to support new coding club chapters, technology grants, and community engagement initiatives to help club leaders worldwide.',
       links: {
         website: 'https://hackclub.com/team/',
@@ -101,6 +104,7 @@ export default function Home() {
     },
     {
       title: 'Philanthropy & Communications',
+      date: 'Summer 2023',
       description: 'Raised over $450k as an intern at Hack Club. Responsible for crafting and delivering philanthropy and communications newsletters to Fortune 500 CEOs and technology leaders.',
       links: {
         website: 'https://hackclub.com/',
@@ -110,7 +114,6 @@ export default function Home() {
       title: 'EcoBuddy',
       description: 'Swift mobile application that offers ways for users to gain points by practicing sustainable living and completing eco-friendly exercises.',
       links: {
-        website: 'https://github.com/sahitid/ecobuddy',
         github: 'https://github.com/sahitid/ecobuddy'
       }
     },
@@ -140,6 +143,7 @@ export default function Home() {
     },
     {
       title: 'Hack Club\'s Leaders Summit',
+      date: 'February 2024',
       description: 'Co-organized a weekend of invention, collaboration, and friendship in San Francisco with 50 Hack Club leaders from around the world.',
       links: {
         website: 'https://summit.hackclub.com',
@@ -148,10 +152,9 @@ export default function Home() {
       }
     },
     {
-      title: 'South Forsyth Hack Club',
+      title: 'SFHS Hack Club',
       description: 'Founded an inclusive school-wide collaborative coding club for project-based coding.',
       links: {
-        website: 'https://www.youtube.com/watch?v=xXIxwV7bQTw',
         video: 'https://www.youtube.com/watch?v=xXIxwV7bQTw'
       }
     },
@@ -167,8 +170,7 @@ export default function Home() {
       title: 'FitSphere',
       description: 'Progressive Web App that helps users meet fitness goals and transform their lifestyle with an AI form trainer and H2O Flow for hydration. FitSphere was a Technovation Girls Challenge Semifinalist.',
       links: {
-        website: 'https://www.technovation.org/blogs/semifinalists-2023/',
-        video: 'https://www.youtube.com/watch?v=EqqaBN3X4lg',
+        //video: 'https://www.youtube.com/watch?v=EqqaBN3X4lg',
         award: 'https://www.technovation.org/blogs/semifinalists-2023/'
       }
     }
@@ -233,9 +235,13 @@ export default function Home() {
             {projects.map((project, index) => (
               <div key={index} className="transition-shadow duration-300 pr-4 pt-4">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center transform transition-transform duration-300 hover:scale-110">
-                    <h3 className="text-sm sm:text-base md:text-lg text-[#FF4444] underline">
-                      <a href={project.links.website || '#'} className='tracking-wider' target='blank' rel='noopener noreferrer'>{project.title}</a>
+                  <div className={`flex items-center ${project.links.website ? 'transform transition-transform duration-300 hover:scale-110' : ''}`}>
+                    <h3 className={`text-sm sm:text-base md:text-lg text-[#FF4444] ${project.links.website ? 'underline' : ''}`}>
+                      {project.links.website ? (
+                        <a href={project.links.website} className='tracking-wider' target='blank' rel='noopener noreferrer'>{project.title}</a>
+                      ) : (
+                        project.title
+                      )}
                     </h3>
                     {project.links.website && (
                       <a href={project.links.website} target='blank' rel='noopener noreferrer' aria-label="Project Link">
@@ -248,6 +254,7 @@ export default function Home() {
                     )}
                   </div>
                 </div>
+                <p className="text-xs font-bold mt-2 text-[#2F0000] tracking-wide">{project.date}</p>
                 <p className="mt-2 text-xs sm:text-sm md:text-base text-[#2F0000] tracking-wide">{project.description}</p>
                 <div className="flex space-x-2 mt-2">
                   {project.links.github && (
