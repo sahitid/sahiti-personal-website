@@ -37,18 +37,45 @@ export default function Home() {
   };
 
   const projects = [
+    /*
     {
-      title: 'DriveSmart',
-      description: 'AI driving assistant app that helps new drivers navigate safely and practice mastering the art of driving on the roads.',
+      title: 'Parker Lab @ Georgia Tech',
+      description: 'Implementing and stabilizing Proportional Integral Derivative (PID) controller on Red Pitaya to regulate laser output through a laser aligner.',
       links: {
-        website: 'https://www.congressionalappchallenge.us/23-GA06/',
-        github: 'https://github.com/sahitid/drive-smart',
-        video: 'https://youtu.be/bqc_u6gAjtY'
+        website: 'https://parkerlab.gatech.edu/',
+        github: 'https://github.com/sahitid/laser-aligner'
       }
     },
     {
-      title: 'Blossom',
-      description: 'Led the largest gender-focused day of coding with Atlanta Girl Scouts',
+      title: 'Arriaga Lab @ Georgia Tech',
+      description: 'Human-Computer Interaction (HCI) through OpenAI GPT models to understand their application in interpersonal interactions through Turing Experiements.',
+      links: {
+        website: 'https://sites.google.com/view/riarriaga/lab',
+      }
+    },
+*/
+    {
+      title: 'DriveSmart',
+      description: 'AI driving assistant app that helps new drivers navigate safely and practice mastering the art of driving on the roads. DriveSmart won the Congressional App Challenge for Georgia\'s 6th District.',
+      links: {
+        website: 'https://www.congressionalappchallenge.us/23-GA06/',
+        github: 'https://github.com/sahitid/drive-smart',
+        video: 'https://youtu.be/bqc_u6gAjtY',
+        award: 'https://www.congressionalappchallenge.us/23-GA06/'
+      }
+    },
+    {
+      title: 'BIOMET',
+      description: 'A universal, low-cost identification system, created in response to the global identification crisis. BIOMET is a Conrad Challenge finalist & Power Pitch winner in Cyber Technology & Security.',
+      links: {
+        website: 'https://www.biomet.technology/',
+        video: 'https://youtu.be/RVOrgTGgbas',
+        award: 'https://www.conradchallenge.org/2024-summit-wrap'
+      }
+    },
+    {
+      title: 'Blossom: Atlanta Day of Service',
+      description: 'Directed the largest gender-focused day of coding with Atlanta Girl Scouts.',
       links: {
         website: 'https://blossom.hackclub.com/',
         github: 'https://github.com/hackclub/blossom',
@@ -57,11 +84,26 @@ export default function Home() {
     },
     {
       title: 'Forsyth Hacks 2.0 & 1.0',
-      description: 'Annual county wide hackathon for high-school students to promote application based coding.',
+      description: 'Founded annual county wide hackathon for high-school students to promote application based coding.',
       links: {
         website: 'https://forsyth-hacks-v2-site.vercel.app/',
         github: 'https://github.com/SFHSHackClub/forsyth-hacks-v2-site',
         photo: 'https://photos.app.goo.gl/RdvvgMmpD3rpioNc6'
+      }
+    },
+    {
+      title: 'Clubs Operations & Engineering',
+      description: 'Employed at Hack Club to support new coding club chapters, technology grants, and community engagement initiatives to help club leaders worldwide.',
+      links: {
+        website: 'https://hackclub.com/team/',
+        video: 'https://youtu.be/jFCrDEOPzVM'
+      }
+    },
+    {
+      title: 'Philanthropy & Communications',
+      description: 'Raised over $450k as an intern at Hack Club. Responsible for crafting and delivering philanthropy and communications newsletters to Fortune 500 CEOs and technology leaders.',
+      links: {
+        website: 'https://hackclub.com/',
       }
     },
     {
@@ -73,8 +115,16 @@ export default function Home() {
       }
     },
     {
-      title: 'Hack Club AI/ML Jams',
-      description: 'Four-part Batch Jams™ that introduces concepts of integrating Open AI language models, speech recognition APIs, and JavaScript to create your own smart voice assistant!',
+      title: 'Hack Club Jams',
+      description: 'Assisted in the Hack Club Jams™ initiative for collaborative coding workshops for over 28,000 teenagers around the world.',
+      links: {
+        website: 'https://jams.hackclub.com',
+        github: 'https://github.com/hackclub/jams'
+      }
+    },
+    {
+      title: 'AI & ML Jams',
+      description: 'Four-part Batch Jams™ workshop that introduces concepts of integrating Open AI language models, speech recognition APIs, and JavaScript to create your own smart voice assistant!',
       links: {
         website: 'https://jams.hackclub.com/batch/artificial-intelligence',
         github: 'https://github.com/sahitid/artificial-intelligence-jams'
@@ -82,7 +132,7 @@ export default function Home() {
     },
     {
       title: 'Leaders Letters',
-      description: 'Blog article page for stories, insights, and experiences shared within the Hack Club community — by leaders for leaders.',
+      description: 'Created blog article page for stories, insights, and experiences shared within the Hack Club community — by leaders for leaders.',
       links: {
         website: 'https://hackclub.com/letters',
         github: 'https://github.com/sahitid/leaders-letters'
@@ -90,7 +140,7 @@ export default function Home() {
     },
     {
       title: 'Hack Club\'s Leaders Summit',
-      description: 'A weekend of invention, collaboration, and friendship in San Francisco with 50 Hack Club leaders from around the world.',
+      description: 'Co-organized a weekend of invention, collaboration, and friendship in San Francisco with 50 Hack Club leaders from around the world.',
       links: {
         website: 'https://summit.hackclub.com',
         github: 'https://github.com/hackclub/summit',
@@ -101,7 +151,25 @@ export default function Home() {
       title: 'South Forsyth Hack Club',
       description: 'Founded an inclusive school-wide collaborative coding club for project-based coding.',
       links: {
-        website: 'https://www.youtube.com/watch?v=xXIxwV7bQTw'
+        website: 'https://www.youtube.com/watch?v=xXIxwV7bQTw',
+        video: 'https://www.youtube.com/watch?v=xXIxwV7bQTw'
+      }
+    },
+    {
+      title: 'Hack Club AMAs',
+      description: 'Hosted and directed multiple AMAs with industry experts (including Michael Dell, Georgia Hotz, Owen Trueblood and Ben Tritt among others) in partnership with Hack Club.',
+      links: {
+        website: 'https://hackclub.com/amas/',
+        video:'https://www.youtube.com/watch?v=O1J1pwGPQXY'
+      }
+    },
+    {
+      title: 'FitSphere',
+      description: 'Progressive Web App that helps users meet fitness goals and transform their lifestyle with an AI form trainer and H2O Flow for hydration. FitSphere was a Technovation Girls Challenge Semifinalist.',
+      links: {
+        website: 'https://www.technovation.org/blogs/semifinalists-2023/',
+        video: 'https://www.youtube.com/watch?v=EqqaBN3X4lg',
+        award: 'https://www.technovation.org/blogs/semifinalists-2023/'
       }
     }
   ];
@@ -195,6 +263,11 @@ export default function Home() {
                   {project.links.photo && (
                     <a href={project.links.photo} target='blank' rel='noopener noreferrer' className="transform transition-transform duration-300 hover:scale-110 opacity-50 hover:opacity-100" aria-label="Project Photo">
                       <img src="/camera.svg" alt="Photo Icon" className="h-4" />
+                    </a>
+                  )}
+                  {project.links.award && (
+                    <a href={project.links.award} target='blank' rel='noopener noreferrer' className="transform transition-transform duration-300 hover:scale-110 opacity-50 hover:opacity-100" aria-label="Project Award">
+                      <img src="/award.svg" alt="Award Icon" className="h-4" />
                     </a>
                   )}
                 </div>
