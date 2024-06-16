@@ -160,7 +160,7 @@ export default function Home() {
     },
     {
       title: 'Hack Club AMAs',
-      description: 'Hosted and directed multiple AMAs with industry experts (including Michael Dell, Georgia Hotz, Owen Trueblood and Ben Tritt among others) in partnership with Hack Club.',
+      description: 'Hosted and directed multiple AMAs with industry experts (including Michael Dell, George Hotz, Owen Trueblood and Ben Tritt among others) in partnership with Hack Club.',
       links: {
         website: 'https://hackclub.com/amas/',
         video:'https://www.youtube.com/watch?v=O1J1pwGPQXY'
