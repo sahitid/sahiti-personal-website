@@ -105,7 +105,7 @@ export default function Home() {
     {
       title: 'Philanthropy & Communications',
       date: 'Summer 2023',
-      description: 'Developed research on artificial intelligence that attracted national attention and helped raise $350k for Hack Club. Successfully crafted communications to Fortune 500 CEOs and technology leaders that led directly to their engagement with Hack Club.',
+      description: 'Developed AI research that attracted national attention and helped raise $350k for Hack Club. Successfully crafted communications to Fortune 500 CEOs and technology leaders, directly leading to their engagement with Hack Club.',
       links: {
         website: 'https://hackclub.com/',
       }
