@@ -144,7 +144,7 @@ export default function Home() {
     {
       title: 'Hack Club\'s Leaders Summit',
       date: 'February 2024',
-      description: 'Co-organized a weekend of invention, collaboration, and friendship in San Francisco with 50 Hack Club leaders from around the world.',
+      description: 'Co-organized a weekend of invention, collaboration, and friendship in San Francisco with 75 Hack Club leaders from around the world.',
       links: {
         website: 'https://summit.hackclub.com',
         github: 'https://github.com/hackclub/summit',
