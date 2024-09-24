@@ -190,7 +190,7 @@ export default function Home() {
         </div>
         <h1 className="mt-16 sm:mt-24 md:mt-36 text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-left text-[#FF4444]">Sahiti Dasari</h1>
         <p className="text-sm sm:text-base md:text-lg mb-2 text-left text-[#2F0000] my-6 tracking-widest">
-          Hi! I'm a student and full stack developer in love with the world of computer science and entrepreneurship. My{' '}
+          Hi! I'm a student and developer in love with the world of computer science and entrepreneurship. My{' '}
           <span className="relative inline-block">
             <Button
               className="button-no-outline underline-custom cursor-pointer transform transition-transform duration-300 hover:scale-105"
