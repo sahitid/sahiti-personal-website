@@ -37,7 +37,6 @@ export default function Home() {
   };
 
   const projects = [
-    /*
     {
       title: 'Parker Lab @ Georgia Tech',
       date: 'June 2023 - Present',
@@ -55,7 +54,6 @@ export default function Home() {
         website: 'https://sites.google.com/view/riarriaga/lab',
       }
     },
-*/
     {
       title: 'DriveSmart',
       description: 'AI driving assistant app that helps new drivers navigate safely and practice mastering the art of driving on the roads. DriveSmart won the Congressional App Challenge for Georgia\'s 6th District.',
