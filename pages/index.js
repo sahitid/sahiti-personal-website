@@ -39,7 +39,7 @@ export default function Home() {
   const projects = [
     {
       title: 'Parker Lab @ Georgia Tech',
-      date: 'June 2023 - Present',
+      date: 'June 2024 - Present',
       description: 'Implementing and stabilizing Proportional Integral Derivative (PID) controller on Red Pitaya to regulate laser output through a laser aligner.',
       links: {
         website: 'https://parkerlab.gatech.edu/',
@@ -48,7 +48,7 @@ export default function Home() {
     },
     {
       title: 'Arriaga Lab @ Georgia Tech',
-      date: 'January 2022 - Present',
+      date: 'January 2024 - Present',
       description: 'Human-Computer Interaction (HCI) through OpenAI GPT models to understand their application in interpersonal interactions through Turing Experiements.',
       links: {
         website: 'https://sites.google.com/view/riarriaga/lab',
