@@ -37,6 +37,15 @@ export default function Home() {
   };
 
   const projects = [
+    // {
+    //   title: 'Ascend: Days of Service Summit',
+    //   date: 'November 2024',
+    //   description: 'Co-organized three-day summit of 50+ woman and non-binary coders at SpaceX HQ @ Los Angeles.',
+    //   links: {
+    //     website: 'https://ascend.hackclub.com/',
+    //     github: 'https://github.com/hackclub/ascend'
+    //   }
+    // }, 
     {
       title: 'Parker Lab @ Georgia Tech',
       date: 'June 2024 - Present',
