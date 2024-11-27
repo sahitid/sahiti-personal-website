@@ -48,7 +48,7 @@ export default function Home() {
     }, 
     {
       title: 'Parker Lab @ Georgia Tech',
-      date: 'June 2024 - Present',
+      date: 'Summer 2024',
       description: 'Implementing and stabilizing Proportional Integral Derivative (PID) controller on Red Pitaya to regulate laser output through a laser aligner.',
       links: {
         website: 'https://parkerlab.gatech.edu/',
