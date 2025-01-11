@@ -40,7 +40,7 @@ export default function Home() {
     {
       title: 'Ascend: Days of Service Summit',
       date: 'November 2024',
-      description: 'Co-organized three-day gender-focused summit of coders at SpaceX @ Los Angeles. Partnered with Kode With Klossy, Girls Who Code, and SpaceX.',
+      description: 'Co-organized three-day gender-focused summit of 50+ coders at SpaceX @ Los Angeles. Partnered with Kode With Klossy, Girls Who Code, and SpaceX.',
       links: {
         website: 'https://ascend.hackclub.com/',
         github: 'https://github.com/hackclub/ascend'
