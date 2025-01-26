@@ -32,6 +32,40 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/gilroy-bold/Gilroy-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/gilroy-bold/Gilroy-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/gilroy-bold/Gilroy-Medium.ttf') format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/gilroy-bold/Gilroy-Light.ttf') format('truetype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/gilroy-bold/Gilroy-Heavy.ttf') format('truetype');
+  font-weight: 900;
+}
+
+.font-gilroy {
+  font-family: 'Gilroy', sans-serif;
+}
+
 .underline-opacity-70 {
   text-decoration: underline;
   text-decoration-thickness: 0.125rem;

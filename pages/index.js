@@ -45,7 +45,7 @@ export default function Home() {
         website: 'https://ascend.hackclub.com/',
         github: 'https://github.com/hackclub/ascend'
       }
-    }, 
+    },
     {
       title: 'Parker Lab @ Georgia Tech',
       date: 'Summer 2024',
@@ -170,7 +170,7 @@ export default function Home() {
       description: 'Hosted and directed multiple AMAs with industry experts (including Michael Dell, George Hotz, Trina Spear and Ben Tritt among others) in partnership with Hack Club.',
       links: {
         website: 'https://hackclub.com/amas/',
-        video:'https://www.youtube.com/watch?v=O1J1pwGPQXY'
+        video: 'https://www.youtube.com/watch?v=O1J1pwGPQXY'
       }
     },
     {
@@ -195,7 +195,7 @@ export default function Home() {
             onClick={handleSpin}
           />
         </div>
-        <h1 className="mt-16 sm:mt-24 md:mt-36 text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-left text-[#FF4444]">Sahiti Dasari</h1>
+        <h1 className="mt-16 sm:mt-24 md:mt-36 text-5xl sm:text-6xl md:text-7xl font-gilroy font-bold mb-4 text-left text-[#FF4444]">SAHITI DASARI.</h1>
         <p className="text-sm sm:text-base md:text-lg mb-2 text-left text-[#2F0000] my-6 tracking-widest">
           Hi! I'm a student and developer in love with the world of computer science and entrepreneurship. My{' '}
           <span className="relative inline-block">
@@ -237,7 +237,7 @@ export default function Home() {
       </header>
       <main className="w-full max-w-4xl mx-auto px-4 flex flex-col mb-20">
         <section className="mt-8 mb-16">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-left text-[#FF4444]">Projects</h2>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-gilroy font-extrabold text-left text-[#FF4444]">PROJECTS</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4">
             {projects.map((project, index) => (
               <div key={index} className="transition-shadow duration-300 pr-4 pt-4">
