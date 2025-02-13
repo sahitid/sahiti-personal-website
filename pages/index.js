@@ -134,7 +134,7 @@ export default function Home() {
     },
     {
       title: 'AI & ML Jams',
-      description: 'Four-part Batch Jams™ workshop that introduces concepts of integrating Open AI language models, speech recognition APIs, and JavaScript to create your own smart voice assistant!',
+      description: 'Four-part Batch Jams™ workshop that introduces concepts of integrating large language models, speech recognition APIs, and JavaScript to create your own smart voice assistant!',
       links: {
         website: 'https://jams.hackclub.com/batch/artificial-intelligence',
         github: 'https://github.com/sahitid/artificial-intelligence-jams'
