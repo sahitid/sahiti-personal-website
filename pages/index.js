@@ -58,7 +58,7 @@ export default function Home() {
     {
       title: 'Arriaga Lab @ Georgia Tech',
       date: 'January 2024 - Present',
-      description: 'Human-Computer Interaction (HCI) through OpenAI GPT models to understand their application in interpersonal interactions through Turing Experiements.',
+      description: 'Human-Computer Interaction (HCI) through large language models to understand their application in interpersonal interactions through Turing Experiements.',
       links: {
         website: 'https://sites.google.com/view/riarriaga/lab',
       }
