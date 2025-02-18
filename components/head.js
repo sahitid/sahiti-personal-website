@@ -6,7 +6,7 @@ export default function HeadObject({ children }) {
   const searchBarColor = "#ffffff";
   const keywords = "sahiti, sahiti dasari";
   const author = "Sahiti Dasari";
-  const twitter = "@null";
+  const twitter = "@sahitid_";
   const url = "http://localhost:3000";
   return (
     <Head>

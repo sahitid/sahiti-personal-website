@@ -58,7 +58,7 @@ export default function Home() {
     {
       title: 'Arriaga Lab @ Georgia Tech',
       date: 'January 2024 - Present',
-      description: 'Human-Computer Interaction (HCI) through OpenAI GPT models to understand their application in interpersonal interactions through Turing Experiements.',
+      description: 'Human-Computer Interaction (HCI) through large language models to understand their application in interpersonal interactions through Turing Experiements.',
       links: {
         website: 'https://sites.google.com/view/riarriaga/lab',
       }
@@ -134,7 +134,7 @@ export default function Home() {
     },
     {
       title: 'AI & ML Jams',
-      description: 'Four-part Batch Jams™ workshop that introduces concepts of integrating Open AI language models, speech recognition APIs, and JavaScript to create your own smart voice assistant!',
+      description: 'Four-part Batch Jams™ workshop that introduces concepts of integrating large language models, speech recognition APIs, and JavaScript to create your own smart voice assistant!',
       links: {
         website: 'https://jams.hackclub.com/batch/artificial-intelligence',
         github: 'https://github.com/sahitid/artificial-intelligence-jams'
@@ -229,6 +229,9 @@ export default function Home() {
           </a>
           <a href="https://www.linkedin.com/in/sahitidasari/" target='blank' aria-label="LinkedIn Profile">
             <img src="/linkedin.svg" alt="LinkedIn Icon" className="h-6 transition-opacity duration-300 transform transition-transform duration-300 hover:scale-110" />
+          </a>
+          <a href="https://x.com/sahitid_" target='blank' aria-label="X/Twitter Profile">
+            <img src="/twitter.svg" alt="Twitter Icon" className="h-6 transition-opacity duration-300 transform transition-transform duration-300 hover:scale-110" />
           </a>
           <a href="mailto:sahitidasari@outlook.com" aria-label="Email">
             <img src="/mail.svg" alt="Mail Icon" className="h-6 transition-opacity duration-300 transform transition-transform duration-300 hover:scale-110" />
