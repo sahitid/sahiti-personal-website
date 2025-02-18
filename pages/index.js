@@ -9,7 +9,7 @@ export default function Home() {
     const element = document.getElementById("projects");
     if (element) {
       window.scrollTo({
-        top: element.offsetTop - 80, // Adjust this value if needed
+        top: element.offsetTop - 80,
         behavior: "smooth"
       });
     }
@@ -188,7 +188,6 @@ export default function Home() {
       title: 'FitSphere',
       description: 'Progressive Web App that helps users meet fitness goals and transform their lifestyle with an AI form trainer and H2O Flow for hydration. FitSphere was a Technovation Girls Challenge Semifinalist.',
       links: {
-        //video: 'https://www.youtube.com/watch?v=EqqaBN3X4lg',
         award: 'https://www.technovation.org/blogs/semifinalists-2023/'
       }
     }
