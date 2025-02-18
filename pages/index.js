@@ -230,6 +230,9 @@ export default function Home() {
           <a href="https://www.linkedin.com/in/sahitidasari/" target='blank' aria-label="LinkedIn Profile">
             <img src="/linkedin.svg" alt="LinkedIn Icon" className="h-6 transition-opacity duration-300 transform transition-transform duration-300 hover:scale-110" />
           </a>
+          <a href="https://x.com/sahitid_" target='blank' aria-label="X/Twitter Profile">
+            <img src="/twitter.svg" alt="Twitter Icon" className="h-6 transition-opacity duration-300 transform transition-transform duration-300 hover:scale-110" />
+          </a>
           <a href="mailto:sahitidasari@outlook.com" aria-label="Email">
             <img src="/mail.svg" alt="Mail Icon" className="h-6 transition-opacity duration-300 transform transition-transform duration-300 hover:scale-110" />
           </a>
