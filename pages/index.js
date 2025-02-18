@@ -4,6 +4,17 @@ import { Button } from "@nextui-org/react";
 import Draggable from 'react-draggable';
 
 export default function Home() {
+
+  const scrollToProjects = () => {
+    const element = document.getElementById("projects");
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 80, // Adjust this value if needed
+        behavior: "smooth"
+      });
+    }
+  };
+
   const controls = useAnimation();
   const [isSpinning, setIsSpinning] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
@@ -195,6 +206,14 @@ export default function Home() {
             onClick={handleSpin}
           />
         </div>
+
+        <nav className="absolute right-0 top-0 m-4 sm:m-8 md:m-16 flex flex-col space-y-2 text-[#FF4444] font-gilroy font-bold text-2xl tracking-wide leading-tight">
+          <button onClick={() => scrollToProjects()} className="nav-link transition-transform duration-300 hover:scale-105">
+            /projects
+          </button>
+          <a href="/photos" className="nav-link transition-transform duration-300 hover:scale-105">/photos</a>
+        </nav>
+
         <h1 className="mt-16 sm:mt-24 md:mt-36 text-5xl sm:text-6xl md:text-7xl font-gilroy font-bold mb-4 text-left text-[#FF4444]">SAHITI DASARI.</h1>
         <p className="text-sm sm:text-base md:text-lg mb-2 text-left text-[#2F0000] my-6 tracking-widest">
           Hi! I'm a student and developer in love with the world of computer science and entrepreneurship. My{' '}
@@ -239,7 +258,7 @@ export default function Home() {
         </div>
       </header>
       <main className="w-full max-w-4xl mx-auto px-4 flex flex-col mb-20">
-        <section className="mt-8 mb-16">
+        <section id="projects" className="mt-8 mb-16">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-gilroy font-extrabold text-left text-[#FF4444]">PROJECTS</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4">
             {projects.map((project, index) => (
