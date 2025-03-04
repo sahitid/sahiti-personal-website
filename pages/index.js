@@ -50,7 +50,6 @@ export default function Home() {
   const projects = [
     {
       title: 'Meta Glasses Poker Computer-Vision',
-      date: 'November 2024',
       description: 'A Meta Glasses-powered system that lets you play poker and do homework at the same time—but the better you do at one, the worse you perform at the other.',
       links: {
         video: 'https://youtu.be/JVtFxCJw5ng',
