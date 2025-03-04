@@ -49,6 +49,15 @@ export default function Home() {
 
   const projects = [
     {
+      title: 'Poker? I Hardly Know Her: Meta Glasses Project',
+      date: 'November 2024',
+      description: 'A Meta Glasses-powered system that lets you play poker and do homework at the same time—but the better you do at one, the worse you perform at the other.',
+      links: {
+        video: 'https://youtu.be/JVtFxCJw5ng',
+        github: 'https://github.com/sahitid/meta-vision-project'
+      }
+    },
+    {
       title: 'Ascend: Days of Service Summit',
       date: 'November 2024',
       description: 'Co-organized three-day gender-focused summit of 50+ coders at SpaceX @ Los Angeles. Partnered with Kode With Klossy, Girls Who Code, and SpaceX.',
