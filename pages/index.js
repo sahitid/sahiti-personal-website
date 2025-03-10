@@ -49,6 +49,13 @@ export default function Home() {
 
   const projects = [
     {
+      title: 'CAISE',
+      description: 'AI-powered educational platform designed to give DECA & FBLA competitors a competitive edge in role-play and case study events. Built with ethical AI models.',
+      links: {
+        website: 'https://caise.app',
+      }
+    },
+    {
       title: 'Meta Glasses Poker Computer-Vision',
       description: 'A Meta Glasses-powered system that lets you play poker and do homework at the same time—but the better you do at one, the worse you perform at the other.',
       links: {
