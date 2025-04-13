@@ -22,7 +22,7 @@
     "react-dom": "^18.2.0",
     "react-draggable": "^4.4.6",
     "react-icons": "^4.10.1",
-    "react-wrap-balancer": "^1.1.0",
+    "react-wrap-balancer": "^1.1.1",
     "swr": "^2.2.1"
   },
   "devDependencies": {
