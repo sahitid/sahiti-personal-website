@@ -49,6 +49,15 @@ export default function Home() {
 
   const projects = [
     {
+      title: 'Aurora: SF Athena Event',
+      date: 'July 2025',
+      description: 'Co-organizing three-day gender-focused summer coding camp @ San Francisco with women in technology dinner.',
+      links: {
+        website: 'https://aurora.hackclub.com/',
+        github: 'https://github.com/hackclub/aurora'
+      }
+    },
+    {
       title: 'CAISE',
       description: 'AI-powered educational platform designed to give DECA & FBLA competitors a competitive edge in role-play and case study events. Built with ethical AI models.',
       links: {
