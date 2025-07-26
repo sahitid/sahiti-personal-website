@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
+import { motion, useAnimation } from 'framer-motion';
 
 export default function Projects() {
+    const controls = useAnimation();
+    const [isSpinning, setIsSpinning] = useState(false);
+
+    const handleSpinAndRedirect = async () => {
+        if (!isSpinning) {
+            setIsSpinning(true);
+
+            await controls.start({
+                rotate: 360,
+                transition: { duration: 1, ease: 'linear' }
+            });
+            controls.set({ rotate: 0 });
+            setIsSpinning(false);
+            window.location.href = '/';
+        }
+    };
     const projects = [
         {
             title: 'Aurora: SF Athena Event',
@@ -181,13 +198,13 @@ export default function Projects() {
             <div className="w-screen overflow-x-hidden min-h-screen text-[#FF4444] bg-[#FFEBEB] flex flex-col relative font-inter px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48">
                 <header className="w-full max-w-4xl mx-auto px-4 py-8">
                     <div className="flex absolute left-0 top-0 m-4 sm:m-8 md:m-16">
-                        <a href="/">
-                            <img
-                                src="/boat.svg"
-                                alt="Boat - Home"
-                                className="h-6 mr-2 cursor-pointer transition-transform duration-300 hover:scale-110"
-                            />
-                        </a>
+                        <motion.img
+                            src="/boat.svg"
+                            alt="Boat - Home"
+                            className="h-6 mr-2 cursor-pointer"
+                            animate={controls}
+                            onClick={handleSpinAndRedirect}
+                        />
                     </div>
 
                     <nav className="absolute right-0 top-0 m-4 sm:m-8 md:m-16 flex flex-col space-y-2 text-[#FF4444] font-gilroy font-bold text-2xl tracking-wide leading-tight">
