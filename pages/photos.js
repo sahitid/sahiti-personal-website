@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 
 export default function Photos() {
     const controls = useAnimation();
     const [isSpinning, setIsSpinning] = useState(false);
+    const [selectedPhoto, setSelectedPhoto] = useState(null);
 
     const handleSpin = async () => {
         if (!isSpinning) {
@@ -16,6 +17,14 @@ export default function Photos() {
             controls.set({ rotate: 0 });
             setIsSpinning(false);
         }
+    };
+
+    const handlePhotoClick = (photo, index) => {
+        setSelectedPhoto({ ...photo, index });
+    };
+
+    const handleCloseModal = () => {
+        setSelectedPhoto(null);
     };
 
     const getPhotoExtension = (photoNumber) => {
@@ -66,11 +75,12 @@ export default function Photos() {
                     {photoData.map((photo, index) => (
                         <motion.div
                             key={index}
-                            className="relative bg-white shadow-lg rounded-md p-2 pb-10"
+                            className="relative bg-white shadow-lg rounded-md p-2 pb-10 cursor-pointer"
                             whileHover={{ scale: 1.05 }}
                             style={{
                                 transform: `rotate(${index % 2 === 0 ? '-3deg' : '3deg'})`,
                             }}
+                            onClick={() => handlePhotoClick(photo, index)}
                         >
                             <img
                                 src={photo.src}
@@ -81,6 +91,40 @@ export default function Photos() {
                     ))}
                 </section>
             </main>
+
+            {/* Photo Modal */}
+            <AnimatePresence>
+                {selectedPhoto && (
+                    <motion.div
+                        className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={handleCloseModal}
+                    >
+                        <motion.div
+                            className="relative max-w-4xl max-h-[90vh] bg-white rounded-lg p-4 shadow-2xl"
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.8, opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <button
+                                className="absolute top-2 right-2 text-[#FF4444] text-2xl font-bold hover:text-red-600 z-10 bg-white rounded w-8 h-8 flex items-center justify-center"
+                                onClick={handleCloseModal}
+                            >
+                                ×
+                            </button>
+                            <img
+                                src={selectedPhoto.src}
+                                alt={`photo-${selectedPhoto.index + 1}`}
+                                className="w-full h-auto max-h-[80vh] object-contain rounded-sm"
+                            />
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             <footer className="w-full max-w-4xl mx-auto px-4 py-4 text-[#FF4444] bg-[#FFEBEB] flex flex-col justify-center items-start mt-10">
                 <div className="w-full border-t-4 border-[#FF4444] mb-4"></div>
