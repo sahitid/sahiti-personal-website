@@ -7,7 +7,7 @@ export default function HeadObject({ children }) {
   const keywords = "sahiti, sahiti dasari";
   const author = "Sahiti Dasari";
   const twitter = "@sahitid_";
-  const url = "http://localhost:3000";
+  const url = "https://sahiti.dev";
   return (
     <Head>
       <meta charSet="utf-8" />
@@ -27,9 +27,13 @@ export default function HeadObject({ children }) {
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta name="twitter:card" content="summary" />
+      <meta property="og:image" content={`${url}/api/og`} />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content={twitter} />
       <meta name="twitter:creator" content={twitter} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={`${url}/api/og`} />
       {/* Add analytics here */}
       {children}
     </Head>
