@@ -27,7 +27,6 @@ export default function HeadObject({ children }) {
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      {/* <meta property="og:image" content={image} /> */}
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content={twitter} />
       <meta name="twitter:creator" content={twitter} />
