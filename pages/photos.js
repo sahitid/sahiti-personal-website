@@ -5,7 +5,7 @@ export default function Photos() {
     const controls = useAnimation();
     const [isSpinning, setIsSpinning] = useState(false);
 
-    const handleSpinAndRedirect = async () => {
+    const handleSpin = async () => {
         if (!isSpinning) {
             setIsSpinning(true);
 
@@ -15,7 +15,6 @@ export default function Photos() {
             });
             controls.set({ rotate: 0 });
             setIsSpinning(false);
-            window.location.href = '/';
         }
     };
 
@@ -44,9 +43,14 @@ export default function Photos() {
                     alt="Boat"
                     className="h-6 mr-2 cursor-pointer"
                     animate={controls}
-                    onClick={handleSpinAndRedirect}
+                    onClick={handleSpin}
                 />
             </div>
+
+            <nav className="absolute right-0 top-0 m-4 sm:m-8 md:m-16 flex flex-col space-y-2 text-[#FF4444] font-gilroy font-bold text-2xl tracking-wide leading-tight">
+                <a href="/" className="nav-link transition-transform duration-300 hover:scale-105">/home</a>
+                <a href="/projects" className="nav-link transition-transform duration-300 hover:scale-105">/projects</a>
+            </nav>
 
             <header className="w-full max-w-4xl mx-auto px-4 py-8">
                 <h1 className="mt-16 sm:mt-24 md:mt-36 text-5xl sm:text-6xl md:text-7xl font-gilroy font-bold mb-4 text-left text-[#FF4444]">

@@ -6,7 +6,7 @@ export default function Projects() {
     const controls = useAnimation();
     const [isSpinning, setIsSpinning] = useState(false);
 
-    const handleSpinAndRedirect = async () => {
+    const handleSpin = async () => {
         if (!isSpinning) {
             setIsSpinning(true);
 
@@ -16,7 +16,6 @@ export default function Projects() {
             });
             controls.set({ rotate: 0 });
             setIsSpinning(false);
-            window.location.href = '/';
         }
     };
     const projects = [
@@ -200,10 +199,10 @@ export default function Projects() {
                     <div className="flex absolute left-0 top-0 m-4 sm:m-8 md:m-16">
                         <motion.img
                             src="/boat.svg"
-                            alt="Boat - Home"
+                            alt="Boat"
                             className="h-6 mr-2 cursor-pointer"
                             animate={controls}
-                            onClick={handleSpinAndRedirect}
+                            onClick={handleSpin}
                         />
                     </div>
 
