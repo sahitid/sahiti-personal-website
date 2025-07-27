@@ -19,7 +19,7 @@ export default function Photos() {
         }
     };
 
-    const photoData = Array.from({ length: 33 }, (_, i) => ({
+    const photoData = Array.from({ length: 51 }, (_, i) => ({
         src: `/images/photo${i + 1}.jpg`
     }));
 
