@@ -19,9 +19,18 @@ export default function Photos() {
         }
     };
 
-    const photoData = Array.from({ length: 51 }, (_, i) => ({
-        src: `/images/photo${i + 1}.JPG`
-    }));
+    const getPhotoExtension = (photoNumber) => {
+        // Photos 1-33 are .jpg, photos 34-51 are .JPG & i'm too lazy to change the file types
+        return photoNumber <= 33 ? 'jpg' : 'JPG';
+    };
+
+    const photoData = Array.from({ length: 51 }, (_, i) => {
+        const photoNumber = i + 1;
+        const extension = getPhotoExtension(photoNumber);
+        return {
+            src: `/images/photo${photoNumber}.${extension}`
+        };
+    });
 
     console.log(photoData);
 
