@@ -63,7 +63,7 @@ export default function Projects() {
         },
         {
             title: 'Arriaga Lab @ Georgia Tech',
-            date: 'January 2024 - Present',
+            date: 'January 2024 - May 2025',
             description: 'Human-Computer Interaction (HCI) through large language models to understand their application in interpersonal interactions through Turing Experiements.',
             links: {
                 website: 'https://sites.google.com/view/riarriaga/lab',
@@ -108,7 +108,7 @@ export default function Projects() {
         },
         {
             title: 'Clubs Operations & Engineering',
-            date: 'May 2023 - Present',
+            date: 'May 2023 - May 2025',
             description: 'Employed at Hack Club to support new coding club chapters, technology grants, and community engagement initiatives to help club leaders worldwide.',
             links: {
                 website: 'https://hackclub.com/team/',
