@@ -164,6 +164,76 @@ body::before {
   font-size: 18px;
 }
 
+/* Enhanced tooltip styles */
+.custom-tooltip-enhanced {
+  background: linear-gradient(135deg, #FFEBEB 0%, #FFD4D4 100%);
+  border: 2px solid #FF4444;
+  box-shadow:
+    0 12px 20px -5px rgba(255, 68, 68, 0.15),
+    0 6px 8px -3px rgba(255, 68, 68, 0.08),
+    0 0 0 1px rgba(255, 68, 68, 0.05);
+  font-family: 'Inter', sans-serif;
+  color: #2F0000;
+  text-align: left;
+  padding: 14px;
+  border-radius: 12px;
+  width: auto;
+  max-width: 240px;
+  min-width: 200px;
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  cursor: move;
+}
+
+.close-icon-enhanced {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  cursor: pointer;
+  color: #FF4444;
+  font-size: 18px;
+  font-weight: bold;
+  background: none;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  transform: translateY(-1px);
+}
+
+.close-icon-enhanced:hover {
+  transform: scale(1.1) translateY(-2px);
+}
+
+.tooltip-content {
+  padding-right: 12px;
+}
+
+.tooltip-title {
+  font-family: 'Gilroy', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  color: #FF4444;
+  margin-bottom: 8px;
+  letter-spacing: 0.3px;
+}
+
+.tooltip-text {
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+  color: #2F0000;
+  margin: 0;
+}
+
 .button-no-outline {
   outline: none;
 }

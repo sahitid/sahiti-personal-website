@@ -193,6 +193,7 @@ export default function Projects() {
             <Head>
                 <title>Projects - Sahiti Dasari</title>
                 <meta name="description" content="Sahiti Dasari's projects and work" />
+                
             </Head>
             <div className="w-screen overflow-x-hidden min-h-screen text-[#FF4444] bg-[#FFEBEB] flex flex-col relative font-inter px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48">
                 <header className="w-full max-w-4xl mx-auto px-4 py-8">
@@ -212,6 +213,7 @@ export default function Projects() {
                     </nav>
 
                     <h1 className="mt-16 sm:mt-24 md:mt-36 text-5xl sm:text-6xl md:text-7xl font-gilroy font-bold mb-4 text-left text-[#FF4444]">PROJECTS.</h1>
+                
                 </header>
 
                 <main className="w-full max-w-4xl mx-auto px-4 flex flex-col mb-20">

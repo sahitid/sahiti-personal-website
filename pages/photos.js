@@ -66,7 +66,7 @@ export default function Photos() {
                     PHOTO ARCHIVE.
                 </h1>
                 <p className="text-sm sm:text-base md:text-lg mb-6 text-left text-[#2F0000] tracking-widest">
-                    collecting stories on my kodak pixpro fz55
+                    Collecting stories on my Kodak PIXPRO FZ55
                 </p>
             </header>
 
@@ -110,12 +110,7 @@ export default function Photos() {
                             transition={{ duration: 0.3 }}
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <button
-                                className="absolute top-2 right-2 text-[#FF4444] text-2xl font-bold hover:text-red-600 z-10 bg-white rounded w-8 h-8 flex items-center justify-center"
-                                onClick={handleCloseModal}
-                            >
-                                ×
-                            </button>
+
                             <img
                                 src={selectedPhoto.src}
                                 alt={`photo-${selectedPhoto.index + 1}`}

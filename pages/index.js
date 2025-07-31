@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { Button } from "@nextui-org/react";
-import Draggable from 'react-draggable';
 
 export default function Home() {
   const controls = useAnimation();
@@ -56,43 +55,77 @@ export default function Home() {
           <a href="/photos" className="nav-link transition-transform duration-300 hover:scale-105">/photos</a>
         </nav>
 
-        <h1 className="mt-16 sm:mt-24 md:mt-36 text-5xl sm:text-6xl md:text-7xl font-gilroy font-bold mb-4 text-left text-[#FF4444]">SAHITI DASARI.</h1>
+        <h1 className="mt-16 sm:mt-24 md:mt-36 text-5xl sm:text-6xl md:text-7xl font-gilroy font-bold mb-4 text-left text-[#FF4444]">
+          SAHITI DASARI.
+        </h1>
         <p className="text-sm sm:text-base md:text-lg mb-2 text-left text-[#2F0000] my-6 tracking-widest">
-          Hi! I'm a student & developer in love with storytelling through technology and entrepreneurship. My{' '}
+          I'm a student & developer in love with storytelling through technology and entrepreneurship. My{' '}
           <span className="relative inline-block">
             <Button
-              className="button-no-outline underline-custom cursor-pointer transform transition-transform duration-300 hover:scale-105"
+              className="button-no-outline underline-custom cursor-pointer"
               onClick={handleTooltipClick}
               aria-label="Show mission tooltip"
             >
               mission
             </Button>
             {showTooltip && (
-              <Draggable>
-                <div className={`custom-tooltip ${showTooltip ? 'show' : ''}`} role="tooltip">
-                  <span className="close-icon" onClick={handleTooltipClose}>×</span>
-                  What keeps me going? The belief that when we blend creativity with purpose, we can sculpt a better world.
+              <motion.div
+                className="custom-tooltip-enhanced"
+                role="tooltip"
+                drag
+                dragMomentum={false}
+                dragElastic={0.1}
+                whileDrag={{ scale: 1.05, rotateZ: 2 }}
+                initial={{
+                  opacity: 0,
+                  scale: 0.8,
+                  y: 20,
+                  rotateX: -10
+                }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  y: 0,
+                  rotateX: 0
+                }}
+                exit={{
+                  opacity: 0,
+                  scale: 0.9,
+                  y: -10,
+                  rotateX: 5
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 500,
+                  damping: 30
+                }}
+              >
+                <button
+                  className="close-icon-enhanced"
+                  onClick={handleTooltipClose}
+                  aria-label="Close mission tooltip"
+                >
+                  ×
+                </button>
+                <div className="tooltip-content">
+                  <p className="tooltip-text">
+                    What keeps me going? The belief that when we blend creativity with purpose, we can sculpt a better world.
+                  </p>
                 </div>
-              </Draggable>
+              </motion.div>
             )}
           </span> is to make an impact by spreading opportunities.
         </p>
-        <p className="text-sm sm:text-base md:text-lg mb-6 text-left text-[#2F0000] tracking-widest">
-          Feel free to connect with me at any of the links below or contact me at{' '}
-          <a href="mailto:sahitidasari@outlook.com" className="underline-custom cursor-pointer transform transition-transform duration-300 hover:scale-105">
-            sahitidasari@outlook.com
-          </a>
-          .
-        </p>
-        <div className="flex space-x-4 mb-4">
-          <a href="https://github.com/sahitid" target='blank' aria-label="GitHub Profile">
-            <img src="/github.svg" alt="GitHub Icon" className="h-6 transition-opacity duration-300 transform transition-transform duration-300 hover:scale-110" />
-          </a>
+
+        <div className="flex space-x-4 mb-4 mt-8">
           <a href="https://www.linkedin.com/in/sahitidasari/" target='blank' aria-label="LinkedIn Profile">
             <img src="/linkedin.svg" alt="LinkedIn Icon" className="h-6 transition-opacity duration-300 transform transition-transform duration-300 hover:scale-110" />
           </a>
           <a href="https://x.com/sahitid_" target='blank' aria-label="X/Twitter Profile">
             <img src="/twitter.svg" alt="Twitter Icon" className="h-6 transition-opacity duration-300 transform transition-transform duration-300 hover:scale-110" />
+          </a>
+          <a href="https://github.com/sahitid" target='blank' aria-label="GitHub Profile">
+            <img src="/github.svg" alt="GitHub Icon" className="h-6 transition-opacity duration-300 transform transition-transform duration-300 hover:scale-110" />
           </a>
           <a href="mailto:sahitidasari@outlook.com" aria-label="Email">
             <img src="/mail.svg" alt="Mail Icon" className="h-6 transition-opacity duration-300 transform transition-transform duration-300 hover:scale-110" />
