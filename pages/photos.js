@@ -122,7 +122,7 @@ export default function Photos() {
             </AnimatePresence>
 
             <footer className="w-full max-w-4xl mx-auto px-4 py-4 text-[#FF4444] bg-[#FFEBEB] flex flex-col justify-center items-start mt-10">
-                <div className="w-full border-t-4 border-[#FF4444] mb-4"></div>
+                <div className="w-full border-t-3 border-[#FF4444] mb-4"></div>
                 <p className="text-xs font-medium italic">
                     omnia iam fiunt quae posse negabam
                 </p>

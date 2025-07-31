@@ -115,9 +115,15 @@ body::before {
   left: 0;
   bottom: 0px;
   width: 100%;
-  height: 7px;
-  background-color: rgba(255, 68, 68, 0.3);
-  border-radius: 4px;
+  height: 2px;
+  background-color: rgba(255, 68, 68, 0.2);
+  border-radius: 1px;
+  transition: all 0.2s ease;
+}
+
+.underline-custom:hover::after {
+  background-color: rgba(255, 68, 68, 0.4);
+  height: 3px;
 }
 
 .button-no-outline {
@@ -191,8 +197,8 @@ body::before {
 
 .close-icon-enhanced {
   position: absolute;
-  top: 8px;
-  right: 10px;
+  top: 4px;
+  right: 6px;
   cursor: pointer;
   color: #FF4444;
   font-size: 18px;

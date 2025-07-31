@@ -6,6 +6,7 @@ export default function Home() {
   const controls = useAnimation();
   const [isSpinning, setIsSpinning] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
+  const [showStudentTooltip, setShowStudentTooltip] = useState(false);
 
   useEffect(() => {
     if (isSpinning) {
@@ -35,6 +36,14 @@ export default function Home() {
     setShowTooltip(false);
   };
 
+  const handleStudentTooltipClick = () => {
+    setShowStudentTooltip(true);
+  };
+
+  const handleStudentTooltipClose = () => {
+    setShowStudentTooltip(false);
+  };
+
   return (
     <div className="w-screen overflow-x-hidden min-h-screen text-[#FF4444] bg-[#FFEBEB] flex flex-col relative font-inter px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48">
       <header className="w-full max-w-4xl mx-auto px-4 py-8">
@@ -59,7 +68,73 @@ export default function Home() {
           SAHITI DASARI.
         </h1>
         <p className="text-sm sm:text-base md:text-lg mb-2 text-left text-[#2F0000] my-6 tracking-widest">
-          I'm a student & developer in love with storytelling through technology and entrepreneurship. My{' '}
+          I'm a{' '}
+          <span className="relative inline-block">
+            <Button
+              className="button-no-outline underline-custom cursor-pointer"
+              onClick={handleStudentTooltipClick}
+              aria-label="Show student info tooltip"
+            >
+              student
+            </Button>
+            {showStudentTooltip && (
+              <motion.div
+                className="custom-tooltip-enhanced"
+                role="tooltip"
+                drag
+                dragMomentum={false}
+                dragElastic={0.1}
+                whileDrag={{ scale: 1.05, rotateZ: 2 }}
+                initial={{
+                  opacity: 0,
+                  scale: 0.8,
+                  y: 20,
+                  rotateX: -10
+                }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  y: 0,
+                  rotateX: 0
+                }}
+                exit={{
+                  opacity: 0,
+                  scale: 0.9,
+                  y: -10,
+                  rotateX: 5
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 500,
+                  damping: 30
+                }}
+              >
+                <button
+                  className="close-icon-enhanced"
+                  onClick={handleStudentTooltipClose}
+                  aria-label="Close student tooltip"
+                >
+                  ×
+                </button>
+                <div className="tooltip-content">
+                  <p className="tooltip-text">
+                    Studying Computer Science & Wharton at University of Pennsylvania in the{' '}
+                    <a
+                      href="https://fisher.wharton.upenn.edu/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cursor-pointer text-[#FF4444] hover:opacity-80 transition-opacity duration-200"
+                      style={{ textDecoration: 'underline', textDecorationColor: '#FF4444' }}
+                    >
+                      Jerome Fisher Management & Technology (M&T)
+                    </a>{' '}
+                    program.
+                  </p>
+                </div>
+              </motion.div>
+            )}
+          </span>{' '}
+          & developer in love with storytelling through technology and entrepreneurship. My{' '}
           <span className="relative inline-block">
             <Button
               className="button-no-outline underline-custom cursor-pointer"
@@ -135,7 +210,7 @@ export default function Home() {
       <main className="w-full max-w-4xl mx-auto px-4 flex flex-col mb-8">
       </main>
       <footer className="w-full max-w-4xl mx-auto px-4 py-4 text-[#FF4444] bg-[#FFEBEB] flex flex-col justify-center items-start mt-10">
-        <div className="w-full border-t-4 border-[#FF4444] mb-4"></div>
+        <div className="w-full border-t-3 border-[#FF4444] mb-4"></div>
         <p className="text-xs font-medium italic">
           omnia iam fiunt quae posse negabam
         </p>
