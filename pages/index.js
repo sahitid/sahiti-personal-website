@@ -24,7 +24,7 @@ export default function Home() {
   };
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText('sahitidasari@outlook.com');
+    navigator.clipboard.writeText('sahitid@wharton.upenn.edu');
     alert('Email copied to clipboard!');
   };
 
@@ -202,7 +202,7 @@ export default function Home() {
           <a href="https://github.com/sahitid" target='blank' aria-label="GitHub Profile">
             <img src="/github.svg" alt="GitHub Icon" className="h-6 transition-opacity duration-300 transform transition-transform duration-300 hover:scale-110" />
           </a>
-          <a href="mailto:sahitidasari@outlook.com" aria-label="Email">
+          <a href="mailto:sahitid@wharton.upenn.edu" aria-label="Email">
             <img src="/mail.svg" alt="Mail Icon" className="h-6 transition-opacity duration-300 transform transition-transform duration-300 hover:scale-110" />
           </a>
         </div>
