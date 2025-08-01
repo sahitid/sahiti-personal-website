@@ -16,6 +16,9 @@ export default function Photos() {
             });
             controls.set({ rotate: 0 });
             setIsSpinning(false);
+
+            // Redirect to home page after spinning
+            window.location.href = '/';
         }
     };
 
@@ -59,6 +62,7 @@ export default function Photos() {
             <nav className="absolute right-0 top-0 m-4 sm:m-8 md:m-16 flex flex-col space-y-2 text-[#FF4444] font-gilroy font-bold text-2xl tracking-wide leading-tight">
                 <a href="/" className="nav-link transition-transform duration-300 hover:scale-105">/home</a>
                 <a href="/projects" className="nav-link transition-transform duration-300 hover:scale-105">/projects</a>
+                <span className="nav-link opacity-50 cursor-not-allowed">/photos</span>
             </nav>
 
             <header className="w-full max-w-4xl mx-auto px-4 py-8">
