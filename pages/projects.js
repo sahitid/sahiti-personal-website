@@ -216,7 +216,7 @@ export default function Projects() {
                         <a href="/photos" className="nav-link transition-transform duration-300 hover:scale-105">/photos</a>
                     </nav>
 
-                    <h1 className="mt-16 sm:mt-24 md:mt-36 text-5xl sm:text-6xl md:text-7xl font-gilroy font-bold mb-4 text-left text-[#FF4444]">PROJECTS.</h1>
+                    <h1 className="mt-16 sm:mt-24 md:mt-36 text-5xl sm:text-6xl md:text-7xl font-gilroy font-bold mb-4 text-left text-[#FF4444]">PROJECTS</h1>
 
                 </header>
 

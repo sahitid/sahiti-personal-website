@@ -67,7 +67,7 @@ export default function Photos() {
 
             <header className="w-full max-w-4xl mx-auto px-4 py-8">
                 <h1 className="mt-16 sm:mt-24 md:mt-36 text-5xl sm:text-6xl md:text-7xl font-gilroy font-bold mb-4 text-left text-[#FF4444]">
-                    PHOTO ARCHIVE.
+                    PHOTO ARCHIVE
                 </h1>
                 <p className="text-sm sm:text-base md:text-lg mb-6 text-left text-[#2F0000] tracking-widest">
                     Collecting stories on my Kodak PIXPRO FZ55
