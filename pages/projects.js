@@ -85,7 +85,7 @@ export default function Projects() {
             title: 'BIOMET',
             description: 'A universal, low-cost identification system, created in response to the global identification crisis. BIOMET is a Conrad Challenge finalist & Power Pitch winner in Cyber Technology & Security.',
             links: {
-                website: 'https://www.biomet.vercel.app/',
+                website: 'https://biomet.vercel.app/',
                 video: 'https://youtu.be/RVOrgTGgbas',
                 award: 'https://www.conradchallenge.org/2024-summit-wrap'
             }
