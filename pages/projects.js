@@ -39,14 +39,6 @@ export default function Projects() {
             }
         },
         {
-            title: 'Meta Glasses Poker Computer-Vision',
-            description: 'A Meta Glasses-powered system that lets you play poker and do homework at the same time—but the better you do at one, the worse you perform at the other.',
-            links: {
-                video: 'https://youtu.be/JVtFxCJw5ng',
-                github: 'https://github.com/sahitid/meta-vision-project'
-            }
-        },
-        {
             title: 'Ascend: Days of Service Summit',
             date: 'November 2024',
             description: 'Co-organized three-day gender-focused summit of 50+ coders at SpaceX @ Los Angeles. Partnered with Kode With Klossy, Girls Who Code, and SpaceX.',
@@ -127,13 +119,6 @@ export default function Projects() {
             }
         },
         {
-            title: 'EcoBuddy',
-            description: 'Swift mobile application that offers ways for users to gain points by practicing sustainable living and completing eco-friendly exercises.',
-            links: {
-                github: 'https://github.com/sahitid/ecobuddy'
-            }
-        },
-        {
             title: 'Hack Club Jams',
             description: 'Assisted in the Hack Club Jams™ initiative for collaborative coding workshops for over 28,000 teenagers around the world.',
             links: {
@@ -147,14 +132,6 @@ export default function Projects() {
             links: {
                 website: 'https://jams.hackclub.com/batch/artificial-intelligence',
                 github: 'https://github.com/sahitid/artificial-intelligence-jams'
-            }
-        },
-        {
-            title: 'Leaders Letters',
-            description: 'Created blog article page for stories, insights, and experiences shared within the Hack Club community — by leaders for leaders.',
-            links: {
-                website: 'https://hackclub.com/letters',
-                github: 'https://github.com/sahitid/leaders-letters'
             }
         },
         {
@@ -182,13 +159,6 @@ export default function Projects() {
                 video: 'https://www.youtube.com/watch?v=O1J1pwGPQXY'
             }
         },
-        {
-            title: 'FitSphere',
-            description: 'Progressive Web App that helps users meet fitness goals and transform their lifestyle with an AI form trainer and H2O Flow for hydration. FitSphere was a Technovation Girls Challenge Semifinalist.',
-            links: {
-                award: 'https://www.technovation.org/blogs/semifinalists-2023/'
-            }
-        }
     ];
 
     return (
