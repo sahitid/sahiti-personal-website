@@ -23,6 +23,14 @@ export default function Projects() {
     };
     const projects = [
         {
+            title: 'PreSeed',
+            description: 'Hands-free Apple Vision Pro accessibility app that provides real-time scene understanding and spatial awareness through AI-powered audio descriptions for vision impairment and blindness.',
+            links: {
+                video: 'https://youtu.be/AKS6wuNIMiE',
+                github: 'https://github.com/michaelpeters-dev/Hack-Harvard'
+            }
+        },
+        {
             title: 'Aurora: SF Athena Event',
             date: 'July 2025',
             description: 'Co-organizing three-day gender-focused summer coding camp @ San Francisco with women in technology dinner.',
