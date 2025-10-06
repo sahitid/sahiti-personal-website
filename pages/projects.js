@@ -24,7 +24,7 @@ export default function Projects() {
     const projects = [
         {
             title: 'PreSeed',
-            description: 'Hands-free Apple Vision Pro accessibility app that provides real-time scene understanding and spatial awareness through AI-powered audio descriptions for vision impairment and blindness.',
+            description: 'Hands-free Apple Vision Pro accessibility app that provides real-time scene understanding and spatial awareness through AI audio descriptions for vision impairment and blindness.',
             links: {
                 video: 'https://youtu.be/AKS6wuNIMiE',
                 github: 'https://github.com/michaelpeters-dev/Hack-Harvard'
