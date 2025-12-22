@@ -46,7 +46,7 @@ export default function Home() {
 
   return (
     <div className="w-screen overflow-x-hidden min-h-screen text-[#FF4444] bg-[#FFEBEB] flex flex-col relative font-inter px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48">
-      <header className="w-full max-w-4xl mx-auto px-4 py-8 pt-16 sm:pt-24 relative">
+      <header className="w-full max-w-4xl mx-auto px-4 py-8 relative">
         <div className="flex absolute left-0 top-0 m-4 sm:m-8 md:m-16">
           <motion.img
             src="/boat.svg"
@@ -63,8 +63,9 @@ export default function Home() {
           <a href="/photos" className="nav-link transition-transform duration-300 hover:scale-105">/photos</a>
         </nav>
 
-        <h1 className="mt-16 sm:mt-24 md:mt-36 text-5xl sm:text-6xl md:text-7xl font-gilroy font-bold mb-4 text-left text-[#FF4444]">
-          SAHITI DASARI
+        <h1 className="mt-24 sm:mt-24 md:mt-36 text-5xl sm:text-6xl md:text-7xl font-gilroy font-bold mb-4 text-left text-[#FF4444] leading-none">
+          <span className="block sm:inline">SAHITI</span>{' '}
+          <span className="block sm:inline">DASARI</span>
         </h1>
         <p className="text-sm sm:text-base md:text-lg mb-2 text-left text-[#2F0000] my-6 tracking-widest">
           I'm a{' '}
