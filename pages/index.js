@@ -57,7 +57,7 @@ export default function Home() {
           />
         </div>
 
-        <nav className="absolute right-0 top-0 m-4 sm:m-8 md:m-16 flex flex-col space-y-2 text-[#FF4444] font-gilroy font-bold text-2xl tracking-wide leading-tight">
+        <nav className="relative m-4 sm:m-8 md:m-16 w-full flex justify-end items-start space-x-4 md:space-x-0 md:space-y-2 text-[#FF4444] font-gilroy font-bold text-xl sm:text-2xl tracking-wide leading-tight md:absolute md:right-0 md:top-0 md:flex-col">
           <span className="nav-link opacity-50 cursor-not-allowed">/home</span>
           <a href="/projects" className="nav-link transition-transform duration-300 hover:scale-105">/projects</a>
           <a href="/photos" className="nav-link transition-transform duration-300 hover:scale-105">/photos</a>
