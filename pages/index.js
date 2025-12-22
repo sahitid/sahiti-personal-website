@@ -63,8 +63,9 @@ export default function Home() {
           <a href="/photos" className="nav-link transition-transform duration-300 hover:scale-105">/photos</a>
         </nav>
 
-        <h1 className="mt-16 sm:mt-24 md:mt-36 text-5xl sm:text-6xl md:text-7xl font-gilroy font-bold mb-4 text-left text-[#FF4444]">
-          SAHITI DASARI
+        <h1 className="mt-16 sm:mt-24 md:mt-36 text-5xl sm:text-6xl md:text-7xl font-gilroy font-bold mb-4 text-left text-[#FF4444] leading-none">
+          <span className="block sm:inline">SAHITI</span>{' '}
+          <span className="block sm:inline">DASARI</span>
         </h1>
         <p className="text-sm sm:text-base md:text-lg mb-2 text-left text-[#2F0000] my-6 tracking-widest">
           I'm a{' '}
