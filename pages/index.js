@@ -5,7 +5,6 @@ import { Button } from "@nextui-org/react";
 export default function Home() {
   const controls = useAnimation();
   const [isSpinning, setIsSpinning] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(false);
   const [showStudentTooltip, setShowStudentTooltip] = useState(false);
 
   useEffect(() => {
@@ -28,13 +27,6 @@ export default function Home() {
     alert('Email copied to clipboard!');
   };
 
-  const handleTooltipClick = () => {
-    setShowTooltip(true);
-  };
-
-  const handleTooltipClose = () => {
-    setShowTooltip(false);
-  };
 
   const handleStudentTooltipClick = () => {
     setShowStudentTooltip(true);
@@ -134,62 +126,7 @@ export default function Home() {
               </motion.div>
             )}
           </span>{' '}
-          & developer in love with storytelling through human-centered technology. My{' '}
-          <span className="relative inline-block">
-            <Button
-              className="button-no-outline underline-custom cursor-pointer"
-              onClick={handleTooltipClick}
-              aria-label="Show mission tooltip"
-            >
-              mission
-            </Button>
-            {showTooltip && (
-              <motion.div
-                className="custom-tooltip-enhanced"
-                role="tooltip"
-                drag
-                dragMomentum={false}
-                dragElastic={0.1}
-                whileDrag={{ scale: 1.05, rotateZ: 2 }}
-                initial={{
-                  opacity: 0,
-                  scale: 0.8,
-                  y: 20,
-                  rotateX: -10
-                }}
-                animate={{
-                  opacity: 1,
-                  scale: 1,
-                  y: 0,
-                  rotateX: 0
-                }}
-                exit={{
-                  opacity: 0,
-                  scale: 0.9,
-                  y: -10,
-                  rotateX: 5
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 500,
-                  damping: 30
-                }}
-              >
-                <button
-                  className="close-icon-enhanced"
-                  onClick={handleTooltipClose}
-                  aria-label="Close mission tooltip"
-                >
-                  ×
-                </button>
-                <div className="tooltip-content">
-                  <p className="tooltip-text">
-                    What keeps me going? The belief that when we blend creativity with purpose, we can sculpt a better world.
-                  </p>
-                </div>
-              </motion.div>
-            )}
-          </span> is to make an impact by spreading opportunities.
+          & developer in love with storytelling through human-centered technology.
         </p>
 
         <div className="flex space-x-4 mb-4 mt-8">
