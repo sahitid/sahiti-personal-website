@@ -134,7 +134,7 @@ export default function Home() {
               </motion.div>
             )}
           </span>{' '}
-          & developer in love with in human-centered software and storytelling through technology. My{' '}
+          & developer in love with storytelling through human-centered technology. My{' '}
           <span className="relative inline-block">
             <Button
               className="button-no-outline underline-custom cursor-pointer"
