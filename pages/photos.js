@@ -47,7 +47,7 @@ export default function Photos() {
 
 
     return (
-        <div className="w-screen overflow-x-hidden min-h-screen text-[#FF4444] bg-[#FFEBEB] flex flex-col relative font-inter px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48">
+        <div className="w-screen overflow-x-hidden min-h-screen text-[#FF4444] bg-[#FFEBEB] flex flex-col relative font-instrument-sans px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48">
 
             <div className="flex absolute left-0 top-0 m-4 sm:m-8 md:m-16">
                 <motion.img
@@ -59,19 +59,29 @@ export default function Photos() {
                 />
             </div>
 
-            <nav className="absolute right-0 top-0 m-4 sm:m-8 md:m-16 flex flex-col space-y-2 text-[#FF4444] font-gilroy font-bold text-2xl tracking-wide leading-tight">
+            <nav className="absolute right-0 top-0 m-4 sm:m-8 md:m-16 flex flex-col space-y-2 text-[#FF4444] font-bold text-2xl tracking-wide leading-tight" style={{ fontFamily: "'Instrument Sans', sans-serif" }}>
                 <a href="/" className="nav-link transition-transform duration-300 hover:scale-105">/home</a>
                 <a href="/projects" className="nav-link transition-transform duration-300 hover:scale-105">/projects</a>
                 <span className="nav-link opacity-50 cursor-not-allowed">/photos</span>
             </nav>
 
             <header className="w-full max-w-4xl mx-auto px-4 py-8">
-                <h1 className="mt-16 sm:mt-24 md:mt-36 text-5xl sm:text-6xl md:text-7xl font-gilroy font-bold mb-4 text-left text-[#FF4444]">
-                    PHOTO ARCHIVE
-                </h1>
-                <p className="text-sm sm:text-base md:text-lg mb-6 text-left text-[#2F0000] tracking-widest">
+                <motion.h1
+                    className="mt-16 sm:mt-24 md:mt-36 text-7xl sm:text-8xl md:text-[96px] font-instrument-serif italic font-normal mb-4 text-left text-[#FF4444]"
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0, duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
+                >
+                    photo archive
+                </motion.h1>
+                <motion.p
+                    className="text-sm sm:text-base md:text-lg mb-6 text-left text-[#2F0000] tracking-normal"
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.08, duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
+                >
                     Collecting stories on my Kodak PIXPRO FZ55
-                </p>
+                </motion.p>
             </header>
 
             <main className="w-full max-w-4xl mx-auto px-4 flex flex-col mb-20">
@@ -80,6 +90,9 @@ export default function Photos() {
                         <motion.div
                             key={index}
                             className="relative bg-white shadow-lg rounded-md p-2 pb-10 cursor-pointer"
+                            initial={{ opacity: 0, y: 24 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.1 + index * 0.03, duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
                             whileHover={{ scale: 1.05 }}
                             style={{
                                 transform: `rotate(${index % 2 === 0 ? '-3deg' : '3deg'})`,

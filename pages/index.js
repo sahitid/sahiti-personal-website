@@ -37,7 +37,7 @@ export default function Home() {
   };
 
   return (
-    <div className="w-screen overflow-x-hidden min-h-screen text-[#FF4444] bg-[#FFEBEB] flex flex-col relative font-inter px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48">
+    <div className="w-screen overflow-x-hidden min-h-screen text-[#FF4444] bg-[#FFEBEB] flex flex-col relative font-instrument-sans px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48">
       <header className="w-full max-w-4xl mx-auto px-4 py-8">
         <div className="flex absolute left-0 top-0 m-4 sm:m-8 md:m-16">
           <motion.img
@@ -49,17 +49,27 @@ export default function Home() {
           />
         </div>
 
-        <nav className="absolute right-0 top-0 m-4 sm:m-8 md:m-16 flex flex-col space-y-2 text-[#FF4444] font-gilroy font-bold text-2xl tracking-wide leading-tight">
+        <nav className="absolute right-0 top-0 m-4 sm:m-8 md:m-16 flex flex-col space-y-2 text-[#FF4444] font-bold text-2xl tracking-wide leading-tight" style={{ fontFamily: "'Instrument Sans', sans-serif" }}>
           <span className="nav-link opacity-50 cursor-not-allowed">/home</span>
           <a href="/projects" className="nav-link transition-transform duration-300 hover:scale-105">/projects</a>
           <a href="/photos" className="nav-link transition-transform duration-300 hover:scale-105">/photos</a>
         </nav>
 
-        <h1 className="mt-16 sm:mt-24 md:mt-36 text-5xl sm:text-6xl md:text-7xl font-gilroy font-bold mb-4 text-left text-[#FF4444] leading-none">
-          <span className="block sm:inline">SAHITI</span>{' '}
-          <span className="block sm:inline">DASARI</span>
-        </h1>
-        <p className="text-sm sm:text-base md:text-lg mb-2 text-left text-[#2F0000] my-6 tracking-widest">
+        <motion.h1
+          className="mt-[28vh] text-7xl sm:text-8xl md:text-[96px] font-instrument-serif italic font-normal mb-[20px] text-left text-[#FF4444] leading-none"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0, duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
+        >
+          <span className="block sm:inline">sahiti</span>{' '}
+          <span className="block sm:inline">dasari</span>
+        </motion.h1>
+        <motion.p
+          className="text-sm sm:text-base md:text-lg mb-0 text-left text-[#2F0000] tracking-normal"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.08, duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
+        >
           I'm a{' '}
           <span className="relative inline-block">
             <Button
@@ -127,9 +137,14 @@ export default function Home() {
             )}
           </span>{' '}
           & developer in love with storytelling through human-centered technology.
-        </p>
+        </motion.p>
 
-        <div className="flex space-x-4 mb-4 mt-8">
+        <motion.div
+          className="flex space-x-4 mb-4 mt-[28px]"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.16, duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
+        >
           <a href="https://www.linkedin.com/in/sahitidasari/" target='blank' aria-label="LinkedIn Profile">
             <img src="/linkedin.svg" alt="LinkedIn Icon" className="h-6 transition-opacity duration-300 transform transition-transform duration-300 hover:scale-110" />
           </a>
@@ -142,7 +157,7 @@ export default function Home() {
           <a href="mailto:sahitid@wharton.upenn.edu" aria-label="Email">
             <img src="/mail.svg" alt="Mail Icon" className="h-6 transition-opacity duration-300 transform transition-transform duration-300 hover:scale-110" />
           </a>
-        </div>
+        </motion.div>
       </header>
       <main className="w-full max-w-4xl mx-auto px-4 flex flex-col mb-8">
       </main>

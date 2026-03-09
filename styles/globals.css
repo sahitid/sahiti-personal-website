@@ -2,7 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 /* global.css */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+::selection {
+  background: #e8321e33;
+  color: #1a0a0a;
+}
+
+::-moz-selection {
+  background: #e8321e33;
+  color: #1a0a0a;
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('/instrument-serif/Instrument_Sans/static/InstrumentSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('/instrument-serif/Instrument_Sans/static/InstrumentSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('/instrument-serif/Instrument_Sans/static/InstrumentSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('/instrument-serif/Instrument_Sans/static/InstrumentSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('/instrument-serif/Instrument_Sans/static/InstrumentSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('/instrument-serif/Instrument_Sans/static/InstrumentSans-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('/instrument-serif/Instrument_Serif/InstrumentSerif-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('/instrument-serif/Instrument_Serif/InstrumentSerif-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
 
 html.dark {
   color: #ffffff;
@@ -22,11 +95,11 @@ input:focus {
 }
 
 .body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Instrument Sans', sans-serif;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Instrument Sans', sans-serif;
   background-color: #FFEBEB;
 }
 
@@ -54,42 +127,13 @@ body::before {
   background: rgba(255, 68, 68, 1);
 }
 
-.font-inter {
-  font-family: 'Inter', sans-serif;
+.font-instrument-sans {
+  font-family: 'Instrument Sans', sans-serif;
 }
 
-@font-face {
-  font-family: 'Gilroy';
-  src: url('/gilroy-bold/Gilroy-Regular.ttf') format('truetype');
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: 'Gilroy';
-  src: url('/gilroy-bold/Gilroy-Bold.ttf') format('truetype');
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: 'Gilroy';
-  src: url('/gilroy-bold/Gilroy-Medium.ttf') format('truetype');
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: 'Gilroy';
-  src: url('/gilroy-bold/Gilroy-Light.ttf') format('truetype');
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: 'Gilroy';
-  src: url('/gilroy-bold/Gilroy-Heavy.ttf') format('truetype');
-  font-weight: 900;
-}
-
-.font-gilroy {
-  font-family: 'Gilroy', sans-serif;
+.font-instrument-serif {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
 }
 
 .underline-opacity-70 {
@@ -134,7 +178,7 @@ body::before {
 
 .custom-tooltip {
   background-color: rgba(255, 68, 68, 0.8);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Instrument Sans', sans-serif;
   font-size: x-small;
   line-height: 1.2;
   letter-spacing: 0.5px;
@@ -178,7 +222,7 @@ body::before {
     0 12px 20px -5px rgba(255, 68, 68, 0.15),
     0 6px 8px -3px rgba(255, 68, 68, 0.08),
     0 0 0 1px rgba(255, 68, 68, 0.05);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Instrument Sans', sans-serif;
   color: #2F0000;
   text-align: left;
   padding: 14px;
@@ -224,7 +268,7 @@ body::before {
 }
 
 .tooltip-title {
-  font-family: 'Gilroy', sans-serif;
+  font-family: 'Instrument Sans', sans-serif;
   font-weight: bold;
   font-size: 14px;
   color: #FF4444;
