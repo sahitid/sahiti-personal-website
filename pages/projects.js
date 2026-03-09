@@ -40,7 +40,7 @@ export default function Projects() {
         },
         {
             title: 'Catalyx',
-            description: 'Photocatalytic reactor using 3D-printed TPMS concrete and TiO\u2082 coating to treat dye wastewater with zero waste output. Partnering with Penn\'s McBride Lab, Shu Yang Lab (original technology), and Caledonian Dye Inc. for pilot deployment.',
+            description: 'Photocatalytic reactor using 3D-printed TPMS concrete and TiO\u2082 coating to treat dye wastewater with zero waste output. In partnership with Shu Yang Lab (original technology).',
             links: {
                 website: 'https://www.canva.com/design/DAHDemq-bX8/-8VuYyXFnHXL9La4BayQNw/view?utm_content=DAHDemq-bX8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6ca241828e',
                 video: 'https://youtu.be/n-rCImUiWMY'
