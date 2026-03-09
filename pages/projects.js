@@ -23,6 +23,30 @@ export default function Projects() {
     };
     const projects = [
         {
+            title: 'Penn Meal Swipes',
+            description: 'Community-driven platform that connects underclassmen who have extra meal swipes with upperclassmen who would love to share a meal.',
+            links: {
+                website: 'https://penn-meal-swipes.vercel.app/',
+                github: 'https://github.com/sahitid/penn-meal-swipes'
+            }
+        },
+        {
+            title: 'Solis',
+            description: 'Chrome extension that connects to your calendar and uses AI to detect scheduling conflicts, automatically finding better times.',
+            links: {
+                github: 'https://github.com/sahitid/solis',
+                video: 'https://youtu.be/uYxkm5oJpWY'
+            }
+        },
+        {
+            title: 'Catalyx',
+            description: 'Photocatalytic reactor using 3D-printed TPMS concrete and TiO\u2082 coating to treat dye wastewater with zero waste output. Partnering with Penn\'s McBride Lab, Shu Yang Lab (original technology), and Caledonian Dye Inc. for pilot deployment.',
+            links: {
+                website: 'https://www.canva.com/design/DAHDemq-bX8/-8VuYyXFnHXL9La4BayQNw/view?utm_content=DAHDemq-bX8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6ca241828e',
+                video: 'https://youtu.be/n-rCImUiWMY'
+            }
+        },
+        {
             title: 'PreSeed',
             description: 'Hands-free Apple Vision Pro accessibility app that provides real-time scene understanding and spatial awareness through AI audio descriptions for vision impairment and blindness.',
             links: {
