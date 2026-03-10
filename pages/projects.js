@@ -342,7 +342,6 @@ export default function Projects() {
                                     animate="visible"
                                     custom={index + 2}
                                 >
-                                    <span className="font-instrument-serif italic text-[13px] text-[#e8321eaa] mb-2 block">{String(index + 1).padStart(2, '0')}</span>
                                     <h3 className={`text-[16px] font-semibold text-[#1a0a0a] tracking-wide font-instrument-sans mb-2 ${project.links.website ? 'transition-all duration-300 group-hover:translate-x-1.5 group-hover:text-[#e8321e]' : ''}`}>
                                         {project.links.website ? (
                                             <a href={project.links.website} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5">
