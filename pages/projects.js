@@ -320,11 +320,10 @@ export default function Projects() {
                             <button
                                 key={cat}
                                 onClick={() => setActiveFilter(cat)}
-                                className={`text-[14px] bg-transparent border-none p-0 cursor-pointer transition-all duration-200 ${
-                                    activeFilter === cat
+                                className={`text-[14px] bg-transparent border-none p-0 cursor-pointer transition-all duration-200 ${activeFilter === cat
                                         ? 'font-bold text-[#e8321e]'
                                         : 'font-medium text-[#e8321eaa]'
-                                }`}
+                                    }`}
                             >
                                 {cat}
                             </button>
