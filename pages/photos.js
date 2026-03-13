@@ -1,10 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 
 export default function Photos() {
     const controls = useAnimation();
     const [isSpinning, setIsSpinning] = useState(false);
     const [selectedPhoto, setSelectedPhoto] = useState(null);
+    const [straightened, setStraightened] = useState(new Set());
+
+    const randomRotations = useMemo(
+        () => Array.from({ length: 51 }, () => (Math.random() - 0.5) * 10),
+        []
+    );
+
+    const handleHover = (index) => {
+        setStraightened((prev) => new Set(prev).add(index));
+    };
 
     const handleSpin = async () => {
         if (!isSpinning) {
@@ -90,13 +100,11 @@ export default function Photos() {
                         <motion.div
                             key={index}
                             className="relative bg-white shadow-lg rounded-md p-2 pb-10 cursor-pointer"
-                            initial={{ opacity: 0, y: 24 }}
-                            animate={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, y: 24, rotate: randomRotations[index] }}
+                            animate={{ opacity: 1, y: 0, rotate: straightened.has(index) ? 0 : randomRotations[index] }}
                             transition={{ delay: 0.1 + index * 0.03, duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
-                            whileHover={{ scale: 1.05 }}
-                            style={{
-                                transform: `rotate(${index % 2 === 0 ? '-3deg' : '3deg'})`,
-                            }}
+                            whileHover={{ scale: 1.05, rotate: 0, transition: { duration: 0.15, delay: 0 } }}
+                            onHoverStart={() => handleHover(index)}
                             onClick={() => handlePhotoClick(photo, index)}
                         >
                             <img
