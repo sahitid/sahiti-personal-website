@@ -41,8 +41,8 @@ export default function Photos() {
     };
 
     const getPhotoExtension = (photoNumber) => {
-        // Photos 1-33 are .jpg, photos 34-51 are .JPG & i'm too lazy to change the file types
-        return photoNumber <= 33 ? 'jpg' : 'JPG';
+        if (photoNumber <= 33 || photoNumber >= 52) return 'jpg';
+        return 'JPG';
     };
 
     const photoData = Array.from({ length: 58 }, (_, i) => {
