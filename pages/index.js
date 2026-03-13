@@ -49,7 +49,7 @@ export default function Home() {
           />
         </div>
 
-        <nav className="absolute right-0 top-0 m-4 sm:m-8 md:m-16 flex flex-col space-y-2 text-[#FF4444] font-bold text-2xl tracking-wide leading-tight" style={{ fontFamily: "'Instrument Sans', sans-serif" }}>
+        <nav className="absolute right-0 top-0 m-4 sm:m-8 md:m-16 flex flex-col space-y-2 text-[#FF4444] font-medium text-2xl tracking-normal">
           <span className="nav-link opacity-50 cursor-not-allowed">/home</span>
           <a href="/projects" className="nav-link transition-transform duration-300 hover:scale-105">/projects</a>
           <a href="/photos" className="nav-link transition-transform duration-300 hover:scale-105">/photos</a>

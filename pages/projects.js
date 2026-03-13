@@ -291,7 +291,7 @@ export default function Projects() {
                         />
                     </div>
 
-                    <nav className="absolute right-0 top-0 m-4 sm:m-8 md:m-16 flex flex-col space-y-2 text-[#e8321e] font-bold text-2xl tracking-wide leading-tight" style={{ fontFamily: "'Instrument Sans', sans-serif" }}>
+                    <nav className="absolute right-0 top-0 m-4 sm:m-8 md:m-16 flex flex-col space-y-2 text-[#e8321e] font-medium text-2xl tracking-normal">
                         <a href="/" className="nav-link transition-transform duration-300 hover:scale-105">/home</a>
                         <span className="nav-link opacity-50 cursor-not-allowed">/projects</span>
                         <a href="/photos" className="nav-link transition-transform duration-300 hover:scale-105">/photos</a>
