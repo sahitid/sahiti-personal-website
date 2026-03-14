@@ -26,6 +26,15 @@ export default function Projects() {
 
     const projects = [
         {
+            title: 'Social Experiments',
+            categories: ['Research'],
+            date: 'Spring 2026',
+            description: 'Monthly behavioral psychology experiments exploring the mechanics of everyday human behavior.',
+            links: {
+                website: 'https://sahitid.substack.com/s/social-experiments'
+            }
+        },
+        {
             title: 'Penn Meal Swipes',
             categories: ['Web'],
             description: 'Community-driven platform that connects underclassmen who have extra meal swipes with upperclassmen who would love to share a meal.',
