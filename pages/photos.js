@@ -72,6 +72,7 @@ export default function Photos() {
             <nav className="absolute right-0 top-0 m-4 sm:m-8 md:m-16 flex flex-col space-y-2 text-[#FF4444] font-medium text-2xl tracking-normal">
                 <a href="/" className="nav-link transition-transform duration-300 hover:scale-105">/home</a>
                 <a href="/projects" className="nav-link transition-transform duration-300 hover:scale-105">/projects</a>
+                <a href="https://sahitid.substack.com/" target="_blank" rel="noopener noreferrer" className="nav-link transition-transform duration-300 hover:scale-105">/writing</a>
                 <span className="nav-link opacity-50 cursor-not-allowed">/photos</span>
             </nav>
 

@@ -52,6 +52,7 @@ export default function Home() {
         <nav className="absolute right-0 top-0 m-4 sm:m-8 md:m-16 flex flex-col space-y-2 text-[#FF4444] font-medium text-2xl tracking-normal">
           <span className="nav-link opacity-50 cursor-not-allowed">/home</span>
           <a href="/projects" className="nav-link transition-transform duration-300 hover:scale-105">/projects</a>
+          <a href="https://sahitid.substack.com/" target="_blank" rel="noopener noreferrer" className="nav-link transition-transform duration-300 hover:scale-105">/writing</a>
           <a href="/photos" className="nav-link transition-transform duration-300 hover:scale-105">/photos</a>
         </nav>
 
@@ -153,6 +154,9 @@ export default function Home() {
           </a>
           <a href="https://github.com/sahitid" target='blank' aria-label="GitHub Profile">
             <img src="/github.svg" alt="GitHub Icon" className="h-6 transition-opacity duration-300 transform transition-transform duration-300 hover:scale-110" />
+          </a>
+          <a href="https://substack.com/@sahitid" target='_blank' rel="noopener noreferrer" aria-label="Substack">
+            <img src="/substack.svg" alt="Substack Icon" className="h-6 transition-opacity duration-300 transform transition-transform duration-300 hover:scale-110" />
           </a>
           <a href="mailto:sahitid@wharton.upenn.edu" aria-label="Email">
             <img src="/mail.svg" alt="Mail Icon" className="h-6 transition-opacity duration-300 transform transition-transform duration-300 hover:scale-110" />
