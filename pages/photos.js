@@ -8,7 +8,7 @@ export default function Photos() {
     const [straightened, setStraightened] = useState(new Set());
 
     const randomRotations = useMemo(
-        () => Array.from({ length: 58 }, () => (Math.random() - 0.5) * 10),
+        () => Array.from({ length: 75 }, () => (Math.random() - 0.5) * 10),
         []
     );
 
@@ -41,11 +41,11 @@ export default function Photos() {
     };
 
     const getPhotoExtension = (photoNumber) => {
-        if (photoNumber <= 33 || photoNumber >= 52) return 'jpg';
+        if (photoNumber <= 33 || (photoNumber >= 52 && photoNumber <= 58)) return 'jpg';
         return 'JPG';
     };
 
-    const photoData = Array.from({ length: 58 }, (_, i) => {
+    const photoData = Array.from({ length: 75 }, (_, i) => {
         const photoNumber = i + 1;
         const extension = getPhotoExtension(photoNumber);
         return {
