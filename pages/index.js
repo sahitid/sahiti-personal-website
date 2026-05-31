@@ -62,8 +62,8 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0, duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          <span className="block sm:inline">sahiti</span>{' '}
-          <span className="block sm:inline">dasari</span>
+          <span className="block sm:inline">Sahiti</span>{' '}
+          <span className="block sm:inline">Dasari</span>
         </motion.h1>
         <motion.p
           className="text-sm sm:text-base md:text-lg mb-0 text-left text-[#2F0000] tracking-normal"
