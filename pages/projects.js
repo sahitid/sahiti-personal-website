@@ -26,6 +26,76 @@ export default function Projects() {
 
     const projects = [
         {
+            title: 'FoundHer House',
+            categories: ['Community'],
+            date: 'Summer 2026',
+            description: 'Selected as 1 of 8 founding teams at SF\u2019s FoundHer House, the only all-female hacker house in the world. Covered by NYT, USA Today, Fox News, Apple, and GeekWire.',
+            links: {
+                website: 'https://www.foundherhouse.org/'
+            }
+        },
+        {
+            title: '8 Minutes',
+            categories: ['Web'],
+            description: 'Pairs you with a stranger for one eight-minute conversation. Not therapy, not a date, just a short talk with someone who\u2019s actually listening.',
+            links: {
+                website: 'https://8minutes.vercel.app/',
+                github: 'https://github.com/sahitid/8minutes'
+            }
+        },
+        {
+            title: 'Adult Field Day',
+            categories: ['Events'],
+            date: 'June 2026',
+            description: 'Organized a full-scale field day for adults in San Francisco: bouncy castle, giant parachute, tie-dye, water balloon fights, sack races, tug of war, and popsicles.',
+            links: {
+                website: 'https://vroomevents.com/events/adult-field-day'
+            }
+        },
+        {
+            title: 'Ukulele Poetry',
+            categories: ['AI/ML', 'Web'],
+            description: 'Live performance app that listens to the room, reads the mood of your ukulele chords, and improvises a poem in real time.',
+            links: {
+                website: 'https://ukulele-poetry.vercel.app/',
+                github: 'https://github.com/sahitid/ukulele-poetry'
+            }
+        },
+        {
+            title: 'Rough Draft 02',
+            categories: ['Events'],
+            date: 'June 2026',
+            description: 'Co-hosted an intimate demo night where designers and curious minds show, tell, and get inspired by works-in-progress.',
+            links: {
+                website: 'https://vroomevents.com/events/rough-draft-02'
+            }
+        },
+        {
+            title: 'Engineering @ Vroom',
+            categories: ['AI/ML', 'Web', 'App', 'Community'],
+            description: 'Intentional software for live experiences that treats each event as a choreography of venue, vendors, and people.',
+            links: {
+                website: 'https://vroomevents.com/'
+            }
+        },
+        {
+            title: 'TidBit',
+            categories: ['App'],
+            description: 'Mobile marketplace connecting local eateries with micro-influencers, trading exclusive deals for organic, user-generated social content.',
+            links: {
+                website: 'https://tidbit-app.vercel.app/'
+            }
+        },
+        {
+            title: 'Pitch Deck Game',
+            categories: ['Web'],
+            description: 'Cards Against Humanity-style multiplayer game where players mash real startup and tech cards into the most absurd, fundable-sounding pitches imaginable.',
+            links: {
+                website: 'https://pitch-deck-game.vercel.app/',
+                github: 'https://github.com/sahitid/pitch-deck-game'
+            }
+        },
+        {
             title: 'Social Experiments',
             categories: ['Research'],
             date: 'Spring 2026',
