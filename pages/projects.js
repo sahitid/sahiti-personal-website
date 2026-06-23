@@ -31,13 +31,14 @@ export default function Projects() {
             date: 'Summer 2026',
             description: 'Selected as 1 of 8 founding teams at SF\u2019s FoundHer House, the only all-female hacker house in the world. Covered by NYT, USA Today, Fox News, Apple, and GeekWire.',
             links: {
-                website: 'https://www.foundherhouse.org/'
+                website: 'https://www.foundherhouse.org/',
+                award: 'https://www.nytimes.com/2025/08/23/business/ai-female-hackers-foundher-house.html'
             }
         },
         {
             title: '8 Minutes',
             categories: ['Web'],
-            description: 'Pairs you with a stranger for one eight-minute conversation. Not therapy, not a date, just a short talk with someone who\u2019s actually listening.',
+            description: 'Web app that pairs you with a stranger for a single eight-minute conversation, with no profiles and no agenda beyond actually listening.',
             links: {
                 website: 'https://8minutes.vercel.app/',
                 github: 'https://github.com/sahitid/8minutes'
