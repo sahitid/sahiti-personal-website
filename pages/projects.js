@@ -48,7 +48,7 @@ export default function Projects() {
             title: 'Adult Field Day',
             categories: ['Events'],
             date: 'June 2026',
-            description: 'Organized a full-scale field day for adults in San Francisco: bouncy castle, giant parachute, tie-dye, water balloon fights, sack races, tug of war, and popsicles.',
+            description: 'Organized a full-scale field day for adults: bouncy castle, giant parachute, tie-dye, water balloon fights, sack races, tug of war, and popsicles.',
             links: {
                 website: 'https://vroomevents.com/events/adult-field-day'
             }
@@ -74,7 +74,7 @@ export default function Projects() {
         {
             title: 'Engineering @ Vroom',
             categories: ['AI/ML', 'Web', 'App', 'Community'],
-            description: 'Intentional software for live experiences that treats each event as a choreography of venue, vendors, and people.',
+            description: 'Building intentional software for live experiences that treats each event as a choreography of venue, vendors, and people.',
             links: {
                 website: 'https://vroomevents.com/'
             }
