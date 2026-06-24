@@ -27,7 +27,7 @@ export default function Projects() {
     const projects = [
         {
             title: 'FoundHer House',
-            categories: ['Community'],
+            categories: ['Community', 'Web'],
             date: 'Summer 2026',
             description: 'Selected as 1 of 8 founding teams at SF\u2019s FoundHer House, the only all-female hacker house in the world. Covered by NYT, USA Today, Fox News, Apple, and GeekWire.',
             links: {
