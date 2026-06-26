@@ -57,7 +57,7 @@ export default function Home() {
         </nav>
 
         <motion.h1
-          className="mt-[28vh] text-7xl sm:text-8xl md:text-[96px] font-instrument-serif italic font-normal mb-[20px] text-left text-[#FF4444] leading-none"
+          className="mt-32 sm:mt-[28vh] text-7xl sm:text-8xl md:text-[96px] font-instrument-serif italic font-normal mb-[20px] text-left text-[#FF4444] leading-none"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0, duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
