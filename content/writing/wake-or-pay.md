@@ -18,11 +18,11 @@ i read nudge by thaler and sunstein over break. it’s a book about choice archi
 
 the part that stayed with me was a story about a graduate student who couldn’t finish his dissertation. he knew he needed to. the financial stakes of not finishing were enormous: another year of tuition, lost income, all of it. and still, every day, he procrastinated.
 
-so he did something drastic. he wrote several $100 checks to his dissertation advisor and handed them over. the deal: if he missed his section deadlines, the advisor would cash them. and not just cash them. use the money to throw a massive party and invite everyone in the department, except him (oh, the horror).
+so he did something drastic. he wrote several \$100 checks to his dissertation advisor and handed them over. the deal: if he missed his section deadlines, the advisor would cash them. and not just cash them. use the money to throw a massive party and invite everyone in the department, except him (oh, the horror).
 
 it worked perfectly.
 
-not because $100 outweighed the cost of an extra year of school (it didn’t, not even close). but because the $100 was immediate. the party was vivid. the abstract future consequence of failing your dissertation lives somewhere theoretical in your brain. the very specific image of your colleagues drinking wine you paid for, while you sit at home, does not.
+not because \$100 outweighed the cost of an extra year of school (it didn’t, not even close). but because the \$100 was immediate. the party was vivid. the abstract future consequence of failing your dissertation lives somewhere theoretical in your brain. the very specific image of your colleagues drinking wine you paid for, while you sit at home, does not.
 
 that’s what thaler and sunstein call a commitment device. your rational self (the planner) sets up a trap for your impulsive self (the doer) before the doer gets a chance to make excuses.
 
