@@ -103,8 +103,9 @@ body {
   background-color: #FFEBEB;
 }
 
-html,
-body {
+/* Kept on html only: overflow-x hidden on body breaks position: sticky
+   (used by the table of contents on /writing posts). */
+html {
   overflow-x: hidden;
 }
 
@@ -286,4 +287,305 @@ body::before {
 
 .button-no-outline {
   outline: none;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Essay pages (/writing/[slug])                                          */
+/* ---------------------------------------------------------------------- */
+
+.essay-prose {
+  color: #1a0a0a;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 15.5px;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+.essay-prose h2 {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.2;
+  color: #e8321e;
+  margin: 2em 0 0.6em;
+  scroll-margin-top: 96px;
+}
+
+.essay-prose h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1a0a0a;
+  margin: 1.8em 0 0.5em;
+  scroll-margin-top: 96px;
+}
+
+.essay-prose h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a0a0a;
+  margin: 1.6em 0 0.4em;
+}
+
+.essay-prose > *:first-child {
+  margin-top: 0;
+}
+
+.essay-prose p {
+  margin: 0 0 1.15em;
+}
+
+.essay-prose a {
+  color: #e8321e;
+  text-decoration: underline;
+  text-decoration-color: rgba(232, 50, 30, 0.35);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2.5px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.essay-prose a:hover {
+  text-decoration-color: #e8321e;
+}
+
+.essay-prose strong {
+  font-weight: 600;
+}
+
+.essay-prose ul,
+.essay-prose ol {
+  margin: 0 0 1.15em;
+  padding-left: 1.3em;
+}
+
+.essay-prose ul {
+  list-style: disc outside;
+}
+
+.essay-prose ol {
+  list-style: decimal outside;
+}
+
+.essay-prose ul ul {
+  list-style: circle outside;
+  margin-bottom: 0;
+}
+
+.essay-prose li {
+  margin: 0.35em 0;
+}
+
+.essay-prose li::marker {
+  color: rgba(232, 50, 30, 0.55);
+}
+
+.essay-prose blockquote {
+  border-left: 2px solid #e8321e;
+  color: #5c3a3a;
+  margin: 1.6em 0;
+  padding: 0.2em 0 0.2em 1.2em;
+}
+
+.essay-prose blockquote p {
+  margin: 0.3em 0;
+}
+
+.essay-prose hr {
+  border: none;
+  border-top: 1px solid #e8b4b4aa;
+  margin: 2.6em 0;
+}
+
+.essay-prose code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  background: rgba(232, 50, 30, 0.08);
+  border-radius: 4px;
+  padding: 0.12em 0.4em;
+  font-size: 0.84em;
+}
+
+.essay-prose pre {
+  background: #fdf2f2;
+  border: 1px solid #e8b4b466;
+  border-radius: 8px;
+  margin: 1.5em 0;
+  padding: 16px 18px;
+  line-height: 1.55;
+  overflow-x: auto;
+}
+
+.essay-prose pre code {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  font-size: 13px;
+  color: #1a0a0a;
+}
+
+/* Syntax highlighting (rehype-highlight), warm palette to match the site */
+.essay-prose .hljs-comment,
+.essay-prose .hljs-quote {
+  color: #a08585;
+  font-style: italic;
+}
+
+.essay-prose .hljs-keyword,
+.essay-prose .hljs-selector-tag,
+.essay-prose .hljs-tag,
+.essay-prose .hljs-name {
+  color: #c22415;
+}
+
+.essay-prose .hljs-string,
+.essay-prose .hljs-regexp,
+.essay-prose .hljs-addition {
+  color: #8a5a00;
+}
+
+.essay-prose .hljs-number,
+.essay-prose .hljs-literal,
+.essay-prose .hljs-symbol,
+.essay-prose .hljs-bullet {
+  color: #9c4221;
+}
+
+.essay-prose .hljs-title,
+.essay-prose .hljs-function .hljs-title,
+.essay-prose .hljs-section,
+.essay-prose .hljs-attr,
+.essay-prose .hljs-attribute {
+  color: #7c2d12;
+  font-weight: 500;
+}
+
+.essay-prose .hljs-built_in,
+.essay-prose .hljs-type,
+.essay-prose .hljs-variable,
+.essay-prose .hljs-template-variable {
+  color: #b3541e;
+}
+
+/* Tables */
+.essay-table-wrap {
+  overflow-x: auto;
+  margin: 1.5em 0;
+}
+
+.essay-prose table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+}
+
+.essay-prose th,
+.essay-prose td {
+  border: 1px solid #e8b4b4aa;
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.essay-prose th {
+  background: rgba(232, 50, 30, 0.06);
+  font-weight: 600;
+}
+
+/* Figures with captions: ![alt](src "caption") */
+.essay-figure {
+  display: block;
+  margin: 1.8em 0;
+}
+
+.essay-figure img,
+.essay-figure video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid #e8b4b466;
+}
+
+.essay-figcaption {
+  display: block;
+  margin-top: 0.6em;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #a06060;
+  text-align: center;
+}
+
+/* Math (KaTeX) */
+.essay-prose .katex-display {
+  margin: 1.4em 0;
+  padding: 0.4em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.essay-prose .katex {
+  font-size: 1.05em;
+}
+
+/* Footnotes (GFM) */
+.essay-prose .footnotes {
+  margin-top: 3em;
+  padding-top: 1.2em;
+  border-top: 1px solid #e8b4b4aa;
+  font-size: 13.5px;
+  color: #5c3a3a;
+}
+
+.essay-prose .footnotes h2 {
+  display: none;
+}
+
+.essay-prose [data-footnote-ref] {
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0 2px;
+}
+
+/* Glossary terms: <span class="gloss" data-gloss="definition">term</span> */
+.essay-prose .gloss {
+  text-decoration: underline dotted;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(232, 50, 30, 0.45);
+  text-underline-offset: 3px;
+  cursor: help;
+  transition: text-decoration-color 0.15s ease;
+}
+
+.essay-prose .gloss:hover {
+  text-decoration-color: #e8321e;
+}
+
+.gloss-bubble {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 70;
+  max-width: 280px;
+  margin: 0;
+  padding: 10px 13px;
+  background: #fff6f6;
+  color: #2f0000;
+  border: 1px solid #e8321e;
+  border-radius: 10px;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition: opacity 0.16s ease, transform 0.16s ease;
+  box-shadow: 0 8px 28px rgba(232, 50, 30, 0.18), 0 2px 8px rgba(232, 50, 30, 0.1);
+}
+
+.gloss-bubble.is-visible {
+  opacity: 1;
+  transform: none;
 }

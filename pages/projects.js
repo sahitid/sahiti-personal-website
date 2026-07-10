@@ -374,7 +374,7 @@ export default function Projects() {
                     <nav className="absolute right-0 top-0 m-4 sm:m-8 md:m-16 flex flex-row flex-wrap justify-end gap-x-4 gap-y-1 sm:flex-col sm:gap-x-0 sm:gap-y-2 text-[#e8321e] font-instrument-serif italic font-normal text-base sm:text-2xl tracking-normal">
                         <a href="/" className="nav-link transition-transform duration-300 hover:scale-105">/home</a>
                         <span className="nav-link opacity-50 cursor-not-allowed">/projects</span>
-                        <a href="https://sahitid.substack.com/" target="_blank" rel="noopener noreferrer" className="nav-link transition-transform duration-300 hover:scale-105">/writing</a>
+                        <a href="/writing" className="nav-link transition-transform duration-300 hover:scale-105">/writing</a>
                         <a href="/photos" className="nav-link transition-transform duration-300 hover:scale-105">/photos</a>
                     </nav>
 
