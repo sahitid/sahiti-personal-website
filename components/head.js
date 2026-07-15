@@ -24,12 +24,33 @@ export default function HeadObject({ children }) {
       />
       {/* <meta name="theme-color" content={darkSearchBarColor} media="(prefers-color-scheme: dark)" /> */}
       {url ? <meta property="og:url" content={url} /> : ""}
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta name="twitter:card" content="summary" />
+      <meta property="og:type" content="website" key="og:type" />
+      <meta property="og:title" content={title} key="og:title" />
+      <meta
+        property="og:description"
+        content={description}
+        key="og:description"
+      />
+      <meta property="og:image" content={`${url}/api/og`} key="og:image" />
+      <meta property="og:image:width" content="1200" key="og:image:width" />
+      <meta property="og:image:height" content="630" key="og:image:height" />
+      <meta
+        property="og:image:alt"
+        content="Sahiti Dasari — personal website"
+        key="og:image:alt"
+      />
+      <meta
+        name="twitter:card"
+        content="summary_large_image"
+        key="twitter:card"
+      />
       <meta name="twitter:site" content={twitter} />
       <meta name="twitter:creator" content={twitter} />
+      <meta
+        name="twitter:image"
+        content={`${url}/api/og`}
+        key="twitter:image"
+      />
       {/* Add analytics here */}
       {children}
     </Head>

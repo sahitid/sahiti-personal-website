@@ -233,9 +233,12 @@ export default function WritingPost({ post }) {
             <Head>
                 <title>{`${post.title} - Sahiti Dasari`}</title>
                 <meta name="description" content={post.description || post.title} />
-                <meta property="og:type" content="article" />
-                <meta property="og:title" content={`${post.title} - Sahiti Dasari`} />
-                <meta property="og:description" content={post.description || post.title} />
+                <meta property="og:type" content="article" key="og:type" />
+                <meta property="og:title" content={`${post.title} - Sahiti Dasari`} key="og:title" />
+                <meta property="og:description" content={post.description || post.title} key="og:description" />
+                <meta property="og:image" content={`https://sahiti.dev/api/og?title=${encodeURIComponent(post.title)}`} key="og:image" />
+                <meta property="og:image:alt" content={post.title} key="og:image:alt" />
+                <meta name="twitter:image" content={`https://sahiti.dev/api/og?title=${encodeURIComponent(post.title)}`} key="twitter:image" />
             </Head>
             <div className="w-screen min-h-screen text-[#e8321e] bg-[#fce8e8] flex flex-col relative font-instrument-sans px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48">
                 <header className="w-full max-w-4xl mx-auto px-4 py-8">
