@@ -31,12 +31,16 @@ export default function HeadObject({ children }) {
         content={description}
         key="og:description"
       />
-      <meta property="og:image" content={`${url}/api/og`} key="og:image" />
+      <meta
+        property="og:image"
+        content={`${url}/og-photo.jpg`}
+        key="og:image"
+      />
       <meta property="og:image:width" content="1200" key="og:image:width" />
       <meta property="og:image:height" content="630" key="og:image:height" />
       <meta
         property="og:image:alt"
-        content="Sahiti Dasari — personal website"
+        content="Sunset at the beach — Sahiti Dasari's personal website"
         key="og:image:alt"
       />
       <meta
@@ -48,7 +52,7 @@ export default function HeadObject({ children }) {
       <meta name="twitter:creator" content={twitter} />
       <meta
         name="twitter:image"
-        content={`${url}/api/og`}
+        content={`${url}/og-photo.jpg`}
         key="twitter:image"
       />
       {/* Add analytics here */}
