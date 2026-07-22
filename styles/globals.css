@@ -109,6 +109,16 @@ html {
   overflow-x: hidden;
 }
 
+/* Match the site's pink so rubber-band overscroll isn't white.
+   html:root outranks NextUI's `:root, [data-theme]` white background. */
+html:root {
+  background-color: #FFEBEB;
+}
+
+html:root.dark {
+  background-color: #000000;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }

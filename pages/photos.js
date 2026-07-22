@@ -7,8 +7,12 @@ export default function Photos() {
     const [selectedPhoto, setSelectedPhoto] = useState(null);
     const [straightened, setStraightened] = useState(new Set());
 
+    // Deterministic pseudo-random tilt so server and client render identical styles
     const randomRotations = useMemo(
-        () => Array.from({ length: 75 }, () => (Math.random() - 0.5) * 10),
+        () => Array.from({ length: 75 }, (_, i) => {
+            const seed = Math.sin(i * 997 + 31) * 10000;
+            return (seed - Math.floor(seed) - 0.5) * 10;
+        }),
         []
     );
 
