@@ -6,6 +6,7 @@ export default function Photos() {
     const controls = useAnimation();
     const [isSpinning, setIsSpinning] = useState(false);
     const [selectedPhoto, setSelectedPhoto] = useState(null);
+    const [hiResLoaded, setHiResLoaded] = useState(false);
     const [straightened, setStraightened] = useState(new Set());
 
     // Deterministic pseudo-random tilt so server and client render identical
@@ -41,6 +42,7 @@ export default function Photos() {
     };
 
     const handlePhotoClick = (photo, index) => {
+        setHiResLoaded(false);
         setSelectedPhoto({ ...photo, index });
     };
 
@@ -138,22 +140,32 @@ export default function Photos() {
                         onClick={handleCloseModal}
                     >
                         <motion.div
-                            className="relative max-w-4xl max-h-[90vh] bg-white rounded-lg p-4 shadow-2xl"
+                            className="relative w-[min(92vw,106vh,56rem)] bg-white rounded-lg p-4 shadow-2xl"
                             initial={{ scale: 0.8, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.8, opacity: 0 }}
                             transition={{ duration: 0.3 }}
                             onClick={(e) => e.stopPropagation()}
                         >
-
-                            <Image
-                                src={selectedPhoto.src}
-                                alt={`photo-${selectedPhoto.index + 1}`}
-                                width={1600}
-                                height={1200}
-                                sizes="100vw"
-                                className="w-full h-auto max-h-[80vh] object-contain rounded-sm"
-                            />
+                            {/* Reserve the 4:3 box and show the cached grid
+                                thumbnail while the hi-res version loads */}
+                            <div className="relative w-full aspect-[4/3]">
+                                <Image
+                                    src={selectedPhoto.src}
+                                    alt={`photo-${selectedPhoto.index + 1}`}
+                                    fill
+                                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 300px"
+                                    className="object-contain rounded-sm"
+                                />
+                                <Image
+                                    src={selectedPhoto.src}
+                                    alt=""
+                                    fill
+                                    sizes="100vw"
+                                    onLoad={() => setHiResLoaded(true)}
+                                    className={`object-contain rounded-sm transition-opacity duration-300 ${hiResLoaded ? 'opacity-100' : 'opacity-0'}`}
+                                />
+                            </div>
                         </motion.div>
                     </motion.div>
                 )}
