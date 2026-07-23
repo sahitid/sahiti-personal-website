@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import Image from 'next/image';
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 
 export default function Photos() {
@@ -7,11 +8,14 @@ export default function Photos() {
     const [selectedPhoto, setSelectedPhoto] = useState(null);
     const [straightened, setStraightened] = useState(new Set());
 
-    // Deterministic pseudo-random tilt so server and client render identical styles
+    // Deterministic pseudo-random tilt so server and client render identical
+    // styles (integer hash — bit-exact across JS engines, unlike Math.sin)
     const randomRotations = useMemo(
         () => Array.from({ length: 75 }, (_, i) => {
-            const seed = Math.sin(i * 997 + 31) * 10000;
-            return (seed - Math.floor(seed) - 0.5) * 10;
+            let t = Math.imul(i + 1, 2654435761);
+            t = Math.imul(t ^ (t >>> 15), t | 1);
+            t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+            return (((t ^ (t >>> 14)) >>> 0) / 4294967296 - 0.5) * 10;
         }),
         []
     );
@@ -56,9 +60,6 @@ export default function Photos() {
             src: `/images/photo${photoNumber}.${extension}`
         };
     });
-
-    console.log(photoData);
-
 
     return (
         <div className="w-screen overflow-x-hidden min-h-screen text-[#FF4444] bg-[#FFEBEB] flex flex-col relative font-instrument-sans px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48">
@@ -107,14 +108,18 @@ export default function Photos() {
                             className="relative bg-white shadow-lg rounded-md p-2 pb-10 cursor-pointer"
                             initial={{ opacity: 0, y: 24, rotate: randomRotations[index] }}
                             animate={{ opacity: 1, y: 0, rotate: straightened.has(index) ? 0 : randomRotations[index] }}
-                            transition={{ delay: 0.1 + index * 0.03, duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
+                            transition={{ delay: Math.min(0.1 + index * 0.03, 0.7), duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
                             whileHover={{ scale: 1.05, rotate: 0, transition: { duration: 0.15, delay: 0 } }}
                             onHoverStart={() => handleHover(index)}
                             onClick={() => handlePhotoClick(photo, index)}
                         >
-                            <img
+                            <Image
                                 src={photo.src}
                                 alt={`photo-${index + 1}`}
+                                width={1200}
+                                height={900}
+                                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 300px"
+                                priority={index < 6}
                                 className="w-full h-auto rounded-sm"
                             />
                         </motion.div>
@@ -141,9 +146,12 @@ export default function Photos() {
                             onClick={(e) => e.stopPropagation()}
                         >
 
-                            <img
+                            <Image
                                 src={selectedPhoto.src}
                                 alt={`photo-${selectedPhoto.index + 1}`}
+                                width={1600}
+                                height={1200}
+                                sizes="100vw"
                                 className="w-full h-auto max-h-[80vh] object-contain rounded-sm"
                             />
                         </motion.div>
