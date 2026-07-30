@@ -36,6 +36,15 @@ export default function Projects() {
             }
         },
         {
+            title: 'Less',
+            categories: ['App'],
+            description: 'iOS app that turns your iPhone into a dumbphone: a text-only home screen with the apps you need, and a deep breath before the ones you don’t. Inspired by Blank Spaces.',
+            links: {
+                website: 'https://getless.vercel.app/',
+                github: 'https://github.com/sahitid/less-app'
+            }
+        },
+        {
             title: '8 Minutes',
             categories: ['Web'],
             description: 'Web app that pairs you with a stranger for a single eight-minute conversation, with no profiles and no agenda beyond actually listening.',
