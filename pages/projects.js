@@ -26,22 +26,22 @@ export default function Projects() {
 
     const projects = [
         {
-            title: 'FoundHer House',
-            categories: ['Community', 'Web'],
-            date: 'Summer 2026',
-            description: 'Selected as 1 of 8 founding teams at SF\u2019s FoundHer House, the only all-female hacker house in the world. Covered by NYT, USA Today, Fox News, Apple, and GeekWire.',
-            links: {
-                website: 'https://www.foundherhouse.org/',
-                award: 'https://www.nytimes.com/2025/08/23/business/ai-female-hackers-foundher-house.html'
-            }
-        },
-        {
             title: 'Less',
             categories: ['App'],
             description: 'iOS app that turns your iPhone into a dumbphone: a text-only home screen with the apps you need, and a deep breath before the ones you don’t. Inspired by Blank Spaces.',
             links: {
                 website: 'https://getless.vercel.app/',
                 github: 'https://github.com/sahitid/less-app'
+            }
+        },
+        {
+            title: 'FoundHer House',
+            categories: ['Community', 'Web'],
+            date: 'Summer 2026',
+            description: 'Selected as 1 of 8 founding teams at SF’s FoundHer House, the only all-female hacker house in the world. Covered by NYT, USA Today, Fox News, Apple, and GeekWire.',
+            links: {
+                website: 'https://www.foundherhouse.org/',
+                award: 'https://www.nytimes.com/2025/08/23/business/ai-female-hackers-foundher-house.html'
             }
         },
         {
