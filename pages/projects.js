@@ -26,6 +26,15 @@ export default function Projects() {
 
     const projects = [
         {
+            title: 'Proofread',
+            categories: ['Web'],
+            description: 'Web app for getting your Substack drafts proofread by friends: share a draft for suggestions and comments, then sync the edits straight back to Substack.',
+            links: {
+                website: 'https://substack-proofread.vercel.app/',
+                github: 'https://github.com/sahitid/substack-proofread'
+            }
+        },
+        {
             title: 'Less',
             categories: ['App'],
             description: 'iOS app that turns your iPhone into a dumbphone: a text-only home screen with the apps you need, and a deep breath before the ones you don’t. Inspired by Blank Spaces.',
