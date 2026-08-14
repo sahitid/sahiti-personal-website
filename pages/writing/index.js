@@ -120,7 +120,7 @@ export default function Writing({ posts }) {
                 <footer className="w-full max-w-4xl mx-auto px-4 py-4 text-[#e8321e] bg-[#fce8e8] flex flex-col justify-center items-start mt-10">
                     <div className="w-full border-t-3 border-[#e8321e] mb-4"></div>
                     <p className="text-xs font-medium italic">
-                        omnia iam fiunt quae posse negabam
+                        aut insanit mulier, aut versus facit
                     </p>
                 </footer>
             </div>

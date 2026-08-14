@@ -168,7 +168,7 @@ export default function Home() {
       <footer className="w-full max-w-4xl mx-auto px-4 py-4 text-[#FF4444] bg-[#FFEBEB] flex flex-col justify-center items-start mt-10">
         <div className="w-full border-t-3 border-[#FF4444] mb-4"></div>
         <p className="text-xs font-medium italic">
-          omnia iam fiunt quae posse negabam
+          aut insanit mulier, aut versus facit
         </p>
       </footer>
     </div>

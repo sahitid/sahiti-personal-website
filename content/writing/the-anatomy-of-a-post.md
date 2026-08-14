@@ -38,7 +38,7 @@ That was one.
 
 ## Glossary terms
 
-Some words deserve a definition without derailing the sentence. Wrap them in a gloss span and they get a dotted underline — hover (or tap, on a phone) to see the definition. For example, a <span class="gloss" data-gloss="A tiny pop-up definition that appears when you hover over or tap a dotted-underlined term. Written inline in the markdown, no footnote required.">gloss</span> is how this very sentence explains itself, and terms like <span class="gloss" data-gloss="Latin: 'everything I used to say couldn't happen is happening now.' The motto in this site's footer, adapted from Ovid.">omnia iam fiunt</span> can carry their own translations.
+Some words deserve a definition without derailing the sentence. Wrap them in a gloss span and they get a dotted underline — hover (or tap, on a phone) to see the definition. For example, a <span class="gloss" data-gloss="A tiny pop-up definition that appears when you hover over or tap a dotted-underlined term. Written inline in the markdown, no footnote required.">gloss</span> is how this very sentence explains itself, and terms like <span class="gloss" data-gloss="Latin: 'either the woman is mad, or she's making verses.' The motto in this site's footer, adapted from Horace.">aut insanit mulier</span> can carry their own translations.
 
 The syntax is plain HTML inside the markdown:
 
