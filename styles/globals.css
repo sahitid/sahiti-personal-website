@@ -242,7 +242,7 @@ body::before {
      min-width floor, so size from content instead and cap for small screens */
   width: max-content;
   min-width: 0;
-  max-width: min(260px, calc(100vw - 96px));
+  max-width: min(240px, calc(100vw - 96px));
   position: absolute;
   top: -100px;
   left: 50%;
