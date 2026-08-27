@@ -51,7 +51,7 @@ I’m proud that I actually checked off a good portion of this list.
 - I started going to the golf driving range with [Miki](https://mikisafronov.com/), and she is a good teacher. My favorite club is the 8-iron
 - Learned how to use a cobbler shaker & make a mocktail cosmopolitan. Thank you, Yuyi!
 - Created some glorious gifts this year: from surprise karaoke kidnapping to a custom T-shirt for my roommate
-- Started researching more into the basics of blockchain and crypto. Simmi even took me to the Stanford Blockchain Conference, where I got a [banana in a box](https://x.com/sahitid_/status/2082940752792068159?s=20)
+- Started researching more into the basics of blockchain and crypto. [Simmi](https://www.linkedin.com/in/simmi-sen/) even took me to the Stanford Blockchain Conference, where I got a [banana in a box](https://x.com/sahitid_/status/2082940752792068159?s=20)
 
 Through the process, I began to realize things about myself: I like randomness, I love a patterned lack of pattern, I love freedom and choice of responsibility, I like *control* of the responsibility. “If I could do anything in the world, would it be doing nothing?” I asked myself. Short answer: no, I would get bored quickly.
 
