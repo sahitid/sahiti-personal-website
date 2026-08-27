@@ -95,7 +95,7 @@ What does this mean at the larger level? Well, nothing. But I know that if I am 
 
 The world feels so small when we are on top of large truths.
 
-![](/images/writing/finding-myself-4.jpeg "“we’re so small,” I name a playlist on the top of this large rock of land overlooking the ocean. I add a single song to the playlist, and it represents Linda’s shower song.")
+![](/images/writing/finding-myself-4.jpeg "“we’re so small,” I name a playlist on the top of this large rock of land overlooking the ocean. I add a single song to the playlist, and it represents [Linda’s shower song](https://open.spotify.com/playlist/5heP5X3zWVQd61DSRw7n3N?si=2e00c6b41d244ca9).")
 
 ### Perspective
 
@@ -151,7 +151,7 @@ Later, I Google “what does a yellow aura mean?” and smile because the AI Ove
 
 There’s physical time, and then there’s psychological time.
 
-Physical time is what you see on the digital clock. Tick-tock, tick-tock. 60 seconds in a minute, 60 minutes in an hour, 24 hours in a day, and 365.25 days in a year.
+Physical time is what you see on the digital clock. <span class="sfx-ticktock">Tick-tock, tick-tock.</span> 60 seconds in a minute, 60 minutes in an hour, 24 hours in a day, and 365.25 days in a year.
 
 Psychological time works differently. It’s how you can go hours working on something interesting and forget the sun is about to set and you missed two meals. It’s the way you can have a perfect summer, and it feels like a year of growth.
 

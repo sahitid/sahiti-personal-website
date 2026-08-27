@@ -165,7 +165,50 @@ function useGlossBubble(bubbleRef) {
     }, [bubbleRef]);
 }
 
+// Easter-egg sound for <span class="sfx-ticktock">…</span>.
+// Swap public/sounds/tick-tock.wav (or this path) to change the sound.
+let tickTockAudio = null;
+function playTickTock() {
+    try {
+        tickTockAudio = tickTockAudio || new Audio('/sounds/tick-tock.wav');
+        tickTockAudio.currentTime = 0;
+        tickTockAudio.play().catch(() => {});
+    } catch {
+        // audio unavailable — stay silent
+    }
+}
+
+// Captions may contain markdown links: ![alt](src "caption with [text](url)")
+function renderCaption(text) {
+    const parts = [];
+    const re = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+    let last = 0;
+    let m;
+    while ((m = re.exec(text))) {
+        if (m.index > last) parts.push(text.slice(last, m.index));
+        parts.push(
+            <a key={m.index} href={m[2]} target="_blank" rel="noopener noreferrer">
+                {m[1]}
+            </a>
+        );
+        last = m.index + m[0].length;
+    }
+    if (last < text.length) parts.push(text.slice(last));
+    return parts;
+}
+
 const markdownComponents = {
+    // Hidden easter egg: looks like plain text, plays a sound if you happen to click it.
+    span: ({ node, className, children, ...props }) => {
+        if (className && className.includes('sfx-ticktock')) {
+            return (
+                <span className={className} onClick={playTickTock} {...props}>
+                    {children}
+                </span>
+            );
+        }
+        return <span className={className} {...props}>{children}</span>;
+    },
     a: ({ node, href = '', children, ...props }) => {
         const external = /^https?:\/\//.test(href);
         return (
@@ -185,7 +228,7 @@ const markdownComponents = {
             ) : (
                 <img src={src} alt={alt} loading="lazy" {...props} />
             )}
-            {title && <span className="essay-figcaption">{title}</span>}
+            {title && <span className="essay-figcaption">{renderCaption(title)}</span>}
         </span>
     ),
     table: ({ node, children, ...props }) => (
