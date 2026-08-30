@@ -12,7 +12,7 @@ export default function Photos() {
     // Deterministic pseudo-random tilt so server and client render identical
     // styles (integer hash — bit-exact across JS engines, unlike Math.sin)
     const randomRotations = useMemo(
-        () => Array.from({ length: 87 }, (_, i) => {
+        () => Array.from({ length: 86 }, (_, i) => {
             let t = Math.imul(i + 1, 2654435761);
             t = Math.imul(t ^ (t >>> 15), t | 1);
             t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
@@ -55,7 +55,7 @@ export default function Photos() {
         return 'JPG';
     };
 
-    const photoData = Array.from({ length: 87 }, (_, i) => {
+    const photoData = Array.from({ length: 86 }, (_, i) => {
         const photoNumber = i + 1;
         const extension = getPhotoExtension(photoNumber);
         return {
