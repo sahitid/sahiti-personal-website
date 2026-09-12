@@ -109,7 +109,16 @@ html {
   overflow-x: hidden;
 }
 
-/* Match the site's pink so rubber-band overscroll isn't white.
+/* Disable overscroll: no rubber-band bounce or pull-to-refresh past the
+   page edges. Chrome honors this on html (the root scroller); body is
+   included for browsers that scroll on body. */
+html,
+body {
+  overscroll-behavior: none;
+}
+
+/* Match the site's pink so rubber-band overscroll isn't white in browsers
+   that ignore overscroll-behavior on the root (older iOS Safari).
    html:root outranks NextUI's `:root, [data-theme]` white background. */
 html:root {
   background-color: #FFEBEB;
