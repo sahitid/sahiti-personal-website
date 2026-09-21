@@ -26,6 +26,15 @@ export default function Projects() {
 
     const projects = [
         {
+            title: 'Murph-e',
+            categories: ['Hardware', 'AI/ML'],
+            description: 'An arcade machine that creates any game you describe in 8-bit retro arcade style, and lets you play it with a hacker badge with a live leaderboard.',
+            links: {
+                github: 'https://github.com/tpypan/murph-e',
+                award: 'https://devpost.com/software/arcade-l34jba'
+            }
+        },
+        {
             title: 'Proofread',
             categories: ['Web'],
             description: 'Web app for getting your Substack drafts proofread by friends: share a draft for suggestions and comments, then sync the edits straight back to Substack.',
