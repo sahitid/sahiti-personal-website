@@ -137,7 +137,7 @@ export default function Home() {
               </motion.div>
             )}
           </span>{' '}
-          & developer in love with storytelling through human-centered technology.
+          & developer focused on human-centered technology and storytelling.
         </motion.p>
 
         <motion.div
