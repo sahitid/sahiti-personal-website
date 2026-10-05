@@ -67,7 +67,7 @@ Claude Haiku extracted facts from the stored provider description. Claude Sonnet
 
 I separated context collection, generation, and sending into distinct modules. The context collector fetched the provider, event, and user records in parallel, then attached the current conversation and prior interactions from accessible events. The generator could use that history to distinguish a first inquiry from a returning relationship or an unanswered conversation.
 
-The chain also defined what happened when a model call failed. Planning could fall back to a template, and an unsuccessful refinement retained the original draft. A verifier outage also retained the draft, which meant verification was a best-effort step. The diagram shows those branches rather than treating every generated message as successfully checked.
+The chain also defined what happened when a model call failed. Planning could fall back to a template, and an unsuccessful refinement retained the original draft. A verifier outage also retained the draft, which meant verification was a best-effort step.
 
 I connected the output to the approval workflow. Manual mode created a Gmail draft and a pending-approval record containing a context snapshot, advanced the contact state, and notified the reviewer. Automated mode sent through AgentMail and recorded a pre-approved entry. I also removed the event's budget from the context passed to generation, supplementing the prompt instruction to omit it from outreach.
 
