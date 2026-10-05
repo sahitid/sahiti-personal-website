@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "wake or pay"
 description: "a january social experiment: can you weaponize loss aversion against yourself?"
 date: 2026-03-14

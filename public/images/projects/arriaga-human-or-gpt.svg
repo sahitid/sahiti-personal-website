@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640">
+  <title>Human or GPT? — Turing experiments at Georgia Tech</title>
+  <rect width="1200" height="640" fill="#1e211f"/>
+  
+  
+  
+  
+  <g transform="translate(330 100)">
+    <path d="M0 28Q0 0 28 0H344Q372 0 372 28V164Q372 192 344 192H72L27 231V192Q0 192 0 164Z" fill="#faf9f3"/>
+    <circle cx="43" cy="43" r="9" fill="#303a32"/>
+    
+    <path d="M40 92H291M40 120H319M40 148H209" stroke="#ced3c8" stroke-width="10" stroke-linecap="round"/>
+    <g transform="translate(92 181)">
+      <path d="M0 28Q0 0 28 0H344Q372 0 372 28V164Q372 192 344 192H300L345 231V192H28Q0 192 0 164Z" fill="#f8e39a" stroke="#1e211f" stroke-width="6"/>
+      <circle cx="43" cy="43" r="9" fill="#303a32"/>
+      
+      <path d="M40 92H291M40 120H319M40 148H209" stroke="#cab877" stroke-width="10" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>

@@ -1,16 +1,19 @@
 import '../styles/globals.css'
-import { ThemeProvider } from 'next-themes'
+import SiteLayout from '../components/SiteLayout'
+import BoatIntro from '../components/BoatIntro'
+import { MotionConfig } from 'framer-motion'
 import { Provider } from 'react-wrap-balancer'
 import HeadObject from '../components/head'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider defaultTheme="system" attribute="class">
+    <MotionConfig reducedMotion="user">
       <Provider>
         <HeadObject />
-        <Component {...pageProps} />
+        <BoatIntro />
+        <SiteLayout><Component {...pageProps} /></SiteLayout>
       </Provider>
-    </ThemeProvider>
+    </MotionConfig>
   )
 }
 

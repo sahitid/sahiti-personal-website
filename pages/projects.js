@@ -1,540 +1,98 @@
-import React, { useState } from 'react';
 import Head from 'next/head';
-import { motion, useAnimation } from 'framer-motion';
+import CampusLeadDescription from '../components/CampusLeadDescription';
+import TidbitThumbnail from '../components/TidbitThumbnail';
+import VideoThumbnail from '../components/VideoThumbnail';
+import EmbeddedThumbnail from '../components/EmbeddedThumbnail';
+import Link from 'next/link';
+import { useState } from 'react';
+import { projects } from '../data/projects';
+import events from '../data/events.json';
+import thumbnails from '../data/project-thumbnails.json';
+
+const showProjectThumbnails = false;
+
+const categories = ['All', 'AI/ML', 'Hardware', 'Web', 'App', 'Research', 'Community', 'Events'];
+const linkOrder = { website: 0, video: 1, github: 2, award: 3, press: 4, pressOpenAI: 4, substack: 5, photo: 5 };
+const linkTypes = {
+  substack: { icon: 'substack', label: 'Substack' },
+  website: { icon: 'link', label: 'Website' },
+  github: { icon: 'github', label: 'GitHub repository' },
+  video: { icon: 'video', label: 'Video' },
+  photo: { icon: 'camera', label: 'Photos' },
+  award: { icon: 'award', label: 'Recognition' },
+  press: { icon: 'press', label: 'Press coverage' },
+  pressOpenAI: { icon: 'press', label: 'OpenAI Developers on X' },
+};
+const catalog = projects.map(project => {
+  const event = events.find(event => event.title === project.title);
+  return { ...project, event, thumbnail: event ? { src: event.cover, type: event.coverType, position: event.coverPosition } : thumbnails[project.title] };
+});
+for (const event of events) {
+  if (!catalog.some(project => project.event?.slug === event.slug)) {
+    catalog.push({ title: event.title, categories: ['Events'], description: event.cardDescription || event.description, date: event.dateLabel || (event.date ? new Date(event.date + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' }) : ''), links: event.links || { website: event.url }, event, thumbnail: { src: event.cover, type: event.coverType, position: event.coverPosition } });
+  }
+}
+
+// Keep the original projects in their saved order; group the added event with its series.
+const roughDraftIndex = catalog.findIndex(project => project.event?.slug === 'rough-draft-01');
+const roughDraftSeriesIndex = catalog.findIndex(project => project.event?.slug === 'rough-draft-02');
+if (roughDraftIndex !== -1 && roughDraftSeriesIndex !== -1) {
+  const [roughDraft] = catalog.splice(roughDraftIndex, 1);
+  catalog.splice(catalog.findIndex(project => project.event?.slug === 'rough-draft-02') + 1, 0, roughDraft);
+}
+
+function ProjectCard({ project, index }) {
+  const [imageFailed, setImageFailed] = useState(false);
+  const href = project.event ? `/projects/${project.event.slug}` : project.links.website || project.links.github || project.links.video || project.links.award;
+  const thumbnailHref = project.thumbnailHref || (['Forsyth Hacks 2.0 & 1.0', 'EcoBuddy', 'FitSphere', 'DriveSmart', 'SFHS Hack Club', 'Meta Glasses Poker Computer-Vision'].includes(project.title) ? undefined : project.title === 'Aurora: SF Athena Event' ? 'https://athena.hackclub.com/' : project.title === 'Blossom: Atlanta Day of Service' ? 'https://daysofservice.hackclub.com/' : project.title === 'Solis' ? 'https://devpost.com/software/solis-y73gaj' : project.title === 'Murph-e' ? 'https://www.shayaanazeem.com/murph-e' : href);
+  const titleHref = project.title === 'Girls Into VC Summit' ? 'https://www.girlsintovc.com/' : ['EcoBuddy', 'Forsyth Hacks 2.0 & 1.0', 'SFHS Hack Club', 'DriveSmart', 'Meta Glasses Poker Computer-Vision', 'Solis'].includes(project.title) ? undefined : project.title === 'Blossom: Atlanta Day of Service' ? 'https://daysofservice.hackclub.com/' : project.title === 'Aurora: SF Athena Event' ? 'https://athena.hackclub.com/' : project.title === 'Murph-e' ? 'https://www.shayaanazeem.com/murph-e' : project.title === 'RoboRacer @ UPenn' ? 'https://roboracer.ai/' : href;
+  const CardLink = titleHref ? Link : 'span';
+  const ThumbnailLink = thumbnailHref ? Link : 'span';
+  const image = project.thumbnail && !imageFailed;
+  return (
+    <article className="project-card portfolio-card">
+      {showProjectThumbnails && <ThumbnailLink target={thumbnailHref ? "_blank" : undefined} rel={thumbnailHref ? "noopener noreferrer" : undefined} href={thumbnailHref} className={`project-thumbnail${project.title === '8 Minutes' ? ' eight-minutes-thumbnail' : ''}${project.thumbnail?.type === 'artwork' ? ' project-thumbnail-artwork' : ''}${project.thumbnail?.motion === 'kenburns' ? ' project-thumbnail-kenburns' : ''}`} aria-label={thumbnailHref ? `View ${project.title}` : undefined}>
+        {project.title === 'TidBit' ? <TidbitThumbnail /> : project.thumbnail?.screenRegions ? <div className="project-cropped-screens eco-preview">{project.thumbnail.screenRegions.map((position, i) => <span key={i} role="img" aria-label={`${project.title} app screen ${i + 1}`} style={{ backgroundImage: `url(${project.thumbnail.src})`, backgroundPosition: `${position}% 50%` }} />)}</div> : project.thumbnail?.embed ? <EmbeddedThumbnail src={project.thumbnail.embed} poster={project.thumbnail.src} title={project.title} /> : project.thumbnail?.video ? <VideoThumbnail src={project.thumbnail.video} poster={project.thumbnail.src} title={project.title} /> : project.thumbnail?.screens ? <div className={`project-screen-gallery ${project.thumbnail.screenStyle || ''}`}>{project.thumbnail.screens.map((src, i) => <img key={src} src={src} alt={`${project.title} app screen ${i + 1}`} loading={index < 4 ? 'eager' : 'lazy'} />)}</div> : image ? <img style={{ transform: project.thumbnail.transform, objectPosition: project.thumbnail.position, objectFit: project.thumbnail.fit, background: project.thumbnail.background }} src={project.thumbnail.src} alt={`${project.title} ${project.thumbnail.type === 'photo' ? 'photo' : 'preview'}`} loading={index < 4 ? 'eager' : 'lazy'} onError={() => setImageFailed(true)} /> : <div className="project-title-thumbnail" aria-hidden="true"><span>{project.title}</span><small>{project.categories.join(' / ')}</small></div>}
+        {thumbnailHref && <svg className="thumbnail-link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12" /></svg>}
+      </ThumbnailLink>}
+      <div className="project-title"><h2><CardLink target={titleHref ? "_blank" : undefined} rel={titleHref ? "noopener noreferrer" : undefined} href={titleHref} className={titleHref ? "project-title-link" : undefined}><span>{project.title}</span>{titleHref && <span className="project-title-arrow" aria-hidden="true">↗</span>}</CardLink></h2></div>
+      <div className="project-card-tags">{project.categories.join(' / ')}</div>
+      <p>{project.title === 'SpaceXAI Campus Lead' ? <CampusLeadDescription text={project.description} /> : project.descriptionLink ? <>{project.description.slice(0, project.description.indexOf(project.descriptionLink.text))}{project.descriptionLink.href === 'mailto:contact@pennapps.com' && <br />}<a href={project.descriptionLink.href} target="_blank" rel="noopener noreferrer">{project.descriptionLink.text}</a>{project.description.slice(project.description.indexOf(project.descriptionLink.text) + project.descriptionLink.text.length)}</> : project.description}</p>
+      <div className="project-card-footer">
+        <span>{project.date || ''}</span>
+        <div className="project-icon-links">
+          {Object.entries(project.links).sort(([a], [b]) => (linkOrder[a] ?? 6) - (linkOrder[b] ?? 6)).filter(([type]) => !(['Olo Security', 'CAISE', 'Aurora: SF Athena Event', 'PennApps Hackathon', 'FranklinDAO Blockchain', 'Philanthropy & Communications', 'BIOMET', 'Proofread', 'Less', 'FoundHer House', '8 Minutes', 'Ukulele Poetry', 'Parker Lab @ Georgia Tech', 'Arriaga Lab @ Georgia Tech', 'Social Experiments', 'Penn Meal Swipes', 'Catalyx', 'PreSeed', 'Rough Draft 01', 'Rough Draft 02', 'Engineering @ Vroom', 'TidBit', 'Pitch Deck Game', 'Blossom: Atlanta Day of Service', 'Clubs Operations & Engineering', 'Hack Club AMAs', 'Leaders Letters', 'AI & ML Jams', 'Hack Club Jams', 'Ascend: Days of Service Summit', 'SF Tea Party', 'Adult Field Day', "Leaders Summit"].includes(project.title) && type === 'website') && !(project.title === 'Forsyth Hacks 2.0 & 1.0' && ['github', 'website'].includes(type))).map(([type, url]) => {
+            const entry = linkTypes[type];
+            const linkHref = type === 'website' && project.event?.slug === 'leaders-summit' ? 'https://summit.hackclub.com/' : type === 'website' && project.event ? href : url;
+            return entry ? <a href={linkHref} key={type} title={entry.label} aria-label={`${project.title}: ${entry.label}`} target="_blank" rel="noopener noreferrer"><span style={{ '--icon-url': `url(/${entry.icon}.svg)` }} aria-hidden="true" /></a> : null;
+          })}
+        </div>
+      </div>
+    </article>
+  );
+}
 
 export default function Projects() {
-    const controls = useAnimation();
-    const [isSpinning, setIsSpinning] = useState(false);
-    const [activeFilter, setActiveFilter] = useState('All');
-
-    const handleSpin = async () => {
-        if (!isSpinning) {
-            setIsSpinning(true);
-
-            await controls.start({
-                rotate: 360,
-                transition: { duration: 1, ease: 'linear' }
-            });
-            controls.set({ rotate: 0 });
-            setIsSpinning(false);
-
-            window.location.href = '/';
-        }
-    };
-
-    const categories = ['All', 'AI/ML', 'Hardware', 'Web', 'App', 'Research', 'Community', 'Events'];
-
-    const projects = [
-        {
-            title: 'Murph-e',
-            categories: ['Hardware', 'AI/ML'],
-            description: 'An arcade machine that creates any game you describe in 8-bit retro arcade style, and lets you play it with a hacker badge with a live leaderboard.',
-            links: {
-                github: 'https://github.com/tpypan/murph-e',
-                award: 'https://devpost.com/software/arcade-l34jba'
-            }
-        },
-        {
-            title: 'Proofread',
-            categories: ['Web'],
-            description: 'Web app for getting your Substack drafts proofread by friends: share a draft for suggestions and comments, then sync the edits straight back to Substack.',
-            links: {
-                website: 'https://substack-proofread.vercel.app/',
-                github: 'https://github.com/sahitid/substack-proofread'
-            }
-        },
-        {
-            title: 'Less',
-            categories: ['App'],
-            description: 'iOS app that turns your iPhone into a dumbphone: a text-only home screen with the apps you need, and a deep breath before the ones you don’t. Inspired by Blank Spaces.',
-            links: {
-                website: 'https://getless.vercel.app/',
-                github: 'https://github.com/sahitid/less-app'
-            }
-        },
-        {
-            title: 'FoundHer House',
-            categories: ['Community', 'Web'],
-            date: 'Summer 2026',
-            description: 'Selected as 1 of 8 founding teams at SF’s FoundHer House, the only all-female hacker house in the world. Covered by NYT, USA Today, Fox News, Apple, and GeekWire.',
-            links: {
-                website: 'https://www.foundherhouse.org/',
-                award: 'https://www.nytimes.com/2025/08/23/business/ai-female-hackers-foundher-house.html'
-            }
-        },
-        {
-            title: '8 Minutes',
-            categories: ['Web'],
-            description: 'Web app that pairs you with a stranger for a single eight-minute conversation, with no profiles and no agenda beyond actually listening.',
-            links: {
-                website: 'https://8minutes.vercel.app/',
-                github: 'https://github.com/sahitid/8minutes'
-            }
-        },
-        {
-            title: 'Adult Field Day',
-            categories: ['Events'],
-            date: 'June 2026',
-            description: 'Organized a full-scale field day for adults: bouncy castle, giant parachute, tie-dye, water balloon fights, sack races, tug of war, and popsicles.',
-            links: {
-                website: 'https://vroomevents.com/events/adult-field-day'
-            }
-        },
-        {
-            title: 'Ukulele Poetry',
-            categories: ['AI/ML', 'Web'],
-            description: 'Live performance app that listens to the room, reads the mood of your ukulele chords, and improvises a poem in real time.',
-            links: {
-                website: 'https://ukulele-poetry.vercel.app/',
-                github: 'https://github.com/sahitid/ukulele-poetry'
-            }
-        },
-        {
-            title: 'Rough Draft 02',
-            categories: ['Events'],
-            date: 'June 2026',
-            description: 'Co-hosted an intimate demo night where designers and curious minds show, tell, and get inspired by works-in-progress.',
-            links: {
-                website: 'https://vroomevents.com/events/rough-draft-02'
-            }
-        },
-        {
-            title: 'Engineering @ Vroom',
-            categories: ['AI/ML', 'Web', 'App', 'Community'],
-            description: 'Building intentional software for live experiences that treats each event as a choreography of venue, vendors, and people.',
-            links: {
-                website: 'https://vroomevents.com/'
-            }
-        },
-        {
-            title: 'TidBit',
-            categories: ['App'],
-            description: 'Mobile marketplace connecting local eateries with micro-influencers, trading exclusive deals for organic, user-generated social content.',
-            links: {
-                website: 'https://tidbit-app.vercel.app/'
-            }
-        },
-        {
-            title: 'Pitch Deck Game',
-            categories: ['Web'],
-            description: 'Cards Against Humanity-style multiplayer game where players mash real startup and tech cards into the most absurd, fundable-sounding pitches imaginable.',
-            links: {
-                website: 'https://pitch-deck-game.vercel.app/',
-                github: 'https://github.com/sahitid/pitch-deck-game'
-            }
-        },
-        {
-            title: 'Social Experiments',
-            categories: ['Research'],
-            date: 'Spring 2026',
-            description: 'Monthly behavioral psychology experiments exploring the mechanics of everyday human behavior.',
-            links: {
-                website: 'https://sahitid.substack.com/s/social-experiments'
-            }
-        },
-        {
-            title: 'Penn Meal Swipes',
-            categories: ['Web'],
-            description: 'Community-driven platform that connects underclassmen who have extra meal swipes with upperclassmen who would love to share a meal.',
-            links: {
-                website: 'https://penn-meal-swipes.vercel.app/',
-                github: 'https://github.com/sahitid/penn-meal-swipes'
-            }
-        },
-        {
-            title: 'Solis',
-            categories: ['AI/ML', 'Web'],
-            description: 'Chrome extension that connects to your calendar and uses AI to detect scheduling conflicts, automatically finding better times.',
-            links: {
-                github: 'https://github.com/sahitid/solis',
-                video: 'https://youtu.be/uYxkm5oJpWY'
-            }
-        },
-        {
-            title: 'Catalyx',
-            categories: ['Hardware', 'Research'],
-            description: 'Photocatalytic reactor using 3D-printed TPMS concrete and TiO\u2082 coating to treat dye wastewater with zero waste output. In partnership with Shu Yang Lab (original technology).',
-            links: {
-                website: 'https://www.canva.com/design/DAHDemq-bX8/-8VuYyXFnHXL9La4BayQNw/view?utm_content=DAHDemq-bX8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6ca241828e',
-                video: 'https://youtu.be/n-rCImUiWMY'
-            }
-        },
-        {
-            title: 'PreSeed',
-            categories: ['AI/ML', 'Hardware'],
-            description: 'Hands-free Apple Vision Pro accessibility app that provides real-time scene understanding and spatial awareness through AI audio descriptions for vision impairment and blindness.',
-            links: {
-                website: 'https://devpost.com/software/preseed',
-                video: 'https://youtu.be/AKS6wuNIMiE',
-                github: 'https://github.com/michaelpeters-dev/Hack-Harvard'
-            }
-        },
-        {
-            title: 'Aurora: SF Athena Event',
-            categories: ['Events'],
-            date: 'July 2025',
-            description: 'Co-organizing three-day gender-focused summer coding camp @ San Francisco with women in technology dinner.',
-            links: {
-                website: 'https://aurora.hackclub.com/',
-                github: 'https://github.com/hackclub/aurora'
-            }
-        },
-        {
-            title: 'SF Tea Party',
-            categories: ['Events'],
-            date: 'July 2025',
-            description: 'Hosted an intimate tea party gathering for friends, builders, and creatives in San Francisco.',
-            links: {
-                website: 'https://x.com/sahitid_/status/1947892874164768919?s=20',
-            }
-        },
-        {
-            title: 'CAISE',
-            categories: ['AI/ML', 'Web'],
-            description: 'AI-powered educational platform designed to give DECA & FBLA competitors a competitive edge in role-play and case study events. Built with ethical AI models.',
-            links: {
-                website: 'https://caise.app',
-            }
-        },
-        {
-            title: 'Meta Glasses Poker Computer-Vision',
-            categories: ['AI/ML', 'Hardware'],
-            description: 'A Meta Glasses-powered system that lets you play poker and do homework at the same time—but the better you do at one, the worse you perform at the other.',
-            links: {
-                video: 'https://youtu.be/JVtFxCJw5ng',
-                github: 'https://github.com/sahitid/meta-vision-project'
-            }
-        },
-        {
-            title: 'Ascend: Days of Service Summit',
-            categories: ['Events'],
-            date: 'November 2024',
-            description: 'Co-organized three-day gender-focused summit of 50+ coders at SpaceX @ Los Angeles. Partnered with Kode With Klossy, Girls Who Code, and SpaceX.',
-            links: {
-                website: 'https://ascend.hackclub.com/',
-                github: 'https://github.com/hackclub/ascend'
-            }
-        },
-        {
-            title: 'Parker Lab @ Georgia Tech',
-            categories: ['Hardware', 'Research'],
-            date: 'Summer 2024',
-            description: 'Implementing and stabilizing Proportional Integral Derivative (PID) controller on Red Pitaya to regulate laser output through a laser aligner.',
-            links: {
-                website: 'https://parkerlab.gatech.edu/',
-                github: 'https://github.com/sahitid/laser-aligner'
-            }
-        },
-        {
-            title: 'Arriaga Lab @ Georgia Tech',
-            categories: ['AI/ML', 'Research'],
-            date: 'January 2024 - May 2025',
-            description: 'Human-Computer Interaction (HCI) through large language models to understand their application in interpersonal interactions through Turing Experiements.',
-            links: {
-                website: 'https://sites.google.com/view/riarriaga/lab',
-            }
-        },
-        {
-            title: 'DriveSmart',
-            categories: ['AI/ML', 'App'],
-            description: 'AI driving assistant app that helps new drivers navigate safely and practice mastering the art of driving on the roads. DriveSmart won the Congressional App Challenge for Georgia\'s 6th District.',
-            links: {
-                github: 'https://github.com/sahitid/drive-smart',
-                video: 'https://youtu.be/bqc_u6gAjtY',
-                award: 'https://www.congressionalappchallenge.us/23-GA06/'
-            }
-        },
-        {
-            title: 'BIOMET',
-            categories: ['Hardware'],
-            description: 'A universal, low-cost identification system, created in response to the global identification crisis. BIOMET is a Conrad Challenge finalist & Power Pitch winner in Cyber Technology & Security.',
-            links: {
-                website: 'https://biomet.vercel.app/',
-                video: 'https://youtu.be/RVOrgTGgbas',
-                award: 'https://www.conradchallenge.org/2024-summit-wrap'
-            }
-        },
-        {
-            title: 'Blossom: Atlanta Day of Service',
-            categories: ['Events'],
-            date: 'March 2024',
-            description: 'Directed the largest gender-focused day of coding with Atlanta Girl Scouts.',
-            links: {
-                website: 'https://blossom.hackclub.com/',
-                github: 'https://github.com/hackclub/blossom',
-                photo: 'https://drive.google.com/drive/folders/1wI2NGEtDkiYODIacFQpH148QSl9RHXWM'
-            }
-        },
-        {
-            title: 'Forsyth Hacks 2.0 & 1.0',
-            categories: ['Events'],
-            description: 'Founded annual county wide hackathon for high-school students to promote application based coding.',
-            links: {
-                website: 'https://forsyth-hacks-v2-site.vercel.app/',
-                github: 'https://github.com/SFHSHackClub/forsyth-hacks-v2-site',
-                photo: 'https://photos.app.goo.gl/RdvvgMmpD3rpioNc6'
-            }
-        },
-        {
-            title: 'Clubs Operations & Engineering',
-            categories: ['Community'],
-            date: 'May 2023 - May 2025',
-            description: 'Employed at Hack Club to support new coding club chapters, technology grants, and community engagement initiatives to help club leaders worldwide.',
-            links: {
-                website: 'https://hackclub.com/team/',
-                video: 'https://youtu.be/jFCrDEOPzVM'
-            }
-        },
-        {
-            title: 'Philanthropy & Communications',
-            categories: ['Community'],
-            date: 'Summer 2023',
-            description: 'Developed AI research that attracted national attention and helped raise $350k for Hack Club. Successfully crafted communications to Fortune 500 CEOs & technology leaders, directly leading to their engagement.',
-            links: {
-                website: 'https://hackclub.com/',
-            }
-        },
-        {
-            title: 'EcoBuddy',
-            categories: ['App'],
-            description: 'Swift mobile application that offers ways for users to gain points by practicing sustainable living and completing eco-friendly exercises.',
-            links: {
-                github: 'https://github.com/sahitid/ecobuddy'
-            }
-        },
-        {
-            title: 'Hack Club Jams',
-            categories: ['Web'],
-            description: 'Assisted in the Hack Club Jams™ initiative for collaborative coding workshops for over 28,000 teenagers around the world.',
-            links: {
-                website: 'https://jams.hackclub.com',
-                github: 'https://github.com/hackclub/jams'
-            }
-        },
-        {
-            title: 'AI & ML Jams',
-            categories: ['AI/ML', 'Web'],
-            description: 'Four-part Batch Jams™ workshop that introduces concepts of integrating large language models, speech recognition APIs, and JavaScript to create your own smart voice assistant!',
-            links: {
-                website: 'https://jams.hackclub.com/batch/artificial-intelligence',
-                github: 'https://github.com/sahitid/artificial-intelligence-jams'
-            }
-        },
-        {
-            title: 'Leaders Letters',
-            categories: ['Web'],
-            description: 'Created blog article page for stories, insights, and experiences shared within the Hack Club community — by leaders for leaders.',
-            links: {
-                website: 'https://hackclub.com/letters',
-                github: 'https://github.com/sahitid/leaders-letters'
-            }
-        },
-        {
-            title: 'Hack Club\'s Leaders Summit',
-            categories: ['Events'],
-            date: 'February 2024',
-            description: 'Co-organized a weekend of invention, collaboration, and friendship in San Francisco with 75 Hack Club leaders from around the world.',
-            links: {
-                website: 'https://summit.hackclub.com',
-                github: 'https://github.com/hackclub/summit',
-                video: 'https://www.youtube.com/watch?v=UZEm5lONg7g'
-            }
-        },
-        {
-            title: 'SFHS Hack Club',
-            categories: ['Community'],
-            description: 'Founded an inclusive school-wide collaborative coding club for project-based coding.',
-            links: {
-                video: 'https://www.youtube.com/watch?v=xXIxwV7bQTw'
-            }
-        },
-        {
-            title: 'Hack Club AMAs',
-            categories: ['Events'],
-            description: 'Hosted and directed multiple AMAs with industry experts (including Michael Dell, George Hotz, Trina Spear and Ben Tritt among others) in partnership with Hack Club.',
-            links: {
-                website: 'https://hackclub.com/amas/',
-                video: 'https://www.youtube.com/watch?v=O1J1pwGPQXY'
-            }
-        },
-        {
-            title: 'FitSphere',
-            categories: ['AI/ML', 'Web'],
-            description: 'Progressive Web App that helps users meet fitness goals and transform their lifestyle with an AI form trainer and H2O Flow for hydration. FitSphere was a Technovation Girls Challenge Semifinalist.',
-            links: {
-                award: 'https://www.technovation.org/blogs/semifinalists-2023/'
-            }
-        }
-    ];
-
-    const filteredProjects = activeFilter === 'All'
-        ? projects
-        : projects.filter(p => p.categories.includes(activeFilter));
-
-    const fadeUp = {
-        hidden: { opacity: 0, y: 24 },
-        visible: (i) => ({
-            opacity: 1,
-            y: 0,
-            transition: { delay: i * 0.05, duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }
-        })
-    };
-
-    return (
-        <>
-            <Head>
-                <title>Projects - Sahiti Dasari</title>
-                <meta name="description" content="Sahiti Dasari's projects and work" />
-            </Head>
-            <div className="w-screen overflow-x-hidden min-h-screen text-[#e8321e] bg-[#fce8e8] flex flex-col relative font-instrument-sans px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48">
-                <header className="w-full max-w-4xl mx-auto px-4 py-8">
-                    <div className="flex absolute left-0 top-0 m-4 sm:m-8 md:m-16">
-                        <motion.img
-                            src="/boat.svg"
-                            alt="Boat"
-                            className="h-6 mr-2 cursor-pointer"
-                            animate={controls}
-                            onClick={handleSpin}
-                        />
-                    </div>
-
-                    <nav className="absolute right-0 top-0 m-4 sm:m-8 md:m-16 flex flex-row flex-wrap justify-end gap-x-4 gap-y-1 sm:flex-col sm:gap-x-0 sm:gap-y-2 text-[#e8321e] font-instrument-serif italic font-normal text-base sm:text-2xl tracking-normal">
-                        <a href="/" className="nav-link transition-transform duration-300 hover:scale-105">/home</a>
-                        <span className="nav-link opacity-50 cursor-not-allowed">/projects</span>
-                        <a href="/writing" className="nav-link transition-transform duration-300 hover:scale-105">/writing</a>
-                        <a href="/photos" className="nav-link transition-transform duration-300 hover:scale-105">/photos</a>
-                    </nav>
-
-                    <motion.h1
-                        className="mt-16 sm:mt-24 md:mt-36 text-7xl sm:text-8xl md:text-[96px] font-instrument-serif italic font-normal mb-4 text-left text-[#e8321e]"
-                        variants={fadeUp}
-                        initial="hidden"
-                        animate="visible"
-                        custom={0}
-                    >
-                        projects
-                    </motion.h1>
-                </header>
-
-                <main className="w-full max-w-4xl mx-auto px-4 flex flex-col mb-20">
-                    <motion.div
-                        className="flex flex-wrap gap-[24px] mb-10"
-                        variants={fadeUp}
-                        initial="hidden"
-                        animate="visible"
-                        custom={1}
-                    >
-                        {categories.map((cat) => (
-                            <button
-                                key={cat}
-                                onClick={() => setActiveFilter(cat)}
-                                className={`text-[14px] bg-transparent border-none p-0 cursor-pointer transition-all duration-200 ${activeFilter === cat
-                                        ? 'font-bold text-[#e8321e]'
-                                        : 'font-medium text-[#e8321eaa]'
-                                    }`}
-                            >
-                                {cat}
-                            </button>
-                        ))}
-                    </motion.div>
-
-                    <section>
-                        <div className="project-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-                            {filteredProjects.map((project, index) => (
-                                <motion.div
-                                    key={`${activeFilter}-${project.title}`}
-                                    className="group flex flex-col"
-                                    variants={fadeUp}
-                                    initial="hidden"
-                                    animate="visible"
-                                    custom={index + 2}
-                                >
-                                    <h3 className={`text-[16px] font-semibold text-[#1a0a0a] tracking-wide font-instrument-sans mb-2 ${project.links.website ? 'transition-all duration-300 group-hover:translate-x-1.5 group-hover:text-[#e8321e]' : ''}`}>
-                                        {project.links.website ? (
-                                            <a href={project.links.website} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5">
-                                                {project.title}
-                                                <img src="/arrow.svg" alt="" className="h-3 w-3 inline-block opacity-40 group-hover:opacity-100 transition-opacity duration-300" />
-                                            </a>
-                                        ) : (
-                                            project.title
-                                        )}
-                                    </h3>
-                                    <p className="text-[13px] font-normal text-[#1a0a0a] leading-[1.6] tracking-[0.01em] font-instrument-sans mb-2">{project.description}</p>
-                                    <div className="flex items-center justify-between mt-auto">
-                                        {project.date ? (
-                                            <p className="text-[11px] font-semibold tracking-[0.08em] uppercase text-[#e8321eaa]">{project.date}</p>
-                                        ) : (
-                                            <span></span>
-                                        )}
-                                        <div className="flex space-x-2.5">
-                                            {project.links.github && (
-                                                <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="opacity-40 hover:opacity-100 transition-opacity duration-300" aria-label="GitHub Repository">
-                                                    <img src="/github.svg" alt="GitHub" className="h-3.5" />
-                                                </a>
-                                            )}
-                                            {project.links.video && (
-                                                <a href={project.links.video} target="_blank" rel="noopener noreferrer" className="opacity-40 hover:opacity-100 transition-opacity duration-300" aria-label="Project Video">
-                                                    <img src="/video.svg" alt="Video" className="h-3.5" />
-                                                </a>
-                                            )}
-                                            {project.links.photo && (
-                                                <a href={project.links.photo} target="_blank" rel="noopener noreferrer" className="opacity-40 hover:opacity-100 transition-opacity duration-300" aria-label="Project Photos">
-                                                    <img src="/camera.svg" alt="Photos" className="h-3.5" />
-                                                </a>
-                                            )}
-                                            {project.links.award && (
-                                                <a href={project.links.award} target="_blank" rel="noopener noreferrer" className="opacity-40 hover:opacity-100 transition-opacity duration-300" aria-label="Project Award">
-                                                    <img src="/award.svg" alt="Award" className="h-3.5" />
-                                                </a>
-                                            )}
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </section>
-                </main>
-
-                <footer className="w-full max-w-4xl mx-auto px-4 py-4 text-[#e8321e] bg-[#fce8e8] flex flex-col justify-center items-start mt-10">
-                    <div className="w-full border-t-3 border-[#e8321e] mb-4"></div>
-                    <p className="text-xs font-medium italic">
-                        aut insanit mulier, aut versus facit
-                    </p>
-                </footer>
-            </div>
-
-            <style jsx global>{`
-                .project-grid > div {
-                    border-bottom: 1px solid #e8b4b466;
-                    padding: 20px 20px 20px 0;
-                }
-                @media (min-width: 640px) {
-                    .project-grid > div {
-                        border-right: 1px solid #e8b4b466;
-                        padding: 20px;
-                    }
-                    .project-grid > div:nth-child(2n) {
-                        border-right: none;
-                    }
-                    .project-grid > div:nth-child(2n+1) {
-                        padding-left: 0;
-                    }
-                }
-                @media (min-width: 1024px) {
-                    .project-grid > div:nth-child(2n) {
-                        border-right: 1px solid #e8b4b466;
-                    }
-                    .project-grid > div:nth-child(2n+1) {
-                        padding-left: 20px;
-                    }
-                    .project-grid > div:nth-child(4n) {
-                        border-right: none;
-                    }
-                    .project-grid > div:nth-child(4n+1) {
-                        padding-left: 0;
-                    }
-                }
-            `}</style>
-        </>
-    );
+  const [activeFilters, setActiveFilters] = useState([]);
+  function toggleFilter(category) {
+    if (category === 'All') { setActiveFilters([]); return; }
+    setActiveFilters(previous => previous.includes(category) ? previous.filter(item => item !== category) : [...previous, category]);
+  }
+  const filtered = catalog.filter(project => !project.hidden && (!activeFilters.length || project.categories.some(category => activeFilters.includes(category))));
+  return (
+    <main className="standard-main">
+      <Head><title>Projects — Sahiti Dasari</title></Head>
+      <header className="page-heading"><h1>Projects</h1></header>
+      <div className="project-filters" role="group" aria-label="Filter projects by category">
+        {categories.map(category => <button key={category} aria-pressed={category === 'All' ? !activeFilters.length : activeFilters.includes(category)} onClick={() => toggleFilter(category)}>{category}</button>)}
+      </div>
+      <span className="sr-only" role="status">{filtered.length} {activeFilters.length ? activeFilters.join(' or ') + ' ' : ''}projects</span>
+      <div className="project-grid portfolio-grid" key={activeFilters.join(",")}>
+        {filtered.map((project, index) => <ProjectCard key={project.title} project={project} index={index} />)}
+        {[2, 3, 4].flatMap(columns => Array.from({ length: (columns - filtered.length % columns) % columns }, (_, index) => (
+          <div key={`empty-${columns}-${index}`} className={`project-grid-empty project-grid-empty-${columns}`} aria-hidden="true" />
+        )))}
+      </div>
+    </main>
+  );
 }

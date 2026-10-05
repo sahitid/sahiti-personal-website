@@ -1,0 +1,225 @@
+{
+  "Murph-e": {
+    "src": "/images/projects/murph-e-devpost.png",
+    "type": "preview",
+    "position": "50% 50%",
+    "source": "https://devpost.com/software/arcade-l34jba"
+  },
+  "Proofread": {
+    "src": "/images/projects/proofread-editorial.svg",
+    "type": "preview",
+    "position": "50% 50%"
+  },
+  "Less": {
+    "src": "/images/projects/less-home.jpg",
+    "type": "preview",
+    "screens": [
+      "/images/projects/less-home.jpg",
+      "/images/projects/less-paper.jpg",
+      "/images/projects/less-breathe.jpg"
+    ],
+    "screenStyle": "less-preview"
+  },
+  "FoundHer House": {
+    "src": "/images/projects/foundher-group-walk.jpg",
+    "type": "photo",
+    "position": "50% 60%"
+  },
+  "8 Minutes": {
+    "src": "/images/projects/eight-minutes-clean.png",
+    "type": "preview",
+    "source": "https://8minutes.vercel.app/"
+  },
+  "Engineering @ Vroom": {
+    "src": "/images/projects/vroom-gathering.png",
+    "type": "photo"
+  },
+  "TidBit": {
+    "src": "/images/projects/tidbit-hero.png",
+    "type": "preview",
+    "fit": "contain",
+    "background": "#f4efe6"
+  },
+  "Social Experiments": {
+    "src": "/images/projects/social-experiments-section.png",
+    "source": "https://sahitid.substack.com/s/social-experiments",
+    "type": "photo",
+    "position": "50% 75%"
+  },
+  "Solis": {
+    "src": "/images/projects/solis.jpg",
+    "source": "https://i.ytimg.com/vi/uYxkm5oJpWY/hqdefault.jpg",
+    "type": "preview"
+  },
+  "Catalyx": {
+    "src": "/images/projects/catalyx.jpg",
+    "source": "https://i.ytimg.com/vi/n-rCImUiWMY/hqdefault.jpg",
+    "type": "preview"
+  },
+  "PreSeed": {
+    "src": "/images/projects/preseed.jpg",
+    "source": "https://i.ytimg.com/vi/AKS6wuNIMiE/hqdefault.jpg",
+    "type": "preview"
+  },
+  "CAISE": {
+    "src": "/images/projects/caise-demo-poster.jpg",
+    "type": "preview",
+    "source": "https://www.caise.app/caise_screenshot.png",
+    "video": "/images/projects/caise-demo-loop.mp4"
+  },
+  "Meta Glasses Poker Computer-Vision": {
+    "src": "/images/projects/meta-glasses-poker-view.jpg",
+    "type": "photo",
+    "position": "50% 40%"
+  },
+  "Arriaga Lab @ Georgia Tech": {
+    "src": "/images/projects/arriaga-human-or-gpt.svg",
+    "type": "preview"
+  },
+  "DriveSmart": {
+    "src": "/images/projects/drivesmart-team.jpg",
+    "type": "photo",
+    "source": "https://www.linkedin.com/posts/sahitidasari_houseofcode-codeforcongress-congressionalappchallenge-activity-7187468999218077696-RdHt",
+    "position": "50% 0%"
+  },
+  "BIOMET": {
+    "src": "/images/projects/biomet-presentation.jpg",
+    "type": "photo",
+    "source": "https://www.linkedin.com/posts/sahitidasari_biometteam-conradchallenge-innovation-activity-7193252038602883072-l31z"
+  },
+  "Clubs Operations & Engineering": {
+    "src": "/images/projects/clubs-building.webp",
+    "type": "photo",
+    "position": "50% 40%",
+    "source": "https://hackclub.com/clubs/"
+  },
+  "Philanthropy & Communications": {
+    "src": "/images/projects/philanthropy-communications.png",
+    "source": "https://cdn.hackclub.com/019db4df-dc7a-7270-94b5-df621a60c7ca/splash.png",
+    "type": "preview"
+  },
+  "EcoBuddy": {
+    "src": "/images/projects/ecobuddy-dashboard.png",
+    "type": "preview",
+    "source": "https://github.com/sahitid/ecobuddy",
+    "fit": "contain",
+    "background": "#4a4f55",
+    "screenRegions": [
+      9,
+      49.1,
+      89.3
+    ],
+    "screenStyle": "eco-preview"
+  },
+  "Hack Club Jams": {
+    "src": "/images/projects/hack-club-jams.jpg",
+    "source": "https://cdn.hackclub.com/rescue?url=https://cloud-fryy8trec-hack-club-bot.vercel.app/00hack_club_assemble_ltnj_00622.jpg",
+    "type": "preview"
+  },
+  "AI & ML Jams": {
+    "src": "/images/projects/ai-ml-training.png",
+    "type": "preview",
+    "source": "https://jams.hackclub.com/batch/artificial-intelligence"
+  },
+  "SFHS Hack Club": {
+    "src": "/images/projects/sfhs-hack-club.jpg",
+    "source": "https://i.ytimg.com/vi/xXIxwV7bQTw/hqdefault.jpg",
+    "type": "preview"
+  },
+  "Ukulele Poetry": {
+    "src": "/images/projects/ukulele-poster.png",
+    "type": "photo",
+    "source": "https://ukulele-poetry.vercel.app/intro-poster.png",
+    "motion": "kenburns"
+  },
+  "Penn Meal Swipes": {
+    "src": "/images/projects/penn-shared-meals.jpg",
+    "type": "photo",
+    "source": "https://admissions.upenn.edu/student-life/residential-life/housing-dining",
+    "position": "50% 48%"
+  },
+  "Leaders Letters": {
+    "src": "/images/projects/leaders-letters.png",
+    "type": "preview",
+    "source": "https://github.com/sahitid/leaders-letters",
+    "position": "50% 0%"
+  },
+  "Parker Lab @ Georgia Tech": {
+    "src": "/images/projects/parker-laser.png",
+    "type": "photo",
+    "source": "https://parkerlab.gatech.edu/web/wp-content/uploads/2015/10/MOT_cropped-1.png"
+  },
+  "Pitch Deck Game": {
+    "src": "/images/projects/pitch-deck-cards.svg",
+    "type": "preview",
+    "source": "https://pitch-deck-game.vercel.app/"
+  },
+  "FitSphere": {
+    "src": "/images/projects/fitsphere-cover.svg",
+    "type": "preview"
+  },
+  "Hack Club AMAs": {
+    "src": "https://i.ytimg.com/vi/O1J1pwGPQXY/hqdefault.jpg",
+    "type": "video"
+  },
+  "Leaders Summit": {
+    "src": "https://i.ytimg.com/vi/UZEm5lONg7g/hqdefault.jpg",
+    "type": "video"
+  },
+  "Forsyth Hacks 2.0 & 1.0": {
+    "src": "/images/events/forsyth-hacks-workshop.png",
+    "type": "photo",
+    "position": "50% 60%"
+  },
+  "Ascend: Days of Service Summit": {
+    "src": "/images/events/ascend-rocket-group.png",
+    "type": "photo",
+    "fit": "cover",
+    "position": "50% 87%"
+  },
+  "Aurora: SF Athena Event": {
+    "src": "/images/events/aurora-gathering.png",
+    "type": "photo"
+  },
+  "SpaceXAI Campus Lead": {
+    "src": "/images/projects/spacexai-campus-lead.jpg",
+    "type": "photo",
+    "position": "50% 50%",
+    "source": "https://meikaejiasiphotography.pixieset.com/cursorxstudentambassadors/highlights/",
+    "credit": "Meika Ejiasi Photography"
+  },
+  "Girls Into VC Summit": {
+    "src": "/images/projects/givc-more-1.jpg",
+    "type": "photo",
+    "position": "50% 50%",
+    "source": "https://www.girlsintovc.com/",
+    "credit": "Girls Into VC"
+  },
+  "RoboRacer @ UPenn": {
+    "src": "/images/projects/roboracer-start-line.webp",
+    "type": "photo",
+    "position": "50% 55%",
+    "source": "https://roboracer.ai/",
+    "credit": "RoboRacer"
+  },
+  "FranklinDAO Blockchain": {
+    "src": "/images/projects/franklindao-logo.jpeg",
+    "type": "preview",
+    "fit": "cover",
+    "background": "#ffffff",
+    "source": "https://linktr.ee/franklindao"
+  },
+  "PennApps Hackathon": {
+    "src": "/images/projects/pennapps-finals.jpg",
+    "type": "photo",
+    "position": "50% 18%",
+    "source": "https://www.inquirer.com/philly/education/PennApps_Hackathon.html",
+    "credit": "Tom Gralish / The Philadelphia Inquirer"
+  },
+  "Olo Security": {
+    "src": "/images/projects/olo-security.svg",
+    "type": "artwork",
+    "position": "50% 50%",
+    "source": "https://olosecurity.com/"
+  }
+}

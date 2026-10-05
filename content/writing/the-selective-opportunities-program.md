@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "the selective opportunities program"
 description: "a february social experiment: how far does ambition run on autopilot?"
 date: 2026-03-20

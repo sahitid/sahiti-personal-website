@@ -1,5 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Head from 'next/head';
+import VroomFlow from '../../components/VroomFlow';
+import VroomEventPhotos from '../../components/VroomEventPhotos';
+import EventVideo from '../../components/EventVideo';
 import Link from 'next/link';
 import { motion, useAnimation } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
@@ -16,35 +19,26 @@ const HEADER_OFFSET = 96;
 
 function TableOfContents({ toc, activeSlug, className }) {
     const scrollTo = (event, slug) => {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
         event.preventDefault();
         const el = document.getElementById(slug);
-        if (el) {
-            window.scrollTo({
-                top: el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET + 8,
-                behavior: 'smooth'
-            });
-        }
+        if (!el) return;
+        window.history.replaceState(window.history.state, '', `#${slug}`);
+        el.tabIndex = -1;
+        el.focus({ preventScroll: true });
+        window.scrollTo({
+            top: el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET,
+            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+        });
     };
-
     return (
-        <nav className={className} aria-label="Table of contents">
-            <p className="text-[11px] font-semibold tracking-[0.08em] uppercase text-[#e8321eaa] mb-3">
-                Contents
-            </p>
-            <ul className="flex flex-col">
-                {toc.map((item) => (
+        <nav className={className} aria-label="On this page">
+            <ul className="essay-toc-list">
+                {toc.map(item => (
                     <li key={item.slug}>
-                        <a
-                            href={`#${item.slug}`}
-                            onClick={(e) => scrollTo(e, item.slug)}
-                            className={`toc-item block border-l-2 py-1 text-[13px] leading-snug transition-colors duration-200 ${
-                                item.depth === 3 ? 'pl-6' : 'pl-3'
-                            } ${
-                                activeSlug === item.slug
-                                    ? 'border-[#e8321e] text-[#e8321e] font-semibold'
-                                    : 'border-[#e8b4b466] text-[#1a0a0aa6] hover:text-[#1a0a0a]'
-                            }`}
-                        >
+                        <a href={`#${item.slug}`} onClick={event => scrollTo(event, item.slug)}
+                            aria-current={activeSlug === item.slug ? 'location' : undefined}
+                            className={`essay-toc-link${item.depth === 3 ? ' essay-toc-nested' : ''}`}>
                             {item.text}
                         </a>
                     </li>
@@ -198,6 +192,11 @@ function renderCaption(text) {
 }
 
 const markdownComponents = {
+    div: ({ node, children, ...props }) => {
+        if (props['data-vroom-event-photos']) return <VroomEventPhotos />;
+        if (props['data-vroom-flow']) return <VroomFlow kind={props['data-vroom-flow']} />;
+        return <div {...props}>{children}</div>;
+    },
     // Hidden easter egg: looks like plain text, plays a sound if you happen to click it.
     span: ({ node, className, children, ...props }) => {
         if (className && className.includes('sfx-ticktock')) {
@@ -210,11 +209,11 @@ const markdownComponents = {
         return <span className={className} {...props}>{children}</span>;
     },
     a: ({ node, href = '', children, ...props }) => {
-        const external = /^https?:\/\//.test(href);
+        const newTab = href && !href.startsWith('#');
         return (
             <a
                 href={href}
-                {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                {...(newTab ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 {...props}
             >
                 {children}
@@ -224,11 +223,11 @@ const markdownComponents = {
     img: ({ node, src = '', alt = '', title, ...props }) => (
         <span className="essay-figure">
             {/\.(mp4|webm)$/i.test(src) ? (
-                <video src={src} autoPlay loop muted playsInline aria-label={alt} />
+                <EventVideo src={src} label={alt} inline />
             ) : (
                 <img src={src} alt={alt} loading="lazy" {...props} />
             )}
-            {title && <span className="essay-figcaption">{renderCaption(title)}</span>}
+            {title && <span className="essay-figcaption">{/^Fig\. \d+\./.test(title) ? <strong>{renderCaption(title)}</strong> : renderCaption(title)}</span>}
         </span>
     ),
     table: ({ node, children, ...props }) => (
@@ -238,12 +237,13 @@ const markdownComponents = {
     )
 };
 
-export default function WritingPost({ post }) {
+export default function WritingPost({ post, projectPage = false, caseStudy = null, children }) {
     const controls = useAnimation();
     const [isSpinning, setIsSpinning] = useState(false);
     const bubbleRef = useRef(null);
 
-    const tocSlugs = post.toc.map((item) => item.slug);
+    const toc = useMemo(() => [{ slug: 'essay-top', text: caseStudy ? 'Overview' : 'Introduction', depth: 2 }, ...post.toc], [post.toc, caseStudy]);
+    const tocSlugs = useMemo(() => toc.map(item => item.slug), [toc]);
     const activeSlug = useScrollSpy(tocSlugs);
     useGlossBubble(bubbleRef);
 
@@ -280,38 +280,31 @@ export default function WritingPost({ post }) {
                 <meta property="og:title" content={`${post.title} - Sahiti Dasari`} key="og:title" />
                 <meta property="og:description" content={post.description || post.title} key="og:description" />
             </Head>
-            <div className="w-screen min-h-screen text-[#e8321e] bg-[#fce8e8] flex flex-col relative font-instrument-sans px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48">
-                <header className="w-full max-w-4xl mx-auto px-4 py-8">
-                    <div className="flex absolute left-0 top-0 m-4 sm:m-8 md:m-16">
-                        <motion.img
-                            src="/boat.svg"
-                            alt="Boat"
-                            className="h-6 mr-2 cursor-pointer"
-                            animate={controls}
-                            onClick={handleSpin}
-                        />
+            <div className={`essay-page flex flex-col relative${caseStudy ? " case-study" : ""}`}>
+                {caseStudy ? <header id="essay-top" className="case-study-header">
+                    <Link target="_blank" rel="noopener noreferrer" href="/projects" className="back-link"><span className="site-arrow" aria-hidden="true">←</span> Back</Link>
+                    <h1>{post.title}</h1>
+                    {caseStudy.subtitle && <p className="case-study-subtitle">{caseStudy.subtitle}</p>}
+                    {caseStudy.dateLabel && <p className="case-study-date">{caseStudy.dateLabel}</p>}
+                    {post.thumbnail && <figure className="case-study-hero-figure"><img className="case-study-hero" src={post.thumbnail} style={caseStudy.heroAspectRatio ? { aspectRatio: caseStudy.heroAspectRatio, objectFit: 'cover', objectPosition: caseStudy.heroPosition || '50% 50%' } : undefined} alt={`${post.title} thumbnail`} fetchPriority="high" /></figure>}
+                    <div className="case-study-summary">
+                        <section><h2>{caseStudy.detailsLabel || 'Team'}</h2><ul>{caseStudy.team.map(name => <li key={name}>{caseStudy.teamLinks?.[name] ? <a href={caseStudy.teamLinks[name]} target="_blank" rel="noopener noreferrer">{name}</a> : name}</li>)}</ul></section>
+                        <section><h2>Overview</h2><p>{caseStudy.overview}</p></section>
                     </div>
-
-                    <nav className="absolute right-0 top-0 m-4 sm:m-8 md:m-16 flex flex-row flex-wrap justify-end gap-x-4 gap-y-1 sm:flex-col sm:gap-x-0 sm:gap-y-2 text-[#e8321e] font-instrument-serif italic font-normal text-base sm:text-2xl tracking-normal">
-                        <a href="/" className="nav-link transition-transform duration-300 hover:scale-105">/home</a>
-                        <a href="/projects" className="nav-link transition-transform duration-300 hover:scale-105">/projects</a>
-                        <a href="/writing" className="nav-link transition-transform duration-300 hover:scale-105">/writing</a>
-                        <a href="/photos" className="nav-link transition-transform duration-300 hover:scale-105">/photos</a>
-                    </nav>
-
-                    <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={0}>
-                        <Link
-                            href="/writing"
-                            className="inline-block mt-16 sm:mt-24 md:mt-32 text-[13px] font-medium text-[#e8321eaa] hover:text-[#e8321e] transition-colors duration-200"
+                </header> : <header id="essay-top" className="w-full mx-auto py-8">
+                    <motion.div variants={fadeUp} initial={false} animate="visible" custom={0}>
+                        <Link target="_blank" rel="noopener noreferrer"
+                            href={projectPage ? "/projects" : "/writing"}
+                            className="inline-block text-[13px] font-medium text-[#767676] hover:text-[#262626] transition-colors duration-200"
                         >
-                            &larr; all writing
+                            &larr; {projectPage ? "all projects" : "all writing"}
                         </Link>
                     </motion.div>
 
                     <motion.h1
-                        className="mt-6 text-5xl sm:text-6xl md:text-7xl font-instrument-serif italic font-normal text-left text-[#e8321e] leading-[1.05]"
+                        className="mt-6 text-5xl sm:text-6xl md:text-7xl font-instrument-serif italic font-normal text-left text-[#262626] leading-[1.05]"
                         variants={fadeUp}
-                        initial="hidden"
+                        initial={false}
                         animate="visible"
                         custom={1}
                     >
@@ -320,9 +313,9 @@ export default function WritingPost({ post }) {
 
                     {post.description && (
                         <motion.p
-                            className="mt-5 text-[15px] sm:text-base text-[#1a0a0a] leading-[1.6] max-w-2xl"
+                            className="mt-5 text-[15px] sm:text-base text-[#262626] leading-[1.6] max-w-2xl"
                             variants={fadeUp}
-                            initial="hidden"
+                            initial={false}
                             animate="visible"
                             custom={2}
                         >
@@ -331,43 +324,32 @@ export default function WritingPost({ post }) {
                     )}
 
                     <motion.p
-                        className="mt-5 text-[11px] font-semibold tracking-[0.08em] uppercase text-[#e8321eaa]"
+                        className="mt-5 text-[11px] font-semibold tracking-[0.08em] uppercase text-[#767676]"
                         variants={fadeUp}
-                        initial="hidden"
+                        initial={false}
                         animate="visible"
                         custom={3}
                     >
                         {post.date} &middot; {post.readingTime} min read
                     </motion.p>
-                </header>
+                </header>}
 
                 <motion.main
-                    className="w-full max-w-4xl mx-auto px-4 mb-20 md:grid md:grid-cols-[170px_minmax(0,1fr)] md:gap-10 lg:grid-cols-[190px_minmax(0,1fr)] lg:gap-12"
+                    className="essay-layout w-full mx-auto mb-20"
                     variants={fadeUp}
-                    initial="hidden"
+                    initial={false}
                     animate="visible"
                     custom={4}
                 >
-                    {post.toc.length > 0 ? (
+                    {post.toc.length > 0 && (
                         <>
-                            <TableOfContents
-                                toc={post.toc}
-                                activeSlug={activeSlug}
-                                className="mb-10 md:hidden"
-                            />
-                            <div className="hidden md:block">
-                                <TableOfContents
-                                    toc={post.toc}
-                                    activeSlug={activeSlug}
-                                    className="sticky top-24"
-                                />
-                            </div>
+                            <aside className="essay-sidebar">
+                                <TableOfContents toc={toc} activeSlug={activeSlug} className="essay-toc" />
+                            </aside>
                         </>
-                    ) : (
-                        <div className="hidden md:block" />
                     )}
 
-                    <article className="essay-prose min-w-0 max-w-2xl">
+                    <article className="essay-prose min-w-0 max-w-2xl mx-auto">
                         <ReactMarkdown
                             remarkPlugins={[remarkGfm, remarkMath]}
                             rehypePlugins={[rehypeRaw, rehypeSlug, rehypeKatex, rehypeHighlight]}
@@ -375,50 +357,13 @@ export default function WritingPost({ post }) {
                         >
                             {post.content}
                         </ReactMarkdown>
+                        {children}
 
-                        <div className="mt-16 pt-8 border-t border-[#e8b4b466]">
-                            <p className="font-instrument-serif italic text-2xl text-[#e8321e] mb-2">
-                                enjoyed this?
-                            </p>
-                            <p className="text-[14px] text-[#1a0a0a] leading-[1.6] mb-5 max-w-lg">
-                                New essays land on my{' '}
-                                <a
-                                    href="https://sahitid.substack.com/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-[#e8321e] underline decoration-[#e8321e66] hover:decoration-[#e8321e] underline-offset-2 transition-colors duration-200"
-                                >
-                                    Substack
-                                </a>{' '}
-                                first &mdash; subscribe to get them by email.
-                            </p>
-                            <div className="flex items-center space-x-4">
-                                <a href="https://www.linkedin.com/in/sahitidasari/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
-                                    <img src="/linkedin.svg" alt="LinkedIn Icon" className="h-5 transition-transform duration-300 hover:scale-110" />
-                                </a>
-                                <a href="https://x.com/sahitid_" target="_blank" rel="noopener noreferrer" aria-label="X/Twitter Profile">
-                                    <img src="/twitter.svg" alt="Twitter Icon" className="h-5 transition-transform duration-300 hover:scale-110" />
-                                </a>
-                                <a href="https://github.com/sahitid" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
-                                    <img src="/github.svg" alt="GitHub Icon" className="h-5 transition-transform duration-300 hover:scale-110" />
-                                </a>
-                                <a href="https://substack.com/@sahitid" target="_blank" rel="noopener noreferrer" aria-label="Substack">
-                                    <img src="/substack.svg" alt="Substack Icon" className="h-5 transition-transform duration-300 hover:scale-110" />
-                                </a>
-                                <a href="mailto:sahitid@wharton.upenn.edu" aria-label="Email">
-                                    <img src="/mail.svg" alt="Mail Icon" className="h-5 transition-transform duration-300 hover:scale-110" />
-                                </a>
-                            </div>
-                        </div>
+
                     </article>
                 </motion.main>
 
-                <footer className="w-full max-w-4xl mx-auto px-4 py-4 text-[#e8321e] bg-[#fce8e8] flex flex-col justify-center items-start mt-10">
-                    <div className="w-full border-t-3 border-[#e8321e] mb-4"></div>
-                    <p className="text-xs font-medium italic">
-                        aut insanit mulier, aut versus facit
-                    </p>
-                </footer>
+
             </div>
 
             <div ref={bubbleRef} className="gloss-bubble" role="tooltip" aria-hidden="true" />

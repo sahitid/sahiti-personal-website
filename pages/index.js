@@ -1,176 +1,64 @@
-import React, { useState, useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { Button } from "@nextui-org/react";
+import NotePopup from '../components/NotePopup';
+import Link from 'next/link';
+
+const highlights = [
+  { title: 'Building', items: [
+    { title: 'Olo Security', href: 'https://olosecurity.com/', description: 'Real-time AI governance layer, designed to prevent shadow AI' },
+    { title: 'PennApps Hackathon', href: 'https://pennapps.com/', description: 'Co-directing Penn’s annual hackathon, bringing builders together to turn ambitious ideas into working projects' },
+  ] },
+  { title: 'Projects', items: [
+    { title: 'Murph-E', href: 'https://www.shayaanazeem.com/murph-e', description: 'An arcade machine that turns voice prompts into playable games' },
+    { title: 'CAISE', href: 'https://caise.app/', description: 'AI-powered practice for business student role-play and case study events' },
+    { title: 'Parker Lab @ Georgia Tech', href: 'https://parkerlab.gatech.edu/', description: 'Developing laser control systems for quantum physics precision research' },
+  ] },
+  { title: 'Writing', items: [
+    { title: 'Finding Myself', href: '/writing/finding-myself', description: 'My understanding on what it means to be human' },
+  ] },
+];
+
+const socials = [
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/sahitidasari/', icon: 'linkedin' },
+  { name: 'Twitter', href: 'https://x.com/sahitid_', icon: 'twitter' },
+  { name: 'GitHub', href: 'https://github.com/sahitid', icon: 'github' },
+  { name: 'Substack', href: 'https://substack.com/@sahitid', icon: 'substack' },
+  { name: 'Email', href: 'mailto:sahitid@wharton.upenn.edu', icon: 'mail' },
+];
 
 export default function Home() {
-  const controls = useAnimation();
-  const [isSpinning, setIsSpinning] = useState(false);
-  const [showStudentTooltip, setShowStudentTooltip] = useState(false);
-
-  useEffect(() => {
-    if (isSpinning) {
-      controls.start({ rotate: 360, transition: { duration: 1, ease: 'linear' } }).then(() => {
-        controls.set({ rotate: 0 });
-        setIsSpinning(false);
-      });
-    }
-  }, [isSpinning, controls]);
-
-  const handleSpin = () => {
-    if (!isSpinning) {
-      setIsSpinning(true);
-    }
-  };
-
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText('sahitid@wharton.upenn.edu');
-    alert('Email copied to clipboard!');
-  };
-
-
-  const handleStudentTooltipClick = () => {
-    setShowStudentTooltip(true);
-  };
-
-  const handleStudentTooltipClose = () => {
-    setShowStudentTooltip(false);
-  };
-
   return (
-    <div className="w-screen overflow-x-hidden min-h-screen text-[#FF4444] bg-[#FFEBEB] flex flex-col relative font-instrument-sans px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48">
-      <header className="w-full max-w-4xl mx-auto px-4 py-8">
-        <div className="flex absolute left-0 top-0 m-4 sm:m-8 md:m-16">
-          <motion.img
-            src="/boat.svg"
-            alt="Boat"
-            className="h-6 mr-2 cursor-pointer"
-            animate={controls}
-            onClick={handleSpin}
-          />
+    <main className="home-main home-introduction">
+      <section className="intro" aria-labelledby="home-title">
+        <h1 id="home-title" className="home-name soft-enter">Sahiti Dasari</h1>
+        <div className="intro-lede soft-enter" style={{ '--enter-delay': '80ms' }}>
+          I’m a <NotePopup label="student" title="Studying at UPenn M&T" className="student-trigger" panelClassName="student-details-popup">
+            <p>Studying Computer Science &amp; Economics at the University of Pennsylvania in <a href="https://fisher.wharton.upenn.edu/" target="_blank" rel="noopener noreferrer">Jerome Fisher Management &amp; Technology (M&amp;T)</a></p>
+          </NotePopup> &amp; developer focused on human-centered technology.
         </div>
-
-        <nav className="absolute right-0 top-0 m-4 sm:m-8 md:m-16 flex flex-row flex-wrap justify-end gap-x-4 gap-y-1 sm:flex-col sm:gap-x-0 sm:gap-y-2 text-[#FF4444] font-instrument-serif italic font-normal text-base sm:text-2xl tracking-normal">
-          <span className="nav-link opacity-50 cursor-not-allowed">/home</span>
-          <a href="/projects" className="nav-link transition-transform duration-300 hover:scale-105">/projects</a>
-          <a href="/writing" className="nav-link transition-transform duration-300 hover:scale-105">/writing</a>
-          <a href="/photos" className="nav-link transition-transform duration-300 hover:scale-105">/photos</a>
-        </nav>
-
-        <motion.h1
-          className="mt-32 sm:mt-[28vh] text-7xl sm:text-8xl md:text-[96px] font-instrument-serif italic font-normal mb-[20px] text-left text-[#FF4444] leading-none"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0, duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
-        >
-          <span className="block sm:inline">Sahiti</span>{' '}
-          <span className="block sm:inline">Dasari</span>
-        </motion.h1>
-        <motion.p
-          className="text-sm sm:text-base md:text-lg mb-0 text-left text-[#2F0000] tracking-normal"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.08, duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
-        >
-          I'm a{' '}
-          <span className="relative inline-block">
-            <Button
-              className="button-no-outline underline-custom cursor-pointer"
-              onClick={handleStudentTooltipClick}
-              aria-label="Show student info tooltip"
-            >
-              student
-            </Button>
-            {showStudentTooltip && (
-              <motion.div
-                className="custom-tooltip-enhanced"
-                role="tooltip"
-                drag
-                dragMomentum={false}
-                dragElastic={0.1}
-                whileDrag={{ scale: 1.05, rotateZ: 2 }}
-                initial={{
-                  opacity: 0,
-                  scale: 0.8,
-                  y: 20,
-                  rotateX: -10
-                }}
-                animate={{
-                  opacity: 1,
-                  scale: 1,
-                  y: 0,
-                  rotateX: 0
-                }}
-                exit={{
-                  opacity: 0,
-                  scale: 0.9,
-                  y: -10,
-                  rotateX: 5
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 500,
-                  damping: 30
-                }}
-              >
-                <button
-                  className="close-icon-enhanced"
-                  onClick={handleStudentTooltipClose}
-                  aria-label="Close student tooltip"
-                >
-                  ×
-                </button>
-                <div className="tooltip-content">
-                  <p className="tooltip-text">
-                    Studying Computer Science & Wharton at University of Pennsylvania in the{' '}
-                    <a
-                      href="https://fisher.wharton.upenn.edu/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="cursor-pointer text-[#FF4444] hover:opacity-80 transition-opacity duration-200"
-                      style={{ textDecoration: 'underline', textDecorationColor: '#FF4444' }}
-                    >
-                      Jerome Fisher Management & Technology (M&T)
-                    </a>{' '}
-                    program.
-                  </p>
-                </div>
-              </motion.div>
-            )}
-          </span>{' '}
-          & developer focused on human-centered technology and storytelling.
-        </motion.p>
-
-        <motion.div
-          className="flex space-x-4 mb-4 mt-[28px]"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.16, duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
-        >
-          <a href="https://www.linkedin.com/in/sahitidasari/" target='blank' aria-label="LinkedIn Profile">
-            <img src="/linkedin.svg" alt="LinkedIn Icon" className="h-6 transition-opacity duration-300 transform transition-transform duration-300 hover:scale-110" />
-          </a>
-          <a href="https://x.com/sahitid_" target='blank' aria-label="X/Twitter Profile">
-            <img src="/twitter.svg" alt="Twitter Icon" className="h-6 transition-opacity duration-300 transform transition-transform duration-300 hover:scale-110" />
-          </a>
-          <a href="https://github.com/sahitid" target='blank' aria-label="GitHub Profile">
-            <img src="/github.svg" alt="GitHub Icon" className="h-6 transition-opacity duration-300 transform transition-transform duration-300 hover:scale-110" />
-          </a>
-          <a href="https://substack.com/@sahitid" target='_blank' rel="noopener noreferrer" aria-label="Substack">
-            <img src="/substack.svg" alt="Substack Icon" className="h-6 transition-opacity duration-300 transform transition-transform duration-300 hover:scale-110" />
-          </a>
-          <a href="mailto:sahitid@wharton.upenn.edu" aria-label="Email">
-            <img src="/mail.svg" alt="Mail Icon" className="h-6 transition-opacity duration-300 transform transition-transform duration-300 hover:scale-110" />
-          </a>
-        </motion.div>
-      </header>
-      <main className="w-full max-w-4xl mx-auto px-4 flex flex-col mb-8">
-      </main>
-      <footer className="w-full max-w-4xl mx-auto px-4 py-4 text-[#FF4444] bg-[#FFEBEB] flex flex-col justify-center items-start mt-10">
-        <div className="w-full border-t-3 border-[#FF4444] mb-4"></div>
-        <p className="text-xs font-medium italic">
-          aut insanit mulier, aut versus facit
-        </p>
-      </footer>
-    </div>
+        <div className="social-icons soft-enter" style={{ '--enter-delay': '160ms' }} aria-label="Social links">
+          {socials.map(({ name, href, icon }) => (
+            <a key={name} href={href} target="_blank" rel="noopener noreferrer" aria-label={name} title={name}>
+              <span className="social-icon" style={{ '--icon-url': `url(/${icon}.svg)` }} aria-hidden="true" />
+            </a>
+          ))}
+        </div>
+        <div className="home-highlights soft-enter" style={{ '--enter-delay': '240ms' }}>
+          {highlights.map(column => (
+            <section className="home-highlight-column" key={column.title} aria-label={column.title}>
+              <h2>{column.title}</h2>
+              <ul>
+                {column.items.map(item => (
+                  <li key={item.title}>
+                    <Link href={item.href} target="_blank" rel="noopener noreferrer">
+                      {item.title}{item.href.startsWith('https:') && <span className="site-arrow" aria-hidden="true"> ↗</span>}
+                    </Link>
+                    <p>{item.description}</p>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }

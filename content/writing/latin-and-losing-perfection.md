@@ -1,5 +1,5 @@
 ---
-title: "latin & losing perfection"
+title: "Latin & Losing Perfection"
 description: "reflections [10/1/24 & present]"
 date: 2026-01-11
 ---

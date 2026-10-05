@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640">
+<defs><radialGradient id="felt"><stop stop-color="#264a35"/><stop offset="1" stop-color="#0b2117"/></radialGradient><filter id="shadow" x="-40%" y="-40%" width="180%" height="190%"><feDropShadow dx="0" dy="16" stdDeviation="16" flood-opacity=".3"/></filter></defs>
+<rect width="1200" height="640" fill="url(#felt)"/>
+<text x="68" y="115" fill="#f3ebca" font-family="Georgia,serif" font-style="italic" font-size="72">Pitch Deck</text>
+<text x="72" y="154" fill="#bbcab7" font-family="Arial,sans-serif" font-size="18" letter-spacing="4">THE STARTUP CARD GAME</text>
+<g filter="url(#shadow)">
+<g transform="translate(115 222) rotate(-12 160 160)"><rect width="300" height="340" rx="18" fill="#101814" stroke="#526250" stroke-width="2"/><text x="27" y="45" fill="#adbaa4" font-family="Arial,sans-serif" font-size="16" letter-spacing="3">PRODUCT</text><text x="27" y="242" fill="#f7f0d9" font-family="Arial,sans-serif" font-size="42" font-weight="bold">Canva</text></g>
+<g transform="translate(456 193) rotate(4 150 170)"><rect width="300" height="340" rx="18" fill="#f4efdc"/><text x="27" y="45" fill="#7b8068" font-family="Arial,sans-serif" font-size="16" letter-spacing="3">MARKET</text><text x="27" y="214" fill="#243427" font-family="Arial,sans-serif" font-size="35" font-weight="bold"><tspan x="27">for Costco</tspan><tspan x="27" dy="44">members</tspan></text></g>
+<g transform="translate(785 226) rotate(13 150 170)"><rect width="300" height="340" rx="18" fill="#eddaa0"/><text x="27" y="45" fill="#776536" font-family="Arial,sans-serif" font-size="16" letter-spacing="3">WILDCARD</text><text x="27" y="170" fill="#332d1e" font-family="Arial,sans-serif" font-size="30" font-weight="bold"><tspan x="27">but it</tspan><tspan x="27" dy="39">accidentally</tspan><tspan x="27" dy="39">became a</tspan><tspan x="27" dy="39">religion</tspan></text></g>
+</g></svg>
