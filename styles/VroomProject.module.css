@@ -55,3 +55,27 @@
   font-size: 12px;
   line-height: 1.5;
 }
+
+.page { text-align: left; }
+.page :global(.case-study-header > h1),
+.page :global(.case-study-subtitle),
+.page :global(.essay-prose) { text-align: left; }
+.page :global(.case-study-subtitle) { margin-left: 0; }
+
+/* Keep source excerpts readable within this technical case study. */
+.page :global(.essay-prose pre) { padding: 22px 24px; background: #f8f9fb; border-color: #e1e4e9; }
+.page :global(.hljs-keyword) { color: #9c36b5; }
+.page :global(.hljs-string) { color: #39834b; }
+.page :global(.hljs-number),
+.page :global(.hljs-literal) { color: #a96512; }
+.page :global(.hljs-title),
+.page :global(.hljs-built_in) { color: #376bc4; }
+@media (max-width: 600px) {
+  .page :global(.essay-prose pre) { padding: 16px; }
+  .page :global(.essay-prose pre code) { font-size: 12px; }
+}
+
+.page :global(.essay-prose h3[id="vroom-events"]),
+.page :global(.essay-prose h3[id="vroom-tickets"]),
+.page :global(.essay-prose h3[id="vroom-tea"]) { font-size: 22px; margin-top: 42px; }
+.page :global(.essay-prose h4) { font-size: 16px; font-weight: 500; margin-top: 32px; scroll-margin-top: 96px; }

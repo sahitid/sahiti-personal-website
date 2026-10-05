@@ -1,0 +1,151 @@
+{
+  "https://projects.lindaxue.com/images/projects/vtix/banner+logo.png": {
+    "width": 1910,
+    "height": 1000,
+    "variants": [
+      {
+        "src": "/images/projects/vroom-optimized/banner-400.webp",
+        "width": 400,
+        "bytes": 14994
+      },
+      {
+        "src": "/images/projects/vroom-optimized/banner-800.webp",
+        "width": 800,
+        "bytes": 42066
+      },
+      {
+        "src": "/images/projects/vroom-optimized/banner-1400.webp",
+        "width": 1400,
+        "bytes": 95404
+      }
+    ],
+    "placeholder": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoQAAgAA8BgJagCdADcWxSiPgAA/uaN7cC2DDnq5vviFSmqVomI1N9PT7jjAwV1rLPDoe1WSn6tLVnMVt2z+38kw4hCR2BWApYAAA=="
+  },
+  "/images/projects/vroom-options/ticketing-hero.png": {
+    "width": 4000,
+    "height": 3000,
+    "variants": [
+      {
+        "src": "/images/projects/vroom-optimized/ticketing-400.webp",
+        "width": 400,
+        "bytes": 22678
+      },
+      {
+        "src": "/images/projects/vroom-optimized/ticketing-800.webp",
+        "width": 800,
+        "bytes": 57026
+      },
+      {
+        "src": "/images/projects/vroom-optimized/ticketing-1400.webp",
+        "width": 1400,
+        "bytes": 110400
+      }
+    ],
+    "placeholder": "data:image/webp;base64,UklGRgwBAABXRUJQVlA4WAoAAAAQAAAADwAACwAAQUxQSH0AAAABcFpt27I8uEO2TqP5Bi6NAZiAxAwMwCG5D8AsRGvuzvd9T0FWiIgJwP+ueDqVzPmh136qUFByaoVGq9dqgDZfSnIXyLvxsU9BxUWJl2oxZgaGH5ZjSkrWgREFSXGhEg+WgQ7f/Kwog0DrB8mJGWj/8GYNup8kC78pnnzQAABWUDggaAAAAJACAJ0BKhAADAADwGAljALsBjDHNadcayN/GXAAAPrzWkxDwNPz8AllGgLG/ScB1fpICeiu+qShjwPnSMXkekWM72U3YS12xI/Pq7kO6ArvLvyLIyEN/WjdwBitE57pHp1OFlfLAAAA"
+  },
+  "/images/projects/vroom-gathering.png": {
+    "width": 1500,
+    "height": 1075,
+    "variants": [
+      {
+        "src": "/images/projects/vroom-optimized/gathering-400.webp",
+        "width": 400,
+        "bytes": 19390
+      },
+      {
+        "src": "/images/projects/vroom-optimized/gathering-800.webp",
+        "width": 800,
+        "bytes": 59166
+      },
+      {
+        "src": "/images/projects/vroom-optimized/gathering-1400.webp",
+        "width": 1400,
+        "bytes": 148778
+      }
+    ],
+    "placeholder": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAQCdASoQAAsAA8BgJbACdAEPgraZo1AA/uaeoEB8OGGMXyeLp+KuGKC7i4uJxOkn2Rk5OVCqkU0o77kxa4hKjSVn1w3tY+vW8KO2Fsyj2TyW1ROL0dri/BK5cbdbODDgAA=="
+  },
+  "/images/projects/vroom-tea/asks.png": {
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      {
+        "src": "/images/projects/vroom-optimized/tea-400.webp",
+        "width": 400,
+        "bytes": 6988
+      },
+      {
+        "src": "/images/projects/vroom-optimized/tea-800.webp",
+        "width": 800,
+        "bytes": 22092
+      },
+      {
+        "src": "/images/projects/vroom-optimized/tea-1280.webp",
+        "width": 1280,
+        "bytes": 48898
+      }
+    ],
+    "placeholder": "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAABwAQCdASoQAAkAA8BgJaWVuAGIAAD+8xaWoxBu4kvIJNyKwAAAAA=="
+  },
+  "https://vyml3xz4zis6ggod.public.blob.vercel-storage.com/events/rough-draft-02/photos/img-0162.jpg": {
+    "width": 1200,
+    "height": 1500,
+    "variants": [
+      {
+        "src": "/images/projects/vroom-optimized/rough-draft-400.webp",
+        "width": 400,
+        "bytes": 22048
+      },
+      {
+        "src": "/images/projects/vroom-optimized/rough-draft-800.webp",
+        "width": 800,
+        "bytes": 47148
+      },
+      {
+        "src": "/images/projects/vroom-optimized/rough-draft-1200.webp",
+        "width": 1200,
+        "bytes": 78366
+      }
+    ],
+    "placeholder": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAABQBACdASoQABQAPwForE6rJiQiMAgBYCAJQBOkFTwX4kr9o8Zg8RWpqotAAP7JzIZLZ0fcFuHX7rFxbtHsYnjlcNCBAC0nERoDG+62FRFTJ5sxNvkTt7M7B4Avdmlb6VHtoPRhpq6k0ZdAq7Zh8+5clqMXE+OwUredp5Bz/8hYJ3Sxipk/E34TSgAAAA=="
+  },
+  "https://vyml3xz4zis6ggod.public.blob.vercel-storage.com/events/adult-field-day/photos/invitegraphic.jpg": {
+    "width": 1200,
+    "height": 1500,
+    "variants": [
+      {
+        "src": "/images/projects/vroom-optimized/field-day-400.webp",
+        "width": 400,
+        "bytes": 62266
+      },
+      {
+        "src": "/images/projects/vroom-optimized/field-day-800.webp",
+        "width": 800,
+        "bytes": 281426
+      },
+      {
+        "src": "/images/projects/vroom-optimized/field-day-1200.webp",
+        "width": 1200,
+        "bytes": 724598
+      }
+    ],
+    "placeholder": "data:image/webp;base64,UklGRsYAAABXRUJQVlA4ILoAAACQBQCdASoQABQAPwForE6rJaQiMAgBYCAJbACdMoMYPYDeATS4jQQgAiyC14of27sgGgpzHAD+P96QHC5q/AHJ4E+pRhKtVXVsFrD7LFnQ7bgFsH0WLKLqisVB8UYsTTNf9zGMjkG3tistSk/+1VAipk+GNfn43pqAjcW/IJy232SdqvI3VKu0YYLfuDIVM/Q9xft75K7egjJBmb4wq83kNPCuUmhvrrwh+V9SaLu32octllrS2VHwsAA="
+  },
+  "https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/uploads/od/6ff36850-8f27-49a7-b90b-d4bff16fe44e.png": {
+    "width": 800,
+    "height": 800,
+    "variants": [
+      {
+        "src": "/images/projects/vroom-optimized/yacht-400.webp",
+        "width": 400,
+        "bytes": 31584
+      },
+      {
+        "src": "/images/projects/vroom-optimized/yacht-800.webp",
+        "width": 800,
+        "bytes": 76388
+      }
+    ],
+    "placeholder": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAABQAgCdASoQABAAA8BgJbACdAEfbYOJq6Q6+gAA/uld90F9wuGDnlZroUuPLxIXOYhxdZVdgSjAEMOOf+Y3gtAwNFFCsFU838qOSZ4DIzkcElsZjEatYpHjV2vCA+vcXp/3sMgEQME5hw0lo05r7DYAAAA="
+  }
+}

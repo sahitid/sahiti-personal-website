@@ -1,3 +1,4 @@
+import CaseStudyImage from './CaseStudyImage';
 import styles from '../styles/VroomProject.module.css';
 
 const photos = [
@@ -11,7 +12,7 @@ export default function VroomEventPhotos() {
     <div className={styles.eventPhotos}>
       {photos.map(([src, , alt]) => (
         <figure key={src}>
-          <img src={src} alt={alt} loading="lazy" />
+          <CaseStudyImage src={src} alt={alt} loading="lazy" sizes="(max-width: 712px) calc((100vw - 64px) / 3), 216px" />
         </figure>
       ))}
     </div>

@@ -1,15 +1,22 @@
-.figure { margin: 32px 0; padding: 22px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: left; }
-.title { margin-bottom: 20px; font-size: 14px; font-weight: 500; color: var(--ink); }
-.figure .steps { display: grid; grid-template-columns: repeat(var(--step-count), minmax(0, 1fr)); gap: 20px; list-style: none; padding: 0; margin: 0; }
-.step { position: relative; min-width: 0; margin: 0; }
-.step:not(:last-child)::after { content: '→'; position: absolute; right: -16px; top: 0; color: var(--muted); font-size: 12px; }
-.step strong { display: block; font-size: 12px; font-weight: 500; line-height: 1.5; }
-.actor { display: block; margin-top: 5px; color: var(--muted); font-size: 10px; line-height: 1.5; }
-.description { display: block; margin-top: 10px; font-size: 11px; line-height: 1.6; color: var(--ink); }
-.figure figcaption { margin-top: 22px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.figure { margin: 36px 0; text-align: left; }
+.canvas { padding: 26px; border: 1px solid var(--line); border-radius: 5px; background-image: radial-gradient(var(--line) .7px, transparent .7px); background-size: 9px 9px; }
+.title { font-size: 16px; font-weight: 600; color: var(--ink); }
+.canvas .intro { margin: 5px 0 24px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.figure .steps { display: grid; gap: 25px; list-style: none; padding: 0; margin: 0; }
+.figure .step { position: relative; display: grid; grid-template-columns: 1fr 1.2fr; align-items: center; gap: 20px; min-width: 0; margin: 0; padding: 18px; border: 1px solid #d3d6da; border-radius: 4px; background: #fff; }
+.step:not(:last-child)::after { content: '↓'; position: absolute; left: 50%; bottom: -25px; height: 24px; color: var(--muted); font-size: 17px; line-height: 24px; }
+.figure .step:last-child { border-color: #6f89a3; background: #f1f6fa; }
+.label { display: flex; align-items: flex-start; gap: 12px; }
+.icon { flex: 0 0 22px; width: 22px; height: 22px; margin-top: 3px; color: #555d64; }
+.number { display: block; margin-bottom: 3px; font-size: 10px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.step strong { display: block; font-size: 13px; font-weight: 600; line-height: 1.5; }
+.actor { display: block; margin-top: 5px; color: #676c72; font-size: 11px; line-height: 1.5; overflow-wrap: anywhere; }
+.description { font-size: 12px; line-height: 1.7; color: var(--ink); }
+.figure figcaption { margin: 13px 3px 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
 @media (max-width: 600px) {
-  .figure .steps { grid-template-columns: 1fr; gap: 24px; }
-  .step { padding-left: 18px; border-left: 1px solid var(--line); }
-  .step:not(:last-child)::after { content: '↓'; right: auto; left: -4px; top: auto; bottom: -21px; }
-  .description { margin-top: 4px; }
+  .canvas { padding: 18px 14px; }
+  .figure .step { grid-template-columns: 1fr; gap: 12px; padding: 15px; }
+  .number { display: inline; margin-right: 7px; }
+  .step strong { display: inline; }
+  .description { padding-left: 34px; }
 }

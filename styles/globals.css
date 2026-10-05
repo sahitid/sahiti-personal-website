@@ -587,7 +587,7 @@ summary::-webkit-details-marker { display: none; }
 .social-icon { display: block; width: 18px; height: 18px; background: currentColor; -webkit-mask: var(--icon-url) center / contain no-repeat; mask: var(--icon-url) center / contain no-repeat; }
 .home-introduction .press-note { margin-top: 31px; font-size: 11px; max-width: 500px; }
 .home-introduction .press-note>a { font-size: 11px; }
-.home-boat { display: grid; place-items: center; width: 44px; height: 44px; color: var(--accent); }
+.home-boat { position: relative; display: grid; place-items: center; width: 44px; height: 44px; color: var(--accent); }
 .boat-icon { display: block; width: 38px; height: 38px; background: currentColor; -webkit-mask: url('/boat.svg') center / contain no-repeat; mask: url('/boat.svg') center / contain no-repeat; }
 .site-home .site-footer { margin-top: 0; }
 .soft-enter { animation: none; }
@@ -1714,7 +1714,8 @@ body:has(.boat-intro) .home-boat .boat-icon { visibility: hidden; }
 }
 
 /* Linked project titles use the same highlight as homepage text links. */
-.site-projects a.project-title-link {
+.site-projects a.project-title-link,
+.writing-page .page-heading a.project-title-link {
   text-decoration: underline;
   text-decoration-color: #1115;
   text-decoration-thickness: 1px;
@@ -1838,3 +1839,6 @@ body:has(.boat-intro) .home-boat .boat-icon { visibility: hidden; }
   /* Projects already animates its heading, filters, and grid separately. */
   .site-projects .page-content { animation: none; }
 }
+
+.boat-icon.boat-origami { background: none; -webkit-mask: none; mask: none; overflow: visible; }
+.home-boat:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; border-radius: 5px; }

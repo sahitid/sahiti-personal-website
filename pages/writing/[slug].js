@@ -1,7 +1,9 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Head from 'next/head';
 import VroomFlow from '../../components/VroomFlow';
+import VroomDetails from '../../components/VroomDetails';
 import VroomEventPhotos from '../../components/VroomEventPhotos';
+import CaseStudyImage from '../../components/CaseStudyImage';
 import EventVideo from '../../components/EventVideo';
 import Link from 'next/link';
 import { motion, useAnimation } from 'framer-motion';
@@ -194,6 +196,7 @@ function renderCaption(text) {
 const markdownComponents = {
     div: ({ node, children, ...props }) => {
         if (props['data-vroom-event-photos']) return <VroomEventPhotos />;
+        if (props['data-vroom-details']) return <VroomDetails kind={props['data-vroom-details']} />;
         if (props['data-vroom-flow']) return <VroomFlow kind={props['data-vroom-flow']} />;
         return <div {...props}>{children}</div>;
     },
@@ -225,7 +228,7 @@ const markdownComponents = {
             {/\.(mp4|webm)$/i.test(src) ? (
                 <EventVideo src={src} label={alt} inline />
             ) : (
-                <img src={src} alt={alt} loading="lazy" {...props} />
+                <CaseStudyImage src={src} alt={alt} loading="lazy" {...props} />
             )}
             {title && <span className="essay-figcaption">{/^Fig\. \d+\./.test(title) ? <strong>{renderCaption(title)}</strong> : renderCaption(title)}</span>}
         </span>
@@ -286,7 +289,7 @@ export default function WritingPost({ post, projectPage = false, caseStudy = nul
                     <h1>{post.title}</h1>
                     {caseStudy.subtitle && <p className="case-study-subtitle">{caseStudy.subtitle}</p>}
                     {caseStudy.dateLabel && <p className="case-study-date">{caseStudy.dateLabel}</p>}
-                    {post.thumbnail && <figure className="case-study-hero-figure"><img className="case-study-hero" src={post.thumbnail} style={caseStudy.heroAspectRatio ? { aspectRatio: caseStudy.heroAspectRatio, objectFit: 'cover', objectPosition: caseStudy.heroPosition || '50% 50%' } : undefined} alt={`${post.title} thumbnail`} fetchPriority="high" /></figure>}
+                    {post.thumbnail && <figure className="case-study-hero-figure"><CaseStudyImage loading="eager" className="case-study-hero" src={post.thumbnail} style={caseStudy.heroAspectRatio ? { aspectRatio: caseStudy.heroAspectRatio, objectFit: 'cover', objectPosition: caseStudy.heroPosition || '50% 50%' } : undefined} alt={`${post.title} thumbnail`} fetchPriority="high" /></figure>}
                     <div className="case-study-summary">
                         <section><h2>{caseStudy.detailsLabel || 'Team'}</h2><ul>{caseStudy.team.map(name => <li key={name}>{caseStudy.teamLinks?.[name] ? <a href={caseStudy.teamLinks[name]} target="_blank" rel="noopener noreferrer">{name}</a> : name}</li>)}</ul></section>
                         <section><h2>Overview</h2><p>{caseStudy.overview}</p></section>

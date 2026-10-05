@@ -7,7 +7,7 @@ export default function Writing({ posts }) {
     <Head><title>Writing — Sahiti Dasari</title><meta name="description" content="Essays and reflections by Sahiti Dasari." /></Head>
     <header className="page-heading">
       <h1>Writing</h1>
-      <p>I believe storytelling is the most important tool we have. <a target="_blank" rel="noopener noreferrer" href="https://sahitid.substack.com/">Substack <span className="site-arrow" aria-hidden="true">↗</span></a></p>
+      <p>I believe storytelling is the most important tool we have. <a className="project-title-link" target="_blank" rel="noopener noreferrer" href="https://sahitid.substack.com/"><span>Substack</span><span className="project-title-arrow" aria-hidden="true">↗</span></a></p>
     </header>
     <div className="writing-grid">
       {posts.map((post, index) => <article className="writing-card" key={post.slug}>

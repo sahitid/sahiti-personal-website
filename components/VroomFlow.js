@@ -1,50 +1,42 @@
+import {
+  FiFilter, FiMonitor, FiCpu, FiList, FiCheckCircle,
+} from 'react-icons/fi';
 import styles from './VroomFlow.module.css';
+import VroomDiagrams from './VroomDiagrams';
 
 const flows = {
   search: {
     title: 'Provider search',
+    intro: 'From event requirements to a progressively ranked list.',
     steps: [
-      ['Filter', 'Supabase', 'Up to 75 providers matching the event requirements.'],
-      ['Embed', 'OpenRouter', 'Turn the atmosphere query into a text-embedding-3-small vector.'],
-      ['Rank', 'pgvector', 'Reorder the same providers by similarity.'],
-      ['Return', 'Server-sent events', 'Send the updated order to the browser.'],
+      [FiFilter, 'Build the candidate pool', 'Supabase · structured filters', 'Apply location, category, capacity, and other event filters. Retrieve up to 75 providers; atmosphere is handled in the next stage.'],
+      [FiMonitor, 'Show the first results', 'SSE · skeleton', 'Send the entire pool to the browser immediately. The organizer can see matching providers while semantic ranking runs.'],
+      [FiCpu, 'Embed the atmosphere', 'OpenRouter · text-embedding-3-small', 'Turn a phrase such as “an intimate gallery” into a 1,536-dimensional query vector. Provider vectors are already stored.'],
+      [FiList, 'Reorder the same providers', 'PostgreSQL · pgvector', 'Compare the query with embeddings for this pool only. Sort by similarity, keeping providers without embeddings at the bottom.'],
+      [FiCheckCircle, 'Stream the updated order', 'SSE · reranked → final', 'Replace the visible ordering with the full ranked pool. The final event marks completion; this version adds no further model-ranking step.'],
     ],
-    note: 'Results appear before ranking finishes. If ranking fails, the original results stay visible.',
+    note: 'If embedding or ranking fails, the original pool remains. An empty pool completes without semantic ranking; an empty atmosphere keeps the initial order.',
   },
-  approval: {
-    title: 'Writing an outreach email',
-    steps: [
-      ['Extract facts', 'Claude Haiku', 'Read the provider description.'],
-      ['Plan', 'Claude Sonnet', 'Combine provider, event, and conversation details.'],
-      ['Write', 'Claude Sonnet', 'Generate a subject and email body.'],
-      ['Check', 'Claude Haiku', 'Check the draft against the requirements.'],
-      ['Revise if needed', 'Claude Sonnet', 'Make one revision when the check finds a problem.'],
-    ],
-    note: 'Manual mode saves a Gmail draft for approval. Automated mode sends through AgentMail. If revision fails, the original draft is kept.',
-  },
-  photos: {
-    title: 'Uploading event photos',
-    steps: [
-      ['Prepare', 'Web / mobile', 'Create a thumbnail and strip image metadata.'],
-      ['Save', 'Supabase', 'Store the image and its database record.'],
-      ['Tag', 'Photo tagger', 'Track tagging separately from the upload.'],
-      ['Retry', 'Scheduled job', 'Retry pending or failed tags every 10 minutes.'],
-    ],
-    note: 'A tagging failure does not remove the uploaded photo. Each retry batch handles up to 20 photos, with a limit of three attempts per photo.',
-  },
+
 };
 
 export default function VroomFlow({ kind = 'search' }) {
-  const flow = flows[kind] || flows.search;
+  if (kind === 'approval' || kind === 'photos') return <VroomDiagrams kind={kind} />;
+  const flow = flows.search;
   return <figure className={styles.figure} aria-label={flow.title}>
-    <div className={styles.title}>{flow.title}</div>
-    <ol className={styles.steps} style={{ '--step-count': flow.steps.length }}>
-      {flow.steps.map(([title, actor, description]) => <li key={title} className={styles.step}>
-        <strong>{title}</strong>
-        <span className={styles.actor}>{actor}</span>
-        <span className={styles.description}>{description}</span>
-      </li>)}
-    </ol>
+    <div className={styles.canvas}>
+      <div className={styles.title}>{flow.title}</div>
+      <p className={styles.intro}>{flow.intro}</p>
+      <ol className={styles.steps}>
+        {flow.steps.map(([Icon, title, actor, description], index) => <li key={title} className={styles.step}>
+          <div className={styles.label}>
+            <Icon className={styles.icon} aria-hidden="true" />
+            <div><span className={styles.number}>0{index + 1}</span><strong>{title}</strong><span className={styles.actor}>{actor}</span></div>
+          </div>
+          <span className={styles.description}>{description}</span>
+        </li>)}
+      </ol>
+    </div>
     <figcaption>{flow.note}</figcaption>
   </figure>;
 }

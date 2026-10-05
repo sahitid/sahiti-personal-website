@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import HomeBoat from './HomeBoat';
 
 export default function SiteLayout({ children }) {
   const router = useRouter();
@@ -8,9 +9,7 @@ export default function SiteLayout({ children }) {
     <div key={router.asPath.split(/[?#]/)[0]} className={`site${isHome ? ' site-home' : ''}${router.pathname === '/projects' ? ' site-projects' : ''}${router.pathname === '/projects/[slug]' ? ' site-event' : ''}`}>
       <a className="skip-link" href="#content">Skip to content</a>
       <header className="site-header">
-        <Link href="/" className="home-boat" aria-label="Home" title="Home">
-          <span className="boat-icon" aria-hidden="true" />
-        </Link>
+        <HomeBoat />
         <nav aria-label="Main navigation">
           {['projects', 'writing', 'photos'].map(name => {
             const href = `/${name}`;
