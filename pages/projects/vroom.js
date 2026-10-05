@@ -5,7 +5,7 @@ import styles from '../../styles/VroomProject.module.css';
 export default function VroomProject({ post }) {
   return <div className={styles.page}><WritingPost post={post} projectPage caseStudy={{
     dateLabel: null,
-    subtitle: 'From finding a venue to checking in its guests: search, outreach, and the systems around a live event.',
+    subtitle: 'Building intentional software for live experiences that treats each event as a choreography of venue, vendors, and people.',
     team: ['Linda Xue', 'Vikram Gupta', 'Ali Khatib'],
     overview: 'I helped build Vroom Events, connecting the planning workspace to provider search and outreach. On Vroom Tickets, I worked across web and mobile on photos, guests, messaging, and check-in. I also built Vroom Tea, a local feed for venue questions and experiences.',
   }}>
