@@ -57,10 +57,7 @@
 }
 
 .page { text-align: left; }
-.page :global(.case-study-header > h1),
-.page :global(.case-study-subtitle),
 .page :global(.essay-prose) { text-align: left; }
-.page :global(.case-study-subtitle) { margin-left: 0; }
 
 /* Keep source excerpts readable within this technical case study. */
 .page :global(.essay-prose pre) { padding: 22px 24px; background: #f8f9fb; border-color: #e1e4e9; }
