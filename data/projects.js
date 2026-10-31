@@ -314,7 +314,7 @@ export const projects = [
             title: 'Philanthropy & Communications',
             categories: ['Community'],
             date: 'Summer 2023',
-            description: 'Developed AI research that attracted national attention and helped raise $350k for Hack Club. Crafted communications to Fortune 500 CEOs & technology leaders, directly leading to their engagement.',
+            description: 'Developed AI research that attracted national attention and helped raise $400k for Hack Club. Crafted communications to Fortune 500 CEOs & technology leaders, directly leading to their engagement.',
             links: {
                 website: 'https://hackclub.com/',
             }
