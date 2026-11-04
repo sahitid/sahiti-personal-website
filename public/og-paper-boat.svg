@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <title>Paper boat on yellow</title>
+  <rect width="1200" height="630" fill="#fff58a"/>
+  <g transform="translate(445 215) scale(5)" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 14 L12.5455 38"/>
+    <path d="M12.5455 38 H49.4545"/>
+    <path d="M49.4545 38 L60 14"/>
+    <path d="M60 14 L33.6364 27.3333 L12.5455 38"/>
+    <path d="M2 14 L33.6364 27.3333"/>
+    <path d="M12 18 L29.7333 2"/>
+    <path d="M29.7333 2 L50 18"/>
+    <path d="M29.6 4 L24 22"/>
+    <path d="M29.6 4 L38 22"/>
+    <path d="M2 14 H16"/>
+    <path d="M46 14 H60"/>
+  </g>
+</svg>

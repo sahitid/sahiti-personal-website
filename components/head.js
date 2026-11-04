@@ -11,8 +11,9 @@ export default function HeadObject({ children }) {
   const twitter = "@sahitid_";
   const url = "https://sahiti.dev";
   const canonical = `${url}${router.asPath.split(/[?#]/)[0]}`;
-  const image = `${url}/sahiti-dasari-portrait.jpg`;
-  const imageAlt = "Portrait of Sahiti Dasari";
+  const image = `${url}/og-paper-boat.png`;
+  const imageAlt = "A black paper boat outline on a yellow background";
+  const portrait = `${url}/sahiti-dasari-portrait.jpg`;
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -20,7 +21,7 @@ export default function HeadObject({ children }) {
     url: canonical,
     name: title,
     primaryImageOfPage: { '@type': 'ImageObject', url: image, contentUrl: image, caption: imageAlt },
-    about: { '@type': 'Person', name: title, url, image, sameAs: ['https://www.linkedin.com/in/sahitidasari/', 'https://github.com/sahitid', 'https://x.com/sahitid_'] },
+    about: { '@type': 'Person', name: title, url, image: portrait, sameAs: ['https://www.linkedin.com/in/sahitidasari/', 'https://github.com/sahitid', 'https://x.com/sahitid_'] },
   };
   return (
     <Head>
@@ -54,8 +55,8 @@ export default function HeadObject({ children }) {
         content={image}
         key="og:image"
       />
-      <meta property="og:image:width" content="4928" key="og:image:width" />
-      <meta property="og:image:height" content="7404" key="og:image:height" />
+      <meta property="og:image:width" content="1200" key="og:image:width" />
+      <meta property="og:image:height" content="630" key="og:image:height" />
       <meta
         property="og:image:alt"
         content={imageAlt}
@@ -73,6 +74,7 @@ export default function HeadObject({ children }) {
         content={image}
         key="twitter:image"
       />
+      <meta name="twitter:image:alt" content={imageAlt} key="twitter:image:alt" />
       {/* Add analytics here */}
       {children}
     </Head>
