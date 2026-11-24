@@ -2,26 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 
 import { boatStrokes } from '../lib/boat-strokes';
 
-const INTRO_SEEN_KEY = 'sahiti-boat-intro-seen';
-let introSeenInMemory = false;
-
-// Shared across tabs; an explicit homepage reload can replay the intro.
+// Play once per page load; this stays mounted during internal navigation.
 export default function BoatIntro() {
   const [active, setActive] = useState(false);
   const overlay = useRef(null);
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const navigation = window.performance.getEntriesByType('navigation')[0];
-    const homeReload = window.location.pathname === '/' && navigation?.type === 'reload';
-    let seen = introSeenInMemory;
-    try {
-      seen = seen || window.localStorage.getItem(INTRO_SEEN_KEY) === 'true';
-      window.localStorage.setItem(INTRO_SEEN_KEY, 'true');
-    } catch {
-      // Keep navigation working if browser storage is unavailable.
-    }
-    introSeenInMemory = true;
-    if (!seen || homeReload) setActive(true);
+    setActive(true);
   }, []);
   useEffect(() => {
     if (!active) return;
