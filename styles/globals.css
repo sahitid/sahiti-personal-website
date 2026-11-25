@@ -318,6 +318,16 @@
   padding: 0 2px;
 }
 
+.essay-prose .footnote-flash {
+  animation: footnote-flash 1.6s ease-out;
+  border-radius: 3px;
+}
+
+@keyframes footnote-flash {
+  0%, 35% { background-color: var(--highlight); }
+  100% { background-color: transparent; }
+}
+
 /* Glossary terms: <span class="gloss" data-gloss="definition">term</span> */
 .essay-prose .gloss {
   text-decoration: underline dotted;
