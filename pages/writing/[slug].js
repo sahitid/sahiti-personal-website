@@ -19,6 +19,73 @@ import { getPostSlugs, getPostBySlug } from '../../lib/writing';
 
 const HEADER_OFFSET = 96;
 
+let cancelActiveScroll = null;
+
+// Eases to an element while tracking its live position, so images that load
+// mid-scroll (and shift the layout) don't make us land in the wrong place.
+function smoothScrollTo(el, offset) {
+    cancelActiveScroll?.();
+    const targetY = () => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        return Math.max(0, Math.min(el.getBoundingClientRect().top + window.scrollY - offset, max));
+    };
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        window.scrollTo(0, targetY());
+        return;
+    }
+    const startY = window.scrollY;
+    const duration = Math.min(1100, Math.max(450, Math.abs(targetY() - startY) * 0.12));
+    const settle = 600;
+    const ease = t => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+    let start;
+    let frame;
+    const stop = () => {
+        cancelAnimationFrame(frame);
+        ['wheel', 'touchstart', 'keydown'].forEach(type => window.removeEventListener(type, stop));
+        if (cancelActiveScroll === stop) cancelActiveScroll = null;
+    };
+    const step = now => {
+        start ??= now;
+        const elapsed = now - start;
+        const t = Math.min(1, elapsed / duration);
+        window.scrollTo(0, startY + (targetY() - startY) * ease(t));
+        if (elapsed < duration + settle) frame = requestAnimationFrame(step);
+        else stop();
+    };
+    ['wheel', 'touchstart', 'keydown'].forEach(type => window.addEventListener(type, stop, { passive: true }));
+    cancelActiveScroll = stop;
+    frame = requestAnimationFrame(step);
+}
+
+// Footnote refs and "back to reference" links glide instead of jumping,
+// landing about a third of the way down the screen with a brief highlight.
+function useFootnoteScroll() {
+    useEffect(() => {
+        const onClick = event => {
+            if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+            const link = event.target.closest && event.target.closest('a[data-footnote-ref], a[data-footnote-backref]');
+            const id = link && decodeURIComponent(link.getAttribute('href') || '').replace(/^#/, '');
+            const target = id && document.getElementById(id);
+            if (!target) return;
+            event.preventDefault();
+            window.history.replaceState(window.history.state, '', `#${id}`);
+            const flash = target.closest('sup') || target;
+            if (flash.tagName === 'LI') flash.tabIndex = -1;
+            target.focus({ preventScroll: true });
+            flash.classList.remove('footnote-flash');
+            void flash.offsetWidth;
+            flash.classList.add('footnote-flash');
+            flash.addEventListener('animationend', () => flash.classList.remove('footnote-flash'), { once: true });
+            smoothScrollTo(target, Math.round(window.innerHeight / 3));
+        };
+        document.addEventListener('click', onClick);
+        return () => {
+            document.removeEventListener('click', onClick);
+            cancelActiveScroll?.();
+        };
+    }, []);
+}
+
 function TableOfContents({ toc, activeSlug, className }) {
     const scrollTo = (event, slug) => {
         if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
@@ -28,10 +95,7 @@ function TableOfContents({ toc, activeSlug, className }) {
         window.history.replaceState(window.history.state, '', `#${slug}`);
         el.tabIndex = -1;
         el.focus({ preventScroll: true });
-        window.scrollTo({
-            top: el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET,
-            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
-        });
+        smoothScrollTo(el, HEADER_OFFSET);
     };
     return (
         <nav className={className} aria-label="On this page">
@@ -249,6 +313,7 @@ export default function WritingPost({ post, projectPage = false, caseStudy = nul
     const tocSlugs = useMemo(() => toc.map(item => item.slug), [toc]);
     const activeSlug = useScrollSpy(tocSlugs);
     useGlossBubble(bubbleRef);
+    useFootnoteScroll();
 
     const handleSpin = async () => {
         if (!isSpinning) {
