@@ -6,7 +6,7 @@ import VroomEventPhotos from '../../components/VroomEventPhotos';
 import CaseStudyImage from '../../components/CaseStudyImage';
 import EventVideo from '../../components/EventVideo';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import Router from 'next/router';
 import { motion, useAnimation } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -61,10 +61,7 @@ function smoothScrollTo(el, offset) {
 // Footnote refs and "back to reference" links glide instead of jumping,
 // landing about a third of the way down the screen with a brief highlight.
 function useFootnoteScroll() {
-    const router = useRouter();
-
     useEffect(() => {
-        const pagePath = () => window.location.pathname + window.location.search;
         const onClick = event => {
             if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
             const link = event.target.closest && event.target.closest('a[data-footnote-ref], a[data-footnote-backref]');
@@ -83,9 +80,10 @@ function useFootnoteScroll() {
             smoothScrollTo(target, Math.round(window.innerHeight / 3));
         };
         // Back/Forward between footnotes on the same page: glide there ourselves
-        // instead of letting Next treat it as a route change.
-        router.beforePopState(({ as }) => {
-            if (as.split('#')[0] !== pagePath()) return true;
+        // instead of letting Next treat it as a route change. Compare against
+        // Router.asPath, since window.location already shows the destination.
+        Router.beforePopState(({ as }) => {
+            if (as.split('#')[0] !== Router.asPath.split('#')[0]) return true;
             const id = decodeURIComponent(window.location.hash.slice(1));
             const target = id && document.getElementById(id);
             if (target) smoothScrollTo(target, Math.round(window.innerHeight / 3));
@@ -94,10 +92,10 @@ function useFootnoteScroll() {
         document.addEventListener('click', onClick);
         return () => {
             document.removeEventListener('click', onClick);
-            router.beforePopState(() => true);
+            Router.beforePopState(() => true);
             cancelActiveScroll?.();
         };
-    }, [router]);
+    }, []);
 }
 
 function TableOfContents({ toc, activeSlug, className }) {
