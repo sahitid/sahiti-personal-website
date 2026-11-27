@@ -1,15 +1,20 @@
 import { useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/router';
 
 import { boatStrokes } from '../lib/boat-strokes';
 
-// Play once per page load; this stays mounted during internal navigation.
+// Play only when a page load starts at home; stay mounted so navigation never replays it.
 export default function BoatIntro() {
+  const { events } = useRouter();
   const [active, setActive] = useState(false);
   const overlay = useRef(null);
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.location.pathname !== '/' || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const stopIntro = () => setActive(false);
+    events.on('routeChangeStart', stopIntro);
     setActive(true);
-  }, []);
+    return () => events.off('routeChangeStart', stopIntro);
+  }, [events]);
   useEffect(() => {
     if (!active) return;
     let flight;
