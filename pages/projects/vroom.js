@@ -1,9 +1,9 @@
-import WritingPost from '../writing/[slug]';
+import WritingLayout from '../../components/WritingLayout';
 import { getPostBySlug } from '../../lib/writing';
 import styles from '../../styles/VroomProject.module.css';
 
 export default function VroomProject({ post }) {
-  return <div className={styles.page}><WritingPost post={post} projectPage caseStudy={{
+  return <div className={styles.page}><WritingLayout post={post} projectPage caseStudy={{
     dateLabel: null,
     subtitle: 'Building intentional software for live experiences that treats each event as a choreography of venue, vendors, and people.',
     team: ['Linda Xue', 'Vikram Gupta', 'Ali Khatib'],
@@ -13,7 +13,7 @@ export default function VroomProject({ post }) {
       <a href="https://projects.lindaxue.com/vtix" target="_blank" rel="noopener noreferrer"><span>Linda’s website</span> <span className="site-arrow" aria-hidden="true">↗</span></a>
       <a href="https://x.com/lindaxue/article/2074207099664683191" target="_blank" rel="noopener noreferrer"><span>Postmortem</span> <span className="site-arrow" aria-hidden="true">↗</span></a>
     </nav>
-  </WritingPost></div>;
+  </WritingLayout></div>;
 }
 
 export function getStaticProps() {

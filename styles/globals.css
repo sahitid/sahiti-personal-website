@@ -613,8 +613,6 @@ summary::-webkit-details-marker { display: none; }
 .press-inline { background: var(--highlight); color: var(--ink); padding: 1px 3px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 .press-inline a { text-decoration: none; }
 .press-inline a:hover { text-decoration: underline; text-underline-offset: 3px; }
-.essay-page .toc-item { border-color: var(--line); }
-.essay-page .toc-item.font-semibold { border-color: #e6ca4a; }
 .essay-page article img[src$=".svg"] { filter: grayscale(1); }
 
 .event-artwork { background: #f6f6f6; }
@@ -752,27 +750,8 @@ a.project-thumbnail:hover .project-screen-gallery img { transform: translateY(-2
 .embedded-thumbnail img { width: 100%; height: 100%; object-fit: cover; }
 .embedded-thumbnail iframe { position: absolute; width: 100%; height: 106%; left: 0; top: -3%; border: 0; }
 
-/* Keep the reading column centered; contents live in the outer margin. */
+/* Shared article layout; navigation styles live in ArticleContents.module.css. */
 .essay-layout { position: relative; }
-.essay-sidebar { display: none; }
-.essay-toc-label { font-size: 11px; color: #999; margin: 0 0 16px; }
-.essay-toc-list { list-style: none; margin: 0; padding: 0; }
-.essay-toc-link { position: relative; display: block; padding: 6px 0 6px 12px; color: #888; font-size: 12px; line-height: 1.5; transition: color .18s ease; text-decoration: none; }
-.essay-toc-link:hover { color: var(--ink); }
-.essay-toc-link[aria-current="location"] { color: var(--ink); }
-.essay-toc-link[aria-current="location"]::before { content: ''; position: absolute; left: 0; top: 11px; width: 3px; height: 12px; border-radius: 2px; background: var(--highlight); }
-.essay-toc-nested { padding-left: 24px; font-size: 11px; }
-.essay-toc-link:focus-visible { outline: 2px solid var(--highlight); outline-offset: 3px; border-radius: 3px; }
-.essay-mobile-contents { margin: 0 0 32px; padding: 14px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.essay-mobile-contents summary { cursor: pointer; display: flex; justify-content: space-between; color: var(--muted); font-size: 13px; list-style: none; }
-.essay-mobile-contents summary::-webkit-details-marker { display: none; }
-.essay-mobile-contents[open] summary { margin-bottom: 12px; }
-.essay-mobile-contents .essay-toc-label { display: none; }
-@media (min-width: 1480px) {
-  .essay-sidebar { display: block; position: absolute; left: -240px; top: 0; bottom: 0; width: 190px; }
-  .essay-toc { position: sticky; top: 120px; max-height: calc(100vh - 160px); overflow-y: auto; scrollbar-width: thin; }
-  .essay-mobile-contents { display: none; }
-}
 
 .inline-brand-group { white-space: nowrap; }
 .inline-brand-logo { display: inline-block; width: 1em; height: 1em; object-fit: contain; vertical-align: -.12em; margin-right: .3em; }
@@ -868,7 +847,6 @@ a.project-thumbnail:hover .project-screen-gallery img { transform: translateY(-2
 .case-study .essay-prose h3 { font-size: 16px; font-weight: 500; margin-top: 32px; }
 @media (min-width: 700px) and (max-width: 1099px) {
   .case-study .essay-layout { display: block; width: 100%; margin-left: 0; }
-  .case-study .essay-sidebar { display: none; }
 }
 @media (max-width: 420px) {
   .case-study-summary { grid-template-columns: 1fr; gap: 24px; }
@@ -1397,7 +1375,7 @@ html { scrollbar-gutter: stable; }
 /* Share the student's rising highlight across text links site-wide. */
 :is(.home-highlight-column a, .site-header nav a, .project-title-link,
     .project-card p a, .essay-prose a, .writing-card h2 a,
-    .event-title-row a, .event-website, .essay-toc-link,
+    .event-title-row a, .event-website,
     .section-heading > a, .project-filters button) {
   background-image: linear-gradient(var(--highlight), var(--highlight));
   background-position: 0 88%;
@@ -1411,18 +1389,18 @@ html { scrollbar-gutter: stable; }
 @media (hover: hover) {
   :is(.home-highlight-column a, .site-header nav a, .project-title-link,
       .project-card p a, .essay-prose a, .writing-card h2 a,
-      .event-title-row a, .event-website, .essay-toc-link,
+      .event-title-row a, .event-website,
       .section-heading > a, .project-filters button):hover { background-size: 100% 88%; }
 }
 :is(.home-highlight-column a, .site-header nav a, .project-title-link,
     .project-card p a, .essay-prose a, .writing-card h2 a,
-    .event-title-row a, .event-website, .essay-toc-link,
+    .event-title-row a, .event-website,
     .section-heading > a, .project-filters button):focus-visible { background-size: 100% 88%; }
 .project-filters button[aria-pressed=true] { background-color: transparent; background-size: 100% 88%; }
 @media (prefers-reduced-motion: reduce) {
   :is(.home-highlight-column a, .site-header nav a, .project-title-link,
       .project-card p a, .essay-prose a, .writing-card h2 a,
-      .event-title-row a, .event-website, .essay-toc-link,
+      .event-title-row a, .event-website,
       .section-heading > a, .project-filters button) { transition: none; }
 }
 
@@ -1781,13 +1759,6 @@ body:has(.boat-intro) .home-boat .boat-icon { visibility: hidden; }
 @media (max-width: 480px) {
   .event-detail .rough-draft-media { columns: 1; }
 }
-
-/* Contents links stay unhighlighted; only the active-section bar is yellow. */
-.essay-page .essay-toc-link,
-.essay-page .essay-toc-link:hover,
-.essay-page .essay-toc-link:focus-visible { background-image: none; background-color: transparent; }
-.essay-page .essay-toc-link[aria-current="location"]::before { background: var(--highlight); }
-.essay-page .essay-toc-link:focus-visible { outline-color: var(--ink); }
 
 /* Keep the event embeds compact, with room for Instagram’s player controls. */
 .field-day-social { margin-top: 32px; }

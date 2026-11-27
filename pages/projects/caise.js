@@ -1,8 +1,8 @@
-import WritingPost from '../writing/[slug]';
+import WritingLayout from '../../components/WritingLayout';
 import { getPostBySlug } from '../../lib/writing';
 
 export default function CaiseProject({ post }) {
-  return <WritingPost post={post} projectPage caseStudy={{
+  return <WritingLayout post={post} projectPage caseStudy={{
     dateLabel: null,
     subtitle: 'Helping students practice business case studies, present their ideas, and learn from feedback.',
     team: ['Nathan Tishgarten', 'Sahiti Dasari'],

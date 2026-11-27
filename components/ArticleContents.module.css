@@ -1,0 +1,150 @@
+/* One source of appearance and motion for all writing. */
+.shell {
+  --contents-ink: var(--ink, #444);
+  --contents-muted: var(--muted, #626262);
+  position: fixed;
+  z-index: 60;
+  top: 20px;
+  right: 20px;
+  color: var(--contents-ink);
+  font: 400 .875rem/1.4 'Instrument Sans', sans-serif;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s, visibility 0s linear .25s;
+}
+
+.revealed { opacity: 1; visibility: visible; transition: opacity .25s, visibility 0s; }
+.mobileToggle {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--line, #e7e7e7);
+  border-radius: 8px;
+  background: var(--paper, #fff);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.mobileChevron { margin-left: 4px; transition: transform .2s; }
+.mobileOpen .mobileChevron { transform: rotate(180deg); }
+.nav {
+  position: absolute;
+  right: 0;
+  top: 56px;
+  width: min(320px, calc(100vw - 40px));
+  max-height: calc(100dvh - 100px);
+  padding: 16px 16px 20px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  background: var(--paper, #fff);
+  border: 1px solid var(--line, #e7e7e7);
+  border-radius: 10px;
+  box-shadow: 0 8px 28px #00000008;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .2s, visibility 0s linear .2s;
+}
+.nav::-webkit-scrollbar { display: none; }
+.mobileOpen.revealed .nav { opacity: 1; visibility: visible; transition: opacity .2s, visibility 0s; }
+.list, .subList { list-style: none; padding: 0; margin: 0; }
+.chapter { margin: 0 0 6px; }
+.row { position: relative; }
+.link {
+  display: block;
+  padding: 10px 0 10px 22px;
+  color: var(--contents-muted);
+  text-decoration: none;
+  overflow-wrap: break-word;
+  transition: color .2s;
+}
+.link:hover, .selected, .link[aria-current] { color: var(--contents-ink); }
+.expand {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 40px;
+  padding: 0;
+  color: var(--contents-muted);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.expand svg { transition: transform .2s; }
+.expand[aria-expanded=true] svg { transform: rotate(90deg); }
+.expand:hover { color: var(--contents-ink); }
+.children {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-3px);
+  transition: grid-template-rows .28s ease-in-out, opacity .2s, transform .28s, visibility 0s linear .28s;
+}
+.childrenOpen {
+  grid-template-rows: 1fr;
+  visibility: inherit;
+  opacity: 1;
+  transform: none;
+  transition: grid-template-rows .28s ease-in-out, opacity .2s, transform .28s, visibility 0s;
+}
+.childrenClip { min-height: 0; overflow: hidden; }
+.subList { padding-left: 10px; }
+.marker {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 3px;
+  height: 12px;
+  border-radius: 2px;
+  background: var(--highlight, #fff58a);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(var(--marker-y, 0px));
+  transition: transform .28s cubic-bezier(.22, 1, .36, 1), opacity .16s;
+}
+.nav:has(.expand:hover) .marker, .nav:has(.expand:focus-visible) .marker { opacity: 0 !important; }
+.link:focus-visible, .expand:focus-visible, .mobileToggle:focus-visible { outline: 2px solid var(--contents-ink); outline-offset: 3px; border-radius: 3px; }
+
+@media (min-width: 1000px) {
+  .shell {
+    top: 104px;
+    left: 20px;
+    right: auto;
+    width: min(200px, calc((100vw - 42rem) / 2 - 44px));
+    font-size: .8125rem;
+  }
+  .mobileToggle { display: none; }
+  .nav {
+    position: relative;
+    top: auto;
+    width: 100%;
+    max-height: calc(100dvh - 128px);
+    padding: 0 0 24px;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    opacity: 1;
+    visibility: inherit;
+  }
+  .link { padding: 4px 0 4px 20px; }
+  .chapter { margin-bottom: 4px; }
+  .expand { left: 0; width: 15px; height: 26px; opacity: .7; }
+  .expand[aria-expanded=true] { opacity: 0; }
+  .row:hover .expand, .expand:focus-visible { opacity: 1; }
+  .marker { left: 5px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shell, .nav, .link, .marker, .children, .expand svg, .mobileChevron { transition: none; }
+}
+
+@media print { .shell { display: none; } }

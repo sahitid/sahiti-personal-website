@@ -4,7 +4,7 @@ import Link from 'next/link';
 import events from '../../data/events.json';
 import PhotoGallery from '../../components/PhotoGallery';
 import EventVideo from '../../components/EventVideo';
-import WritingPost from '../writing/[slug]';
+import WritingLayout from '../../components/WritingLayout';
 import FieldDaySocial from '../../components/FieldDaySocial';
 
 export default function EventPage({ event }) {
@@ -14,12 +14,11 @@ export default function EventPage({ event }) {
   const isFieldDay = event.slug === 'adult-field-day';
   const mixedMedia = event.slug === 'rough-draft-02' || isFieldDay;
   const description = isFieldDay ? 'I planned a field day to bring a little whimsy back to San Francisco—an afternoon of games, water balloons, and popsicles, purely for the fun of it.' : event.description;
-  if (event.slug === 'sf-tea-party') return <WritingPost projectPage post={{
+  if (event.slug === 'sf-tea-party') return <WritingLayout projectPage post={{
     title: event.title,
     description: event.description,
     thumbnail: event.cover,
     content: '',
-    toc: [{ slug: 'photos', text: 'Photos', depth: 2 }],
   }} caseStudy={{
     subtitle: event.description,
     heroAspectRatio: '16 / 9',
@@ -31,7 +30,7 @@ export default function EventPage({ event }) {
       <h2 id="photos">Photos</h2>
       <PhotoGallery photos={photos} label={event.title} className="event-photo-grid" />
     </div>
-  </WritingPost>;
+  </WritingLayout>;
   return <main className={`standard-main event-detail${event.slug === 'spacexai-campus-lead' ? ' campus-lead-page' : ''}`}>
     <Head><title>{`${event.title} — Sahiti Dasari`}</title><meta name="description" content={event.description} /></Head>
     <div className="event-navigation"><Link target="_blank" rel="noopener noreferrer" href="/projects" className="back-link"><span className="site-arrow" aria-hidden="true">←</span> Back</Link>{website && <a href={website} className="event-website" target="_blank" rel="noopener noreferrer" aria-label={`Visit ${event.title} website`}>↗</a>}</div>

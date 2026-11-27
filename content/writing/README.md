@@ -24,8 +24,11 @@ site while you work on it.
 
 ## What you can use in a post
 
-- **Sections** — `##` and `###` headings automatically build the sticky
-  table of contents with scroll-tracking.
+- **Sections** — `##` chapters and `###` subsections automatically build the
+  shared table of contents. It appears after the article header, expands the
+  current chapter, and follows your reading position. On smaller screens,
+  use the floating **Contents** button. Posts without section headings don't
+  display an empty sidebar. `####` headings remain in the article only.
 - **Everything standard** — bold, italics, links, lists, blockquotes,
   `inline code`, fenced code blocks (syntax-highlighted), tables,
   horizontal rules.
@@ -45,3 +48,25 @@ site while you work on it.
   ```
 
 See `the-anatomy-of-a-post.md` for a live example of every feature.
+
+## One layout for all writing
+
+Blog posts and project writeups both use `components/WritingLayout.js`.
+Project pages import that component directly and can pass `caseStudy` details
+or extra JSX. The sidebar reads the rendered article's headings, including
+HTML and JSX, so there is no separate list of links to maintain. Existing
+heading IDs are preserved; missing IDs are generated automatically. Footnote
+headings are excluded. Wrap other content in `data-toc-ignore` to omit it.
+
+Make shared sidebar changes in these files:
+
+- `components/ArticleContents.js` — outline, disclosure controls, keyboard and
+  mobile interactions, scroll tracking, and automatic chapter expansion.
+- `components/ArticleContents.module.css` — spacing, typography, yellow marker, animations,
+  desktop breakpoint, and mobile panel. Reduced-motion preferences are respected.
+- `lib/article-contents.mjs` — reading threshold (30% of viewport), anchor offset
+  (96px), and the header exit threshold (72px).
+
+Changing these files updates every article and case study; no per-post sidebar
+code or manual `toc` data is needed. The site's article text and existing
+typography continue to live in Markdown and `styles/globals.css`.
