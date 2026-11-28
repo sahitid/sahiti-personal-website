@@ -26,7 +26,7 @@ export async function getStaticProps() {
   return { props: { posts: [{
     slug: 'puzzle',
     href: '/puzzle',
-    title: 'Sum of Parts',
+    title: 'Puzzle',
     thumbnail: '/images/puzzle/sum-of-parts-trail.jpg',
     date: 'November 28, 2026',
     format: 'INTERACTIVE',

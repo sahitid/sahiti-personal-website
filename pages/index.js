@@ -13,7 +13,7 @@ const highlights = [
   ] },
   { title: 'Writing', items: [
     { title: 'Finding Myself', href: '/writing/finding-myself', description: 'My understanding on what it means to be human' },
-    { title: 'Sum of Parts', href: '/puzzle' },
+    { title: 'Puzzle', href: '/puzzle' },
   ] },
 ];
 
