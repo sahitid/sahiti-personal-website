@@ -11,15 +11,25 @@ export default function Writing({ posts }) {
     </header>
     <div className="writing-grid">
       {posts.map((post, index) => <article className="writing-card" key={post.slug}>
-        <Link target="_blank" rel="noopener noreferrer" href={`/writing/${post.slug}`} className="writing-thumbnail" aria-label={`Read ${post.title}`}>
+        <Link target="_blank" rel="noopener noreferrer" href={post.href || `/writing/${post.slug}`} className="writing-thumbnail" aria-label={`Read ${post.title}`}>
           {post.thumbnail ? <img src={post.thumbnail} alt="" loading={index < 4 ? 'eager' : 'lazy'} /> : <div className="project-title-thumbnail"><span>{post.title}</span></div>}
         </Link>
-        <h2><Link target="_blank" rel="noopener noreferrer" href={`/writing/${post.slug}`}>{post.title}</Link></h2>
+        <h2><Link target="_blank" rel="noopener noreferrer" href={post.href || `/writing/${post.slug}`}>{post.title}</Link></h2>
         <p>{post.description}</p>
-        <div className="writing-card-meta"><span>{post.date}</span><span>{post.readingTime} MIN</span></div>
+        <div className="writing-card-meta"><span>{post.date}</span><span>{post.format || `${post.readingTime} MIN`}</span></div>
       </article>)}
     </div>
   </main>;
 }
 
-export async function getStaticProps() { return { props: { posts: getAllPosts() } }; }
+export async function getStaticProps() {
+  return { props: { posts: [{
+    slug: 'self-in-progress',
+    href: '/about',
+    title: 'Self in Progress',
+    description: 'An interactive self-portrait, one piece at a time.',
+    thumbnail: '/images/puzzle/self-in-progress.jpg',
+    date: 'November 28, 2026',
+    format: 'INTERACTIVE',
+  }, ...getAllPosts()] } };
+}

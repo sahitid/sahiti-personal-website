@@ -1,0 +1,9 @@
+.toolbar { position: fixed; left: 50%; bottom: 15px; transform: translateX(-50%); display: flex; align-items: center; gap: 16px; width: max-content; max-width: calc(100vw - 30px); padding: 8px 10px 8px 17px; border: 1px solid #d7dacf; border-radius: 999px; background: #fafbf5f5; color: #4e5742; box-shadow: 0 4px 20px #404b3012; font: 12px/1.4 Arial, sans-serif; z-index: 150; }
+.toolbar button { flex: none; border: 0; border-radius: 999px; padding: 8px 13px; background: #354129; color: white; cursor: pointer; }
+.preview { display: block; width: 170px; height: 145px; margin: 12px auto; overflow: visible; }
+.label { display: block; margin-bottom: 7px; font-weight: 600; }
+.select { display: block; width: 100%; padding: 12px 10px; border: 1px solid #cbd0be; border-radius: 8px; background: #fff; color: #242a1c; font: inherit; }
+.statement { margin: 16px 0 0; color: #363d2d; font-size: 14px; line-height: 1.55; }
+.swap { margin: 12px 0 0; font-size: 12px; color: #7d735b; }
+.spacer { flex: 1; }
+.select:focus-visible, .toolbar button:focus-visible { outline: 2px solid #7c8a62; outline-offset: 3px; }

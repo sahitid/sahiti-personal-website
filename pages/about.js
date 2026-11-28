@@ -1,0 +1,16 @@
+import Head from 'next/head';
+import ReferencePuzzle from '../components/ReferencePuzzle';
+import styles from '../styles/About.module.css';
+
+export default function About() {
+  return <>
+    <Head>
+      <title>Self in Progress · Sahiti Dasari</title>
+      <meta name="description" content="A few pieces of Sahiti. A personal, illustrated puzzle with pieces to turn over." />
+    </Head>
+    <main className={styles.page}>
+      <h1 className={styles.title}>SELF IN PROGRESS</h1>
+      <ReferencePuzzle />
+    </main>
+  </>;
+}

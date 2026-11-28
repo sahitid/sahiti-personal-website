@@ -1,0 +1,607 @@
+{
+  "creating": {
+    "text": "I AM FULFILLED BY NOVELTY: FINDING IT AND CREATING IT.",
+    "layouts": {
+      "0": {
+        "size": 14.75,
+        "lines": [
+          {
+            "text": "I AM FULFILLED",
+            "x": 4.973087333529634,
+            "y": 25.6484302520752
+          },
+          {
+            "text": "BY NOVELTY:",
+            "x": 12.032027484968609,
+            "y": 44.97464164733887
+          },
+          {
+            "text": "FINDING IT AND",
+            "x": 5.539272124047386,
+            "y": 65.76517608642578
+          },
+          {
+            "text": "CREATING IT.",
+            "x": 11.04113677499808,
+            "y": 86.456328125
+          }
+        ]
+      }
+    }
+  },
+  "becoming": {
+    "text": "I AM THE AMALGAMATION OF MANY VALUES, AND I AM CHANGING (I GROW AND LEARN FROM MY UNDERSTANDING OF THE WORLD).",
+    "layouts": {
+      "1": {
+        "size": 8,
+        "lines": [
+          {
+            "text": "I AM THE",
+            "x": 163.01009383617213,
+            "y": 25.95945167541504
+          },
+          {
+            "text": "AMALGAMATION OF MANY",
+            "x": 160.78596109743194,
+            "y": 35.50944366455077
+          },
+          {
+            "text": "VALUES, AND I AM",
+            "x": 174.75248620322623,
+            "y": 45.32489700317382
+          },
+          {
+            "text": "CHANGING (I GROW AND LEARN",
+            "x": 142.25632429552854,
+            "y": 55.70962142944336
+          },
+          {
+            "text": "FROM MY UNDERSTANDING",
+            "x": 161.6764453129308,
+            "y": 65.59039764404295
+          },
+          {
+            "text": "OF THE",
+            "x": 167.79885525268162,
+            "y": 76.39693603515622
+          },
+          {
+            "text": "WORLD).",
+            "x": 235.96192370792244,
+            "y": 76.88594970703122
+          }
+        ]
+      }
+    }
+  },
+  "sponge": {
+    "text": "I AM A SPONGE (BUT CLOSER TO SCRUB DADDY MATERIAL). I HOLD MY OWN, PROVIDE GOOD VALUE, BUT LOVE SOAKING UP THE IDEAS AND ENERGIES AROUND ME WHEN THEY ARE WARM.",
+    "layouts": {
+      "10": {
+        "size": 8.5,
+        "lines": [
+          {
+            "text": "I AM A SPONGE (BUT",
+            "x": 18.997765272410213,
+            "y": 224.91
+          },
+          {
+            "text": "CLOSER TO SCRUB DADDY",
+            "x": 5.39525220745454,
+            "y": 234.6
+          },
+          {
+            "text": "MATERIAL). I HOLD",
+            "x": 38.25155205122476,
+            "y": 244.29
+          },
+          {
+            "text": "MY OWN, PROVIDE",
+            "x": 39.8129098357099,
+            "y": 253.98
+          },
+          {
+            "text": "GOOD VALUE, BUT",
+            "x": 39.579159835709895,
+            "y": 263.67
+          },
+          {
+            "text": "LOVE SOAKING UP",
+            "x": 39.373669406345705,
+            "y": 273.36
+          },
+          {
+            "text": "THE IDEAS AND ENERGIES",
+            "x": 6.988779844466755,
+            "y": 283.05
+          },
+          {
+            "text": "AROUND ME WHEN THEY",
+            "x": 10.262039644924073,
+            "y": 292.74
+          },
+          {
+            "text": "ARE WARM.",
+            "x": 38.38631361113645,
+            "y": 302.43
+          }
+        ]
+      }
+    }
+  },
+  "yellow": {
+    "text": "I AM BRIGHT; COLOR MATTERS TO ME, AND SO DOES YELLOW.",
+    "layouts": {
+      "31": {
+        "size": 13.25,
+        "lines": [
+          {
+            "text": "I AM",
+            "x": 130.31696383437418,
+            "y": 663.0020751953125
+          },
+          {
+            "text": "BRIGHT; COLOR",
+            "x": 125.11375425319989,
+            "y": 677.84427734375
+          },
+          {
+            "text": "MATTERS TO",
+            "x": 135.41865024225268,
+            "y": 692.94927734375
+          },
+          {
+            "text": "ME, AND SO",
+            "x": 138.86148975341962,
+            "y": 708.0542773437501
+          },
+          {
+            "text": "DOES YELLOW.",
+            "x": 127.28882470995143,
+            "y": 723.1592773437501
+          }
+        ]
+      }
+    }
+  },
+  "ambition": {
+    "text": "I AM AMBITIOUS; I WANT MORE THAN I CAN FIT IN MY MOUTH.",
+    "layouts": {
+      "26": {
+        "size": 13,
+        "lines": [
+          {
+            "text": "I AM AMBITIOUS;",
+            "x": 127.0110440369416,
+            "y": 542.255185546875
+          },
+          {
+            "text": "I",
+            "x": 160.42338174868985,
+            "y": 557.5063989257815
+          },
+          {
+            "text": "WANT",
+            "x": 167.29846923573064,
+            "y": 557.6299951171877
+          },
+          {
+            "text": "MORE",
+            "x": 161.01411758201982,
+            "y": 572.5272656250002
+          },
+          {
+            "text": "THAN I",
+            "x": 159.55460415428547,
+            "y": 587.8102783203126
+          },
+          {
+            "text": "CAN FIT IN",
+            "x": 155.21545766983598,
+            "y": 603.5101000976565
+          },
+          {
+            "text": "MY MOUTH.",
+            "x": 135.11243253694238,
+            "y": 618.4551000976567
+          }
+        ]
+      }
+    }
+  },
+  "leader": {
+    "text": "I AM A SITUATIONAL LEADER",
+    "layouts": {
+      "8": {
+        "size": 12.5,
+        "lines": [
+          {
+            "text": "I AM A",
+            "x": 391.5422478715068,
+            "y": 170.71908905029295
+          },
+          {
+            "text": "SITUATIONAL",
+            "x": 370.4434716111871,
+            "y": 185.12968780517576
+          },
+          {
+            "text": "LEADER",
+            "x": 387.80058367309243,
+            "y": 199.70918701171877
+          }
+        ]
+      }
+    }
+  },
+  "profound": {
+    "text": "TO ME, EVERYTHING IS PROFOUND.",
+    "layouts": {
+      "14": {
+        "size": 15.75,
+        "lines": [
+          {
+            "text": "TO ME,",
+            "x": 474.3972509554005,
+            "y": 224.6952679443359
+          },
+          {
+            "text": "EVERYTHING",
+            "x": 472.18870188244387,
+            "y": 240.41690246582027
+          },
+          {
+            "text": "IS",
+            "x": 503.7575111109784,
+            "y": 267.5554528808593
+          },
+          {
+            "text": "PROFOUND.",
+            "x": 476.31504773207234,
+            "y": 297.8010437011718
+          }
+        ]
+      }
+    }
+  },
+  "gathering": {
+    "text": "I WILL ALWAYS PLAN A TRIP OR PARTY.",
+    "layouts": {
+      "29": {
+        "size": 13.5,
+        "lines": [
+          {
+            "text": "I WILL",
+            "x": 437.789238512343,
+            "y": 561.1240234375
+          },
+          {
+            "text": "ALWAYS PLAN A",
+            "x": 436.3706618456848,
+            "y": 576.5037548828125
+          },
+          {
+            "text": "TRIP OR PARTY.",
+            "x": 438.4892684068677,
+            "y": 592.2173632812501
+          }
+        ]
+      }
+    }
+  },
+  "bridge": {
+    "text": "I AM A NODE (WITH A HIGH DEGREE OF CENTRALITY) IN YOUR SOCIAL NETWORK. WHEN I REALIZE I’M A BRIDGE, I TAKE THE TIME TO CONNECT THE PIECES ON THE GRAPH ON EITHER SIDE.",
+    "layouts": {
+      "21": {
+        "size": 6.5,
+        "lines": [
+          {
+            "text": "I AM A",
+            "x": 123.49914524040713,
+            "y": 426.9892492675781
+          },
+          {
+            "text": "NODE",
+            "x": 146.12700696249829,
+            "y": 426.5180883789062
+          },
+          {
+            "text": "(WITH A",
+            "x": 123.0546101401925,
+            "y": 435.0989758300781
+          },
+          {
+            "text": "HIGH",
+            "x": 149.5114528877042,
+            "y": 435.0934216308593
+          },
+          {
+            "text": "DEGREE",
+            "x": 122.10178842352036,
+            "y": 444.1507495117187
+          },
+          {
+            "text": "OF",
+            "x": 152.68102695420714,
+            "y": 444.33699829101556
+          },
+          {
+            "text": "CENTRALITY)",
+            "x": 121.67360145798898,
+            "y": 452.13778076171866
+          },
+          {
+            "text": "IN YOUR",
+            "x": 122.92020340812769,
+            "y": 461.4069006347655
+          },
+          {
+            "text": "SOCIAL NETWORK.",
+            "x": 152.73812274594866,
+            "y": 461.56931518554677
+          },
+          {
+            "text": "WHEN I REALIZE I’M A BRIDGE,",
+            "x": 129.6621354130532,
+            "y": 471.896143798828
+          },
+          {
+            "text": "I TAKE THE TIME TO CONNECT",
+            "x": 128.0903474503379,
+            "y": 480.46433593749987
+          },
+          {
+            "text": "THE PIECES ON THE GRAPH",
+            "x": 131.11406173945647,
+            "y": 489.6017260742186
+          },
+          {
+            "text": "ON EITHER",
+            "x": 127.60136910371307,
+            "y": 499.1186486816405
+          },
+          {
+            "text": "SIDE.",
+            "x": 198.44356914179315,
+            "y": 499.35515991210923
+          }
+        ]
+      }
+    }
+  },
+  "chaos": {
+    "text": "I FEEL THE MOST IN CONTROL WHEN I'M THE ONE ORGANIZING THE CHAOS.",
+    "layouts": {
+      "25": {
+        "size": 10.25,
+        "lines": [
+          {
+            "text": "I FEEL THE MOST IN",
+            "x": 45.38546736025714,
+            "y": 569.0313989257811
+          },
+          {
+            "text": "CONTROL WHEN I'M",
+            "x": 43.45925016556953,
+            "y": 580.8580590820311
+          },
+          {
+            "text": "THE ONE ORGANIZING",
+            "x": 42.557276815411484,
+            "y": 592.3711230468748
+          },
+          {
+            "text": "THE",
+            "x": 55.692873700725784,
+            "y": 604.4797045898435
+          },
+          {
+            "text": "CHAOS.",
+            "x": 114.69628588867187,
+            "y": 605.6314404296872
+          }
+        ]
+      }
+    }
+  },
+  "authentic": {
+    "text": "I BELIEVE AUTHENTICITY > PR TRAINED, BUT CASUAL PROFESSIONALISM > BRAZENNESS.",
+    "layouts": {
+      "18": {
+        "size": 10.5,
+        "lines": [
+          {
+            "text": "I BELIEVE",
+            "x": 364.7574721080473,
+            "y": 327.4008935546875
+          },
+          {
+            "text": "AUTHENTICITY > PR",
+            "x": 360.6987705011071,
+            "y": 339.37089355468754
+          },
+          {
+            "text": "TRAINED,",
+            "x": 388.3585224908343,
+            "y": 351.34089355468757
+          },
+          {
+            "text": "BUT",
+            "x": 402.49217444056353,
+            "y": 364.0498156738282
+          },
+          {
+            "text": "CASUAL",
+            "x": 391.6701666280635,
+            "y": 377.37113403320325
+          },
+          {
+            "text": "PROFESSIONALISM >",
+            "x": 359.2634669278093,
+            "y": 390.29593627929705
+          },
+          {
+            "text": "BRAZENNESS.",
+            "x": 377.2932035796822,
+            "y": 403.0741638183596
+          }
+        ]
+      }
+    }
+  },
+  "audacious": {
+    "text": "I AM NOT AFRAID TO ASK & BELIEVE “CLOSED MOUTHS DON’T GET FED”. I AM NOT AFRAID TO BE AUDACIOUS.",
+    "layouts": {
+      "15": {
+        "size": 8.75,
+        "lines": [
+          {
+            "text": "I AM NOT",
+            "x": 118.30973251681098,
+            "y": 321.9600769042969
+          },
+          {
+            "text": "AFRAID",
+            "x": 124.82054871903631,
+            "y": 332.03359375
+          },
+          {
+            "text": "TO ASK &",
+            "x": 116.64820647315673,
+            "y": 343.13273925781255
+          },
+          {
+            "text": "BELIEVE “CLOSED",
+            "x": 76.7943693672297,
+            "y": 354.4731323242188
+          },
+          {
+            "text": "MOUTHS DON’T GET FED”.",
+            "x": 44.69285156512069,
+            "y": 365.0067260742188
+          },
+          {
+            "text": "I AM NOT AFRAID TO BE",
+            "x": 52.68273169883,
+            "y": 376.33854370117194
+          },
+          {
+            "text": "AUDACIOUS.",
+            "x": 104.14825458914095,
+            "y": 386.68399658203134
+          }
+        ]
+      }
+    }
+  },
+  "visual": {
+    "text": "I AM A VISUAL THINKER AND LISTENER.",
+    "layouts": {
+      "13": {
+        "size": 12.75,
+        "lines": [
+          {
+            "text": "I AM A",
+            "x": 356.8255216700545,
+            "y": 245.81697509765627
+          },
+          {
+            "text": "VISUAL THINKER",
+            "x": 354.60279823522455,
+            "y": 260.73842224121097
+          },
+          {
+            "text": "AND LISTENER.",
+            "x": 359.8933688137654,
+            "y": 274.07877685546873
+          }
+        ]
+      }
+    }
+  },
+  "artist": {
+    "text": "AS A CHILD, I WANTED TO BE AN ARTIST.",
+    "layouts": {
+      "19": {
+        "size": 12.75,
+        "lines": [
+          {
+            "text": "AS A CHILD,",
+            "x": 452.89276701085237,
+            "y": 355.0555322265625
+          },
+          {
+            "text": "I WANTED",
+            "x": 457.3595787114491,
+            "y": 368.91960327148445
+          },
+          {
+            "text": "TO BE AN ARTIST.",
+            "x": 436.9645776367188,
+            "y": 383.2266369628908
+          }
+        ]
+      }
+    }
+  },
+  "metaphor": {
+    "text": "I AM DEPENDENT ON SYMBOLS AND METAPHORS.",
+    "layouts": {
+      "4": {
+        "size": 16,
+        "lines": [
+          {
+            "text": "I AM",
+            "x": 470.30949653187577,
+            "y": 15.860022089004516
+          },
+          {
+            "text": "DEPENDENT",
+            "x": 469.8351846377145,
+            "y": 31.046540861129763
+          },
+          {
+            "text": "ON",
+            "x": 469.6692998239904,
+            "y": 46.80058797645569
+          },
+          {
+            "text": "SYMBOLS",
+            "x": 469.5344707224277,
+            "y": 61.97460188484193
+          },
+          {
+            "text": "AND",
+            "x": 470.39947802734355,
+            "y": 77.12880325508121
+          },
+          {
+            "text": "METAPHORS.",
+            "x": 470.5991806640626,
+            "y": 93.34682260322575
+          }
+        ]
+      }
+    }
+  },
+  "playlist": {
+    "text": "I AM THIS PLAYLIST:",
+    "layouts": {
+      "7": {
+        "size": 19.75,
+        "lines": [
+          {
+            "text": "I AM THIS",
+            "x": 247.19075981953438,
+            "y": 152.03067016601562
+          },
+          {
+            "text": "PLAYLIST:",
+            "x": 245.30550088591622,
+            "y": 170.46474731445312
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+.puzzle {
+  --puzzle-scale: .85;
+  position: relative;
+  width: min(calc(592px * var(--puzzle-scale)), calc((100vw - 48px) * var(--puzzle-scale)), calc((100svh - 72px) * 592 / 737 * var(--puzzle-scale)));
+  aspect-ratio: 592 / 737;
+  perspective: 1400px;
+  isolation: isolate;
+}
+.piece {
+  position: absolute;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+  pointer-events: none;
+  perspective: 800px;
+  touch-action: manipulation;
+}
+.turn {
+  display: block;
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transition: transform 780ms cubic-bezier(.4, 0, .2, 1);
+  will-change: transform;
+}
+.front, .back {
+  position: absolute;
+  display: block;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.front { transform: rotateY(0deg); }
+.back { transform: rotateY(180deg); filter: drop-shadow(0 2px 2px rgb(40 38 31 / 24%)); }
+.front > svg, .back > svg { display: block; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.printedInk { mix-blend-mode: multiply; opacity: .94; }
+.inkFragment { overflow: hidden; }
+.photoPaper { mix-blend-mode: multiply; opacity: .45; }
+.printedWords { fill: #111; font-family: Arial, Helvetica, sans-serif; font-weight: 700; letter-spacing: -.3px; }
+.hitArea { fill: transparent; pointer-events: all; cursor: default; }
+.interactive .hitArea { cursor: pointer; }
+.staticPiece .turn { transition: none; will-change: auto; }
+.focusOutline { fill: none; stroke: transparent; stroke-width: 2; pointer-events: none; }
+.interactive:focus-visible .focusOutline { stroke: #57564f; stroke-dasharray: 3 3; }
+.flipped .turn { transform: rotateY(180deg); }
+@media (hover: hover) {
+  .interactive:not(.flipped):hover .turn { transform: translateY(-2px) translateZ(5px); }
+  .interactive:not(.flipped):hover .front { filter: drop-shadow(0 2px 2px rgb(40 38 31 / 15%)); }
+}
+.visuallyHidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 600px) {
+  .puzzle { width: min(calc((100vw - 40px) * var(--puzzle-scale)), calc((100svh - 48px) * 592 / 737 * var(--puzzle-scale))); }
+}
+@media (prefers-reduced-motion: reduce) { .turn { transition: none; } }
