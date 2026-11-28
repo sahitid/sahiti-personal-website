@@ -24,8 +24,8 @@ export default function Writing({ posts }) {
 
 export async function getStaticProps() {
   return { props: { posts: [{
-    slug: 'sum-of-parts',
-    href: '/sum-of-parts',
+    slug: 'puzzle',
+    href: '/puzzle',
     title: 'Sum of Parts',
     thumbnail: '/images/puzzle/sum-of-parts-trail.jpg',
     date: 'November 28, 2026',
