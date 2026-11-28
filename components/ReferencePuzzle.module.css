@@ -48,8 +48,7 @@
 .interactive:focus-visible .focusOutline { stroke: #57564f; stroke-dasharray: 3 3; }
 .flipped .turn { transform: rotateY(180deg); }
 @media (hover: hover) {
-  .interactive:not(.flipped):hover .turn { transform: translateY(-2px) translateZ(5px); }
-  .interactive:not(.flipped):hover .front { filter: drop-shadow(0 2px 2px rgb(40 38 31 / 15%)); }
+  .interactive:not(.flipped):hover .front { filter: brightness(1.025); }
 }
 .visuallyHidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @media (max-width: 600px) {
