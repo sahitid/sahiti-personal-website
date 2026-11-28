@@ -5,7 +5,7 @@ import HomeBoat from './HomeBoat';
 export default function SiteLayout({ children }) {
   const router = useRouter();
   const isHome = router.pathname === '/';
-  if (router.pathname === '/about') return children;
+  if (router.pathname === '/sum-of-parts') return children;
   return (
     <div key={router.asPath.split(/[?#]/)[0]} className={`site${isHome ? ' site-home' : ''}${router.pathname === '/projects' ? ' site-projects' : ''}${router.pathname === '/projects/[slug]' ? ' site-event' : ''}`}>
       <a className="skip-link" href="#content">Skip to content</a>

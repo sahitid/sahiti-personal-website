@@ -2,7 +2,7 @@ import Head from 'next/head';
 import ReferencePuzzle from '../components/ReferencePuzzle';
 import styles from '../styles/About.module.css';
 
-export default function About() {
+export default function SumOfParts() {
   return <>
     <Head>
       <title>Sum of Parts · Sahiti Dasari</title>

@@ -62,7 +62,7 @@ export default function PuzzlePairingEditor({ pieceIndex, pairings, frontId, onS
   return <>
     <div className={styles.toolbar}>
       <span role="status">{notice}</span>
-      <button type="button" onClick={() => router.push('/about')}>Done</button>
+      <button type="button" onClick={() => router.push('/sum-of-parts')}>Done</button>
     </div>
     {pieceIndex !== null && <PairingDialog key={pieceIndex} pieceIndex={pieceIndex} pairings={pairings} frontId={frontId}
       onSave={next => { onSave(next); setNotice('Saved. Choose another piece.'); }} onClose={onClose} />}

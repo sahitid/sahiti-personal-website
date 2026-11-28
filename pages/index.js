@@ -13,7 +13,7 @@ const highlights = [
   ] },
   { title: 'Writing', items: [
     { title: 'Finding Myself', href: '/writing/finding-myself', description: 'My understanding on what it means to be human' },
-    { title: 'Sum of Parts', href: '/about', description: 'An interactive self-portrait, one piece at a time' },
+    { title: 'Sum of Parts', href: '/sum-of-parts' },
   ] },
 ];
 
@@ -52,7 +52,7 @@ export default function Home() {
                     <Link href={item.href} target="_blank" rel="noopener noreferrer">
                       {item.title}{item.href.startsWith('https:') && <span className="site-arrow" aria-hidden="true"> ↗</span>}
                     </Link>
-                    <p>{item.description}</p>
+                    {item.description && <p>{item.description}</p>}
                   </li>
                 ))}
               </ul>
