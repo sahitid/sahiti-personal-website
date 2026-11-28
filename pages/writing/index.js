@@ -27,7 +27,7 @@ export async function getStaticProps() {
     slug: 'sum-of-parts',
     href: '/sum-of-parts',
     title: 'Sum of Parts',
-    thumbnail: '/images/puzzle/self-in-progress.jpg',
+    thumbnail: '/images/puzzle/sum-of-parts-gallery.jpg',
     date: 'November 28, 2026',
     format: 'INTERACTIVE',
   }, ...getAllPosts()] } };

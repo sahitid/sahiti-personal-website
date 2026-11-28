@@ -74,7 +74,7 @@ export default function ReferencePuzzle() {
 
   return <><div className={styles.puzzle} role="group" aria-label="Pieces of Me, Sahiti’s illustrated puzzle" aria-describedby={`${id}-instructions ${id}-artwork`}>
     <p id={`${id}-instructions`} className={styles.visuallyHidden}>{puzzleStories.length} pieces have personal notes and can be clicked to open an enlarged view. The other pieces are decorative. Use the side arrows to read another note. Click outside the piece or press Escape to return to the puzzle. You can also use Tab or the arrow keys to choose a piece with a note and Enter or Space to open it.</p>
-    <p id={`${id}-artwork`} className={styles.visuallyHidden}>A white cardboard puzzle printed with black ink drawings of {puzzleDoodles.join(', ')}. The words on the puzzle are: {puzzleWords.join('; ')}. A grainy photograph shows Sahiti holding a blue camera, wearing a pink dress.</p>
+    <p id={`${id}-artwork`} className={styles.visuallyHidden}>A white cardboard puzzle printed with black ink drawings of {puzzleDoodles.join(', ')}. The words on the puzzle are: {puzzleWords.join('; ')}. A grainy photograph shows Sahiti sitting on a museum bench, surrounded by paintings and sculptures.</p>
     {referencePieces.map(piece => {
       const { index, box, path } = piece;
       const story = storyByPiece[index];
