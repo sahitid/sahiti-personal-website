@@ -24,9 +24,9 @@ export default function Writing({ posts }) {
 
 export async function getStaticProps() {
   return { props: { posts: [{
-    slug: 'self-in-progress',
+    slug: 'sum-of-parts',
     href: '/about',
-    title: 'Self in Progress',
+    title: 'Sum of Parts',
     description: 'An interactive self-portrait, one piece at a time.',
     thumbnail: '/images/puzzle/self-in-progress.jpg',
     date: 'November 28, 2026',
