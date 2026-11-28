@@ -9,7 +9,7 @@ export default function SumOfParts() {
       <meta name="description" content="A few pieces of Sahiti. A personal, illustrated puzzle with pieces to turn over." />
     </Head>
     <main className={styles.page}>
-      <h1 className={styles.title}>SUM OF PARTS</h1>
+      <h1 className={styles.visuallyHidden}>Sum of Parts</h1>
       <ReferencePuzzle />
     </main>
   </>;
