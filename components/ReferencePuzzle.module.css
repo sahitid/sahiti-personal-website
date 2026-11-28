@@ -24,7 +24,7 @@
   position: absolute;
   inset: 0;
   transform-style: preserve-3d;
-  transition: transform 780ms cubic-bezier(.4, 0, .2, 1);
+  transition: transform 680ms cubic-bezier(.22, .75, .25, 1);
   will-change: transform;
 }
 .front, .back {
